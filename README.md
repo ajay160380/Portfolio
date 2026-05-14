@@ -26,19 +26,19 @@ I am a **B.Tech CSE (AI) student** from India with a strong interest in:
 - Building practical and user-focused applications
 
 I enjoy transforming ideas into projects that are both useful and visually appealing.
-
+---
 ## 🛠️ Tech Stack
 - HTML5
 - CSS3
 - JavaScript
-
+---
 ## ✨ Key Features
 - Fully responsive design
 - Clean and modern interface
 - Project showcase section
 - Dedicated contact section
 - Easy navigation and structured layout
-
+---
 ## 🎯 Project Objective
 This project was created to:
 - Build a professional digital portfolio
