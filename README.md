@@ -2,6 +2,8 @@
 
 Welcome to my personal portfolio website — a platform where I showcase my skills, projects, and growth as a **Computer Science Engineering student specializing in Artificial Intelligence**.
 
+---
+
 ## 🌐 Live Website
 👉 [Explore My Portfolio](https://ajay160380.github.io/Portfolio/)
 
@@ -26,19 +28,25 @@ I am a **B.Tech CSE (AI) student** from India with a strong interest in:
 - Building practical and user-focused applications
 
 I enjoy transforming ideas into projects that are both useful and visually appealing.
+
 ---
+
 ## 🛠️ Tech Stack
 - HTML5
 - CSS3
 - JavaScript
+  
 ---
+
 ## ✨ Key Features
 - Fully responsive design
 - Clean and modern interface
 - Project showcase section
 - Dedicated contact section
 - Easy navigation and structured layout
+  
 ---
+
 ## 🎯 Project Objective
 This project was created to:
 - Build a professional digital portfolio
@@ -46,9 +54,13 @@ This project was created to:
 - Strengthen my personal brand
 - Make it easier for opportunities and collaborations to reach me
 
+---
+
 ## 🔗 Connect With Me
 - **GitHub:** [ajay160380](https://github.com/ajay160380)
 - **LinkedIn:** [Ajay Vishwakarma](https://www.linkedin.com/in/ajay-vishwakarma-71649129a/)
+
+---
 
 ## 🚀 Future Enhancements
 - Add more advanced projects
@@ -56,6 +68,8 @@ This project was created to:
 - Add backend integration
 - Include animations and interactive elements
 - Deploy more polished production-ready updates
+
+---
 
 ## ⭐ Show Your Support
 If you found this project interesting, don’t forget to **star this repository**.  
