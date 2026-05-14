@@ -5,6 +5,8 @@ Welcome to my personal portfolio website — a platform where I showcase my skil
 ## 🌐 Live Website
 👉 [Explore My Portfolio](https://ajay160380.github.io/Portfolio/)
 
+---
+
 ## 📖 Overview
 This portfolio website represents my journey as a developer and AI enthusiast. It is built to create a strong online presence and professionally present my:
 - Technical skills
@@ -13,6 +15,8 @@ This portfolio website represents my journey as a developer and AI enthusiast. I
 - Contact information
 
 The goal of this portfolio is to reflect both my passion for technology and my commitment to continuous learning.
+
+---
 
 ## 👨‍💻 About Me
 I am a **B.Tech CSE (AI) student** from India with a strong interest in:
