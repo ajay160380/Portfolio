@@ -55,7 +55,17 @@ const setLighting = (scene: THREE.Scene) => {
     });
   }
 
-  return { setPointLight, turnOnLights };
+  const updateLightingTheme = (theme: string) => {
+    if (theme === "crimson") {
+      directionalLight.color.setHex(0xff2a2a);
+      pointLight.color.setHex(0xff0000);
+    } else {
+      directionalLight.color.setHex(0xc7a9ff);
+      pointLight.color.setHex(0xc2a4ff);
+    }
+  };
+
+  return { setPointLight, turnOnLights, updateLightingTheme };
 };
 
 export default setLighting;

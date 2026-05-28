@@ -1,6 +1,14 @@
 import * as THREE from "three";
 import gsap from "gsap";
 
+let _screenLightRef: any = null;
+
+export function updateScreenlightTheme(theme: string) {
+  if (_screenLightRef) {
+    _screenLightRef.material.emissive.set(theme === "crimson" ? "#FF2A2A" : "#C8BFFF");
+  }
+}
+
 export function setCharTimeline(
   character: THREE.Object3D<THREE.Object3DEventMap> | null,
   camera: THREE.PerspectiveCamera
@@ -58,6 +66,7 @@ export function setCharTimeline(
         delay: () => Math.random() * 0.1,
       });
       screenLight = object;
+      _screenLightRef = object;
     }
   });
   let neckBone = character?.getObjectByName("spine005");

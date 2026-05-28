@@ -1,0 +1,48 @@
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  width: 60px;
+  height: 34px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.toggle-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.theme-toggle-btn.crimson .toggle-circle {
+  background: linear-gradient(135deg, #ff4d4d, #b30000);
+  box-shadow: 0 0 10px #ff2a2a;
+  transform: translateX(26px);
+}
+
+.theme-toggle-btn.purple .toggle-circle {
+  background: linear-gradient(135deg, #c2a4ff, #7f40ff);
+  box-shadow: 0 0 10px #c2a4ff;
+  transform: translateX(0px);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .theme-toggle-btn {
+    bottom: 20px;
+    left: 20px;
+  }
+}

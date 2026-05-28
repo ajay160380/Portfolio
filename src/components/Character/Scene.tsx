@@ -3,6 +3,7 @@ import * as THREE from "three";
 import setCharacter from "./utils/character";
 import setLighting from "./utils/lighting";
 import { useLoading } from "../../context/LoadingProvider";
+import { useTheme } from "../../context/ThemeProvider";
 import handleResize from "./utils/resizeUtils";
 import {
   handleMouseMove,
@@ -12,14 +13,26 @@ import {
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
 import { setProgress } from "../Loading";
+import { updateScreenlightTheme } from "../utils/GsapScroll";
 
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
   const hoverDivRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef(new THREE.Scene());
   const { setLoading } = useLoading();
+  const { theme } = useTheme();
+  const lightRef = useRef<{ updateLightingTheme: (t: string) => void } | null>(null);
 
   const [character, setChar] = useState<THREE.Object3D | null>(null);
+
+  // React to theme changes for Three.js lighting
+  useEffect(() => {
+    if (lightRef.current) {
+      lightRef.current.updateLightingTheme(theme);
+    }
+    updateScreenlightTheme(theme);
+  }, [theme]);
+
   useEffect(() => {
     if (canvasDiv.current) {
       let rect = canvasDiv.current.getBoundingClientRect();
@@ -51,6 +64,7 @@ const Scene = () => {
       const clock = new THREE.Clock();
 
       const light = setLighting(scene);
+      lightRef.current = light;
       let progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 

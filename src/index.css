@@ -18,10 +18,21 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  --accentColor: #ff2a2a;
-  --backgroundColor: #050505;
+  /* Base variables */
   --vh: 100vh;
   --vh: 100svh;
+}
+
+body.theme-crimson {
+  --accentColor: #ff2a2a;
+  --accentRGB: 255, 42, 42;
+  --backgroundColor: #050505;
+}
+
+body.theme-purple {
+  --accentColor: #c2a4ff;
+  --accentRGB: 194, 164, 255;
+  --backgroundColor: #0b080c;
 }
 h1,
 h2,
