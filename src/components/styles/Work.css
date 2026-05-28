@@ -70,6 +70,16 @@
   line-height: 50px;
   margin: 0;
   font-weight: 600;
+  background: linear-gradient(135deg, rgba(194, 164, 255, 0.85), rgba(194, 164, 255, 0.45));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.4s ease;
+}
+.work-box:hover .work-title h3 {
+  background: linear-gradient(135deg, #ffffff, var(--accentColor));
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .work-info h4 {
@@ -93,29 +103,39 @@
 }
 .work-image-in {
   position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.work-image-in:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(194, 164, 255, 0.1);
 }
 .work-link {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  background-color: var(--backgroundColor);
+  background: linear-gradient(135deg, var(--accentColor), #9a7be6);
+  color: #0b080c;
   width: 50px;
   border-radius: 50px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5),
-    inset 0px 0px 10px 0px #393939;
-  transition: 0.3s;
+  font-size: 22px;
+  box-shadow: 0 4px 20px rgba(194, 164, 255, 0.3);
+  transition: all 0.3s ease;
   opacity: 0;
+  transform: translateY(10px);
+  z-index: 5;
 }
 .work-image a:hover {
   color: inherit;
 }
 .work-image a:hover .work-link {
   opacity: 1;
+  transform: translateY(0);
 }
 .work-image video {
   position: absolute;
@@ -129,6 +149,10 @@
 .work-image img {
   max-width: 100%;
   max-height: 350px;
+  transition: transform 0.5s ease;
+}
+.work-image-in:hover img {
+  transform: scale(1.04);
 }
 @media only screen and (max-height: 900px) {
   .work-image img {

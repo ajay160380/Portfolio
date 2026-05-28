@@ -193,11 +193,15 @@
 .cert-card-number {
   font-size: 40px;
   font-weight: 700;
-  color: rgba(194, 164, 255, 0.08);
+  color: rgba(194, 164, 255, 0.28);
   position: absolute;
   top: 10px;
   right: 18px;
   line-height: 1;
+  transition: color 0.4s ease;
+}
+.cert-card:hover .cert-card-number {
+  color: rgba(194, 164, 255, 0.65);
 }
 
 .cert-card h4 {
