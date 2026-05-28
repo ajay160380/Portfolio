@@ -35,10 +35,18 @@ const setCharacter = (
                 child.receiveShadow = true;
                 mesh.frustumCulled = true;
 
-                // Apply white theme to the avatar
+                // Apply white theme ONLY to body/clothes parts, preserving original hair/eyes textures
                 if (mesh.material) {
-                  const mat = mesh.material as any;
-                  if (mesh.name !== "screenlight" && mat.name !== "Material.027") {
+                  const name = (mesh.name || "").toLowerCase();
+                  
+                  // Only target body, clothes, and skin
+                  const isBodyPart = name.includes("body") || name.includes("hand") || 
+                                     name.includes("neck") || name.includes("pant") || 
+                                     name.includes("shoe") || name.includes("ear") || 
+                                     name.includes("sole");
+
+                  if (isBodyPart) {
+                    const mat = mesh.material as any;
                     mat.color = new THREE.Color(0xffffff);
                     mat.metalness = 0.3;
                     mat.roughness = 0.4;
