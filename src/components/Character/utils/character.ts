@@ -35,14 +35,14 @@ const setCharacter = (
                 child.receiveShadow = true;
                 mesh.frustumCulled = true;
 
-                // Apply Crimson Core dark metallic theme to the avatar
+                // Apply white theme to the avatar
                 if (mesh.material) {
                   const mat = mesh.material as any;
                   if (mesh.name !== "screenlight" && mat.name !== "Material.027") {
-                    mat.color = new THREE.Color(0x111111);
-                    mat.metalness = 0.8;
-                    mat.roughness = 0.2;
-                    mat.emissive = new THREE.Color(0x220000);
+                    mat.color = new THREE.Color(0xffffff);
+                    mat.metalness = 0.3;
+                    mat.roughness = 0.4;
+                    mat.emissive = new THREE.Color(0x000000);
                   }
                 }
               }
