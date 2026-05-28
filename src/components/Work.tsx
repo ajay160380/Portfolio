@@ -53,6 +53,8 @@ const projects = [
 
 const Work = () => {
   useGSAP(() => {
+    if (window.innerWidth <= 1024) return;
+
     const workFlex = document.querySelector(".work-flex") as HTMLElement;
     
     if (!workFlex) return;
