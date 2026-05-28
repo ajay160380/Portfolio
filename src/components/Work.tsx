@@ -79,10 +79,12 @@ const Work = () => {
   }, []);
   return (
     <div className="work-section" id="work">
-      <div className="work-container section-container">
-        <h2>
-          My <span>Projects</span>
-        </h2>
+      <div className="work-container">
+        <div className="section-container" style={{ margin: "0 auto" }}>
+          <h2>
+            My <span>Projects</span>
+          </h2>
+        </div>
         <div className="work-flex">
           {projects.map((project, index) => (
             <div className="work-box" key={index}>

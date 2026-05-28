@@ -24,9 +24,10 @@
   width: 100%;
   display: flex;
   height: 100%;
-  margin-left: -80px;
-  padding-right: 120px;
   position: relative;
+  box-sizing: border-box;
+  padding-left: calc((100vw - 1300px) / 2 - 80px);
+  padding-right: calc((100vw - 1300px) / 2 - 80px);
 }
 .work-box {
   padding: 80px;
@@ -158,11 +159,17 @@
     padding: 50px;
   }
   .work-flex {
-    margin-left: -50px;
-    padding-right: 75px;
+    padding-left: calc((100vw - 900px) / 2 - 50px);
+    padding-right: calc((100vw - 900px) / 2 - 50px);
   }
   .work-section h2 {
     font-size: 50px;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  .work-flex {
+    padding-left: calc((100vw - 1200px) / 2 - 80px);
+    padding-right: calc((100vw - 1200px) / 2 - 80px);
   }
 }
 @media only screen and (max-width: 1400px) {
@@ -171,8 +178,8 @@
     padding: 30px;
   }
   .work-flex {
-    margin-left: -30px;
-    padding-right: 45px;
+    padding-left: calc((100vw - 900px) / 2 - 30px);
+    padding-right: calc((100vw - 900px) / 2 - 30px);
   }
 }
 
