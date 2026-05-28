@@ -64,10 +64,10 @@
   width: 100%;
 }
 .contact-info-box:hover {
-  background: rgba(194, 164, 255, 0.04);
-  border-color: rgba(194, 164, 255, 0.2);
+  background: rgba(255, 42, 42, 0.04);
+  border-color: rgba(255, 42, 42, 0.2);
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(194, 164, 255, 0.05);
+  box-shadow: 0 8px 25px rgba(255, 42, 42, 0.05);
 }
 
 .contact-icon {
@@ -169,8 +169,8 @@ a.contact-social:hover {
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--accentColor);
-  background: rgba(194, 164, 255, 0.04);
-  box-shadow: 0 0 20px rgba(194, 164, 255, 0.08);
+  background: rgba(255, 42, 42, 0.04);
+  box-shadow: 0 0 20px rgba(255, 42, 42, 0.08);
 }
 
 .form-group input::placeholder,
@@ -179,7 +179,7 @@ a.contact-social:hover {
 }
 
 .form-btn {
-  background: linear-gradient(135deg, var(--accentColor), #9a7be6);
+  background: linear-gradient(135deg, var(--accentColor), #b30000);
   color: #0b080c;
   border: none;
   padding: 16px 32px;
@@ -211,7 +211,7 @@ a.contact-social:hover {
 }
 .form-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(194, 164, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(255, 42, 42, 0.3);
 }
 .form-btn:active {
   transform: translateY(0);

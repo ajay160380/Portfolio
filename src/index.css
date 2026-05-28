@@ -18,8 +18,8 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  --accentColor: #c2a4ff;
-  --backgroundColor: #0b080c;
+  --accentColor: #ff2a2a;
+  --backgroundColor: #050505;
   --vh: 100vh;
   --vh: 100svh;
 }

@@ -70,7 +70,7 @@
   line-height: 50px;
   margin: 0;
   font-weight: 600;
-  background: linear-gradient(135deg, rgba(194, 164, 255, 0.85), rgba(194, 164, 255, 0.45));
+  background: linear-gradient(135deg, rgba(255, 42, 42, 0.85), rgba(255, 42, 42, 0.45));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -109,13 +109,13 @@
 }
 .work-image-in:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(194, 164, 255, 0.1);
+  box-shadow: 0 12px 35px rgba(255, 42, 42, 0.1);
 }
 .work-link {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  background: linear-gradient(135deg, var(--accentColor), #9a7be6);
+  background: linear-gradient(135deg, var(--accentColor), #b30000);
   color: #0b080c;
   width: 50px;
   border-radius: 50px;
@@ -124,7 +124,7 @@
   justify-content: center;
   align-items: center;
   font-size: 22px;
-  box-shadow: 0 4px 20px rgba(194, 164, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 42, 42, 0.3);
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateY(10px);
