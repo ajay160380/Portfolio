@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const projects = [
   {
@@ -68,7 +68,6 @@ const Work = () => {
         start: "top top",
         end: () => `+=${Math.abs(getScrollAmount())}`,
         pin: true,
-        animation: undefined,
         scrub: 1,
         invalidateOnRefresh: true,
       }

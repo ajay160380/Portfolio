@@ -2,7 +2,6 @@ import * as THREE from "three";
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
-import { EffectComposer, N8AO } from "@react-three/postprocessing";
 import {
   BallCollider,
   Physics,
@@ -141,8 +140,7 @@ const TechStack = () => {
     }
 
     // Still need this for smooth scrolling links
-    const handleLinkClick = (e: Event) => {
-      const element = e.currentTarget as HTMLAnchorElement;
+    const handleLinkClick = () => {
       // Let Navbar handle the smooth scroll, we just want to ensure physics might wake up
     };
 
