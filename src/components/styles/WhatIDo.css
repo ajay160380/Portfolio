@@ -48,6 +48,7 @@
   position: relative;
   padding: 50px;
   box-sizing: border-box;
+  will-change: min-height, padding;
 }
 
 .what-noTouch:hover,

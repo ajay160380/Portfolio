@@ -30,8 +30,8 @@ const projects = [
   },
   {
     name: "AI Tutor for Underserved Areas",
-    category: "AI / Education Platform",
-    tools: "Django, Python, NLP, SQLite",
+    category: "AI / NLP Education Platform",
+    tools: "Django, Python, NLP, Groq LLM, SQLite, REST API",
     link: "",
     image: "/images/ai_tutor.png",
   },
