@@ -22,7 +22,7 @@ const Landing = ({ children }: PropsWithChildren) => {
     window.addEventListener("resize", resize);
 
     // Create particles
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 25; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -33,11 +33,18 @@ const Landing = ({ children }: PropsWithChildren) => {
       });
     }
 
+    let frameCount = 0;
+    // Cache the RGB value and only update it every 60 frames
+    let cachedRGB = getComputedStyle(document.body).getPropertyValue("--accentRGB").trim() || "255, 42, 42";
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      frameCount++;
 
-      // Read current theme color from CSS variable
-      const rgb = getComputedStyle(document.body).getPropertyValue("--accentRGB").trim() || "255, 42, 42";
+      // Only re-read CSS variable every 60 frames (once per second)
+      if (frameCount % 60 === 0) {
+        cachedRGB = getComputedStyle(document.body).getPropertyValue("--accentRGB").trim() || "255, 42, 42";
+      }
 
       particles.forEach((p) => {
         p.x += p.vx;
@@ -49,23 +56,26 @@ const Landing = ({ children }: PropsWithChildren) => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${rgb}, ${p.opacity})`;
+        ctx.fillStyle = `rgba(${cachedRGB}, ${p.opacity})`;
         ctx.fill();
       });
 
-      // Draw connection lines between nearby particles
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 150) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(${rgb}, ${0.06 * (1 - dist / 150)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
+      // Draw connection lines only every other frame for performance
+      if (frameCount % 2 === 0) {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distSq = dx * dx + dy * dy;
+            if (distSq < 10000) { // 100^2 — reduced connection distance
+              const dist = Math.sqrt(distSq);
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(${cachedRGB}, ${0.06 * (1 - dist / 100)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
           }
         }
       }
