@@ -11,24 +11,33 @@ import HoverLinks from "./HoverLinks";
 const SocialIcons = () => {
   useEffect(() => {
     const social = document.getElementById("social") as HTMLElement;
-
-    social.querySelectorAll("span").forEach((item) => {
+    const spans = social.querySelectorAll("span");
+    
+    // Pre-calculate all defaults
+    const iconData = Array.from(spans).map((item) => {
       const elem = item as HTMLElement;
       const link = elem.querySelector("a") as HTMLElement;
-
       const rect = elem.getBoundingClientRect();
       const defaultX = rect.width / 2;
       const defaultY = rect.height / 2;
       
-      // Initialize variables
       link.style.setProperty("--siLeft", `${defaultX}px`);
       link.style.setProperty("--siTop", `${defaultY}px`);
 
-      // Use GSAP quickTo instead of infinite requestAnimationFrame loops
-      const xTo = gsap.quickTo(link, "--siLeft", { duration: 0.3, ease: "power3.out" });
-      const yTo = gsap.quickTo(link, "--siTop", { duration: 0.3, ease: "power3.out" });
+      return {
+        elem,
+        link,
+        rect,
+        defaultX,
+        defaultY,
+        xTo: gsap.quickTo(link, "--siLeft", { duration: 0.3, ease: "power3.out" }),
+        yTo: gsap.quickTo(link, "--siTop", { duration: 0.3, ease: "power3.out" }),
+      };
+    });
 
-      const onMouseMove = (e: MouseEvent) => {
+    // Single listener for all icons instead of one per icon
+    const onMouseMove = (e: MouseEvent) => {
+      iconData.forEach(({ rect, defaultX, defaultY, xTo, yTo }) => {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
@@ -39,14 +48,14 @@ const SocialIcons = () => {
           xTo(defaultX);
           yTo(defaultY);
         }
-      };
+      });
+    };
 
-      document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mousemove", onMouseMove);
 
-      return () => {
-        document.removeEventListener("mousemove", onMouseMove);
-      };
-    });
+    return () => {
+      document.removeEventListener("mousemove", onMouseMove);
+    };
   }, []);
 
   return (
