@@ -1,13 +1,14 @@
 .theme-toggle-btn {
   position: fixed;
-  bottom: 40px;
-  left: 40px;
+  top: 34px;
+  left: 85px;
   width: 60px;
   height: 34px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(20, 20, 20, 0.6);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
   z-index: 9999;
   display: flex;
@@ -42,7 +43,7 @@
 
 @media screen and (max-width: 768px) {
   .theme-toggle-btn {
-    bottom: 20px;
-    left: 20px;
+    top: 15px;
+    right: 15px;
   }
 }
