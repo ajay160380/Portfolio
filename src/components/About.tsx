@@ -218,8 +218,8 @@ const About = () => {
                     </svg>
                   </div>
                   <div className="focus-info">
-                    <h4>EduTech AI (Main Project)</h4>
-                    <p>Building a full-stack learning SaaS powered by Groq LLM, custom AI study guides, structured roadmaps, and secure Razorpay checkouts.</p>
+                    <h4>EduTech AI & AI Tutor (Main Projects)</h4>
+                    <p>Building full-stack learning SaaS powered by Groq LLM, custom AI study guides, structured roadmaps, and secure Razorpay checkouts. Also developed an AI Tutoring platform for underserved areas with NLP-based personalized learning, multilingual support, and smart study path generation.</p>
                   </div>
                 </div>
               </div>
