@@ -15,6 +15,13 @@ const projects = [
     image: "/images/edutech.png",
   },
   {
+    name: "AI Tutor",
+    category: "AI / NLP Education Platform",
+    tools: "Django, Python, NLP, Groq LLM, SQLite, REST API",
+    link: "https://edu-ai-ko5w.onrender.com",
+    image: "/images/ai_tutor.png",
+  },
+  {
     name: "Paisa Mitra",
     category: "Finance / Expense Tracker",
     tools: "Python, Data Analytics, Hugging Face",
@@ -22,18 +29,11 @@ const projects = [
     image: "/images/paisa.png",
   },
   {
-    name: "Smart Women's Safety Device",
-    category: "Hardware / Safety Tech",
-    tools: "ESP32, GPS, GSM, C++",
-    link: "",
-    image: "/images/safety.png",
-  },
-  {
-    name: "AI Tutor for Underserved Areas",
-    category: "AI / NLP Education Platform",
-    tools: "Django, Python, NLP, Groq LLM, SQLite, REST API",
-    link: "",
-    image: "/images/ai_tutor.png",
+    name: "Digital Twin Platform",
+    category: "AI / Simulation Web App",
+    tools: "Django, Python, JavaScript, Render",
+    link: "https://digital-twin-jqav.onrender.com",
+    image: "/images/digital_twin.png",
   },
   {
     name: "Healthcare Management System",
@@ -43,11 +43,11 @@ const projects = [
     image: "/images/healthcare.png",
   },
   {
-    name: "Digital Twin Platform",
-    category: "AI / Simulation Web App",
-    tools: "Django, Python, JavaScript, Render",
-    link: "https://digital-twin-jqav.onrender.com",
-    image: "/images/digital_twin.png",
+    name: "Smart Women's Safety Device",
+    category: "Hardware / Safety Tech",
+    tools: "ESP32, GPS, GSM, C++",
+    link: "",
+    image: "/images/safety.png",
   },
 ];
 

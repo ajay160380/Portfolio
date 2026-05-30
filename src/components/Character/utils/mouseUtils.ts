@@ -34,6 +34,14 @@ export const handleTouchEnd = (
   }, 2000);
 };
 
+let currentHeadRotationX: number | null = null;
+let currentHeadRotationY: number | null = null;
+
+export const resetHeadRotation = () => {
+  currentHeadRotationX = null;
+  currentHeadRotationY = null;
+};
+
 export const handleHeadRotation = (
   headBone: THREE.Object3D,
   mouseX: number,
@@ -43,40 +51,44 @@ export const handleHeadRotation = (
   lerp: (x: number, y: number, t: number) => number
 ) => {
   if (!headBone) return;
+  
+  if (currentHeadRotationX === null || currentHeadRotationY === null) {
+    currentHeadRotationX = headBone.rotation.x;
+    currentHeadRotationY = headBone.rotation.y;
+  }
+
   if (window.scrollY < 200) {
     const maxRotation = Math.PI / 6;
-    headBone.rotation.y = lerp(
-      headBone.rotation.y,
+    currentHeadRotationY = lerp(
+      currentHeadRotationY,
       mouseX * maxRotation,
       interpolationY
     );
     let minRotationX = -0.3;
     let maxRotationX = 0.4;
+    let targetRotationX = 0;
     if (mouseY > minRotationX) {
       if (mouseY < maxRotationX) {
-        headBone.rotation.x = lerp(
-          headBone.rotation.x,
-          -mouseY - 0.5 * maxRotation,
-          interpolationX
-        );
+        targetRotationX = -mouseY - 0.5 * maxRotation;
       } else {
-        headBone.rotation.x = lerp(
-          headBone.rotation.x,
-          -maxRotation - 0.5 * maxRotation,
-          interpolationX
-        );
+        targetRotationX = -maxRotation - 0.5 * maxRotation;
       }
     } else {
-      headBone.rotation.x = lerp(
-        headBone.rotation.x,
-        -minRotationX - 0.5 * maxRotation,
-        interpolationX
-      );
+      targetRotationX = -minRotationX - 0.5 * maxRotation;
     }
+    currentHeadRotationX = lerp(
+      currentHeadRotationX,
+      targetRotationX,
+      interpolationX
+    );
   } else {
     if (window.innerWidth > 1024) {
-      headBone.rotation.x = lerp(headBone.rotation.x, -0.4, 0.03);
-      headBone.rotation.y = lerp(headBone.rotation.y, -0.3, 0.03);
+      currentHeadRotationX = lerp(currentHeadRotationX, -0.4, 0.03);
+      currentHeadRotationY = lerp(currentHeadRotationY, -0.3, 0.03);
     }
   }
+
+  // Apply to bone, completely overriding the mixer for these axes
+  headBone.rotation.x = currentHeadRotationX;
+  headBone.rotation.y = currentHeadRotationY;
 };

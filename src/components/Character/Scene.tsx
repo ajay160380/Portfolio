@@ -10,6 +10,7 @@ import {
   handleTouchEnd,
   handleHeadRotation,
   handleTouchMove,
+  resetHeadRotation,
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
 import { setProgress } from "../Loading";
@@ -34,6 +35,7 @@ const Scene = () => {
   }, [theme]);
 
   useEffect(() => {
+    resetHeadRotation();
     if (canvasDiv.current) {
       let rect = canvasDiv.current.getBoundingClientRect();
       let container = { width: rect.width, height: rect.height };
@@ -68,6 +70,8 @@ const Scene = () => {
       let progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 
+      let introFinished = false;
+
       loadCharacter().then((gltf) => {
         if (gltf) {
           const animations = setAnimations(gltf);
@@ -82,7 +86,10 @@ const Scene = () => {
             setTimeout(() => {
               light.turnOnLights();
               animations.startIntro();
-            }, 1200);
+              setTimeout(() => {
+                introFinished = true;
+              }, 2500);
+            }, 2600);
           });
           window.addEventListener("resize", () =>
             handleResize(renderer, camera, canvasDiv, character)
@@ -136,7 +143,13 @@ const Scene = () => {
       const animate = () => {
         requestAnimationFrame(animate);
         if (!isVisible) return;
-        if (headBone) {
+        
+        const delta = clock.getDelta();
+        if (mixer) {
+          mixer.update(delta);
+        }
+
+        if (headBone && introFinished) {
           handleHeadRotation(
             headBone,
             mouse.x,
@@ -145,11 +158,9 @@ const Scene = () => {
             interpolation.y,
             THREE.MathUtils.lerp
           );
-          light.setPointLight(screenLight);
         }
-        const delta = clock.getDelta();
-        if (mixer) {
-          mixer.update(delta);
+        if (headBone) {
+          light.setPointLight(screenLight);
         }
         renderer.render(scene, camera);
       };
