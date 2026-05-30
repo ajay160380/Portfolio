@@ -15,10 +15,12 @@
   transition: width 0.3s ease-out, height 0.3s ease-out;
 }
 .cursor-icons {
-  top: 10px;
-  left: 10px;
-  height: calc(var(--cursorH) - 20px);
-  transition: all 0.5s ease-out, height 0.5s ease-in-out;
+  top: 0px;
+  left: 0px;
+  width: var(--cursorW, 50px);
+  height: var(--cursorH, 50px);
+  border-radius: 50px;
+  transition: all 0.3s ease-out;
 }
 .cursor-disable {
   --size: 0px;

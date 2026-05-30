@@ -138,6 +138,38 @@ const Certificates = () => {
     );
   }, []);
 
+  const handleGridMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const cards = document.querySelectorAll(".cert-card");
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      (card as HTMLElement).style.setProperty("--mouse-x", `${x}px`);
+      (card as HTMLElement).style.setProperty("--mouse-y", `${y}px`);
+    });
+  };
+
+  const handleFeaturedMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
+    card.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.transition = "none";
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
+
+  const handleFeaturedMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    card.style.transform = `perspective(1500px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    card.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+  };
+
   return (
     <div className="cert-section section-container" id="certificates" ref={sectionRef}>
       <div className="cert-container">
@@ -146,7 +178,12 @@ const Certificates = () => {
         </h2>
         
         {/* Featured Certificate */}
-        <div className="cert-featured">
+        <div 
+          className="cert-featured"
+          onMouseMove={handleFeaturedMouseMove}
+          onMouseLeave={handleFeaturedMouseLeave}
+        >
+          <div className="cert-featured-glow"></div>
           <div className="cert-featured-img">
             <img src="https://i.ibb.co/B5Lm5YD0/Tech-Expo.png" alt="Tech Expo'26 Certificate" />
             <div className="cert-shine"></div>
@@ -169,17 +206,20 @@ const Certificates = () => {
         </div>
 
         {/* Online Certifications Grid */}
-        <div className="cert-grid">
+        <div className="cert-grid" onMouseMove={handleGridMouseMove}>
           {onlineCerts.map((cert, index) => (
             <div className="cert-card" key={index}>
-              <div className="cert-card-number">{String(index + 1).padStart(2, '0')}</div>
-              <div>
-                <h4>{cert.name}</h4>
-                <p>{cert.platform}</p>
+              <div className="cert-card-border"></div>
+              <div className="cert-card-content">
+                <div className="cert-card-number">{String(index + 1).padStart(2, '0')}</div>
+                <div>
+                  <h4>{cert.name}</h4>
+                  <p>{cert.platform}</p>
+                </div>
+                <a href={cert.link} target="_blank" rel="noreferrer" data-cursor="disable">
+                  View Credential <MdArrowOutward className="cert-link-icon" />
+                </a>
               </div>
-              <a href={cert.link} target="_blank" rel="noreferrer" data-cursor="disable">
-                View Credential <MdArrowOutward style={{ verticalAlign: 'middle', marginLeft: '5px' }} />
-              </a>
             </div>
           ))}
         </div>

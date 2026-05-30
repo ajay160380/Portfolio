@@ -27,13 +27,14 @@ const Cursor = () => {
     elements.forEach((item) => {
       const element = item as HTMLElement;
       
-      element.addEventListener("mouseover", (e: MouseEvent) => {
+      element.addEventListener("mouseenter", (e: MouseEvent) => {
         const target = e.currentTarget as HTMLElement;
         const rect = target.getBoundingClientRect();
 
         if (element.dataset.cursor === "icons") {
           cursor.classList.add("cursor-icons");
           gsap.to(cursor, { x: rect.left, y: rect.top, duration: 0.1 });
+          cursor.style.setProperty("--cursorW", `${rect.width}px`);
           cursor.style.setProperty("--cursorH", `${rect.height}px`);
           hover = true;
         }
@@ -42,7 +43,7 @@ const Cursor = () => {
         }
       });
       
-      element.addEventListener("mouseout", () => {
+      element.addEventListener("mouseleave", () => {
         cursor.classList.remove("cursor-disable", "cursor-icons");
         hover = false;
       });
