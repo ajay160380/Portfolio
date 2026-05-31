@@ -180,6 +180,14 @@ const Contact = () => {
                 >
                   Linkedin <MdArrowOutward />
                 </a>
+                <a
+                  href="https://t.me/ajay160380"
+                  target="_blank"
+                  data-cursor="disable"
+                  className="contact-social"
+                >
+                  Telegram <MdArrowOutward />
+                </a>
               </div>
             </div>
           </div>
