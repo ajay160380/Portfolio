@@ -19,10 +19,9 @@
 }
 .social-icons:hover {
   transition: 0.3s;
-  color: var(--backgroundColor);
 }
 .social-icons a:hover {
-  color: var(--backgroundColor);
+  color: var(--accentColor);
   /* transform: scale(1.2); */
 }
 .social-icons span {

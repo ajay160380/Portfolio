@@ -117,6 +117,7 @@ const About = () => {
             <button
               className={`tab-btn ${activeTab === "bio" ? "active" : ""}`}
               onClick={() => setActiveTab("bio")}
+              data-cursor="disable"
             >
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
@@ -126,6 +127,7 @@ const About = () => {
             <button
               className={`tab-btn ${activeTab === "focus" ? "active" : ""}`}
               onClick={() => setActiveTab("focus")}
+              data-cursor="disable"
             >
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
@@ -135,6 +137,7 @@ const About = () => {
             <button
               className={`tab-btn ${activeTab === "achievements" ? "active" : ""}`}
               onClick={() => setActiveTab("achievements")}
+              data-cursor="disable"
             >
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.44 1.72 4.48 4 4.88v2.12c0 2.2 1.8 4 4 4h2c2.2 0 4-1.8 4-4v-2.12c2.28-.4 4-2.44 4-4.88V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/>

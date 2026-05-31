@@ -102,8 +102,8 @@
 }
 
 .tab-btn:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.03);
+  color: var(--accentColor);
+  background: rgba(var(--accentRGB), 0.05);
 }
 
 .tab-btn:hover svg {

@@ -61,19 +61,19 @@ const SocialIcons = () => {
 
   return (
     <div className="icons-section">
-      <div className="social-icons" data-cursor="icons" id="social">
+      <div className="social-icons" id="social">
         <span>
-          <a href="https://github.com/ajay160380" target="_blank" rel="noreferrer">
+          <a href="https://github.com/ajay160380" target="_blank" rel="noreferrer" data-cursor="disable">
             <FaGithub />
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com/in/ajay-vishwakarma-71649129a/" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/ajay-vishwakarma-71649129a/" target="_blank" rel="noreferrer" data-cursor="disable">
             <FaLinkedinIn />
           </a>
         </span>
         <span>
-          <a href="https://t.me/Ajay_kumar_9936" target="_blank" rel="noreferrer">
+          <a href="https://t.me/Ajay_kumar_9936" target="_blank" rel="noreferrer" data-cursor="disable">
             <FaTelegram />
           </a>
         </span>
