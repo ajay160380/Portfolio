@@ -78,6 +78,9 @@ export function initialFX() {
   var landingText4 = new SplitText(".landing-h2-1", TextProps);
   var landingText5 = new SplitText(".landing-h2-2", TextProps);
 
+  gsap.set(landingText3.chars, { opacity: 0, y: 80 });
+  gsap.set(landingText5.chars, { opacity: 0, y: 80 });
+
   LoopText(landingText2, landingText3);
   LoopText(landingText4, landingText5);
 }

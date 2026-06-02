@@ -13,7 +13,7 @@ const projects = [
     description: "An advanced AI-powered educational platform featuring interactive learning modules, secure payments, and personalized LLM tutoring to ensure distraction-free learning.",
     tools: "Django, Groq LLM, PostgreSQL, Razorpay, Firebase, WebGL",
     link: "https://edu-tech-ai-vk2e.onrender.com",
-    image: "/images/edutech.png",
+    image: "/images/edutech_mockup.png",
   },
   {
     name: "AI Tutor",
@@ -21,7 +21,7 @@ const projects = [
     description: "India's smartest AI tutor providing intelligent, real-time conversational learning paths. Accelerate your learning with personalized guidance from Class 5 to 12.",
     tools: "Django, Python, NLP, Groq LLM, SQLite, REST API",
     link: "https://edu-ai-ko5w.onrender.com",
-    image: "/images/ai_tutor.png",
+    image: "/images/ai_tutor_mockup.png",
   },
   {
     name: "Expense Tracker",
@@ -29,7 +29,7 @@ const projects = [
     description: "A smart expense tracking application that lives directly inside your WhatsApp. Zero apps required—just text your expenses, and our intelligent AI categorizes and tracks your budget automatically.",
     tools: "Python, WhatsApp API, Data Analytics, NLP",
     link: "https://ajay160380-paisa-mitra.hf.space",
-    image: "/images/paisa.png",
+    image: "/images/expense_tracker_mockup.png",
   },
   {
     name: "Digital Twin Platform",
@@ -37,7 +37,7 @@ const projects = [
     description: "An intelligent AI clone designed to think, talk, and give suggestions exactly like a human. It acts as a personal digital twin, engaging in natural conversations and providing personalized advice.",
     tools: "Django, Python, JavaScript, Render",
     link: "https://digital-twin-jqav.onrender.com",
-    image: "/images/digital_twin.png",
+    image: "/images/digital_twin_mockup.png",
   },
   {
     name: "Healthcare Management System",
@@ -45,7 +45,7 @@ const projects = [
     description: "A comprehensive medical web application for seamless patient data management, intelligent appointment scheduling, and secure health record tracking.",
     tools: "React, Node.js, MongoDB, REST API",
     link: "https://healthcare-project-egyw.onrender.com",
-    image: "/images/healthcare.png",
+    image: "/images/healthcare_mockup.png",
   },
   {
     name: "Smart Women's Safety Device",
@@ -53,7 +53,7 @@ const projects = [
     description: "A life-saving IoT hardware project integrating real-time distress signaling, exact GPS location tracking, and an automated emergency alert system.",
     tools: "ESP32, GPS, GSM, C++",
     link: "",
-    image: "/images/safety.png",
+    image: "/images/safety_device_mockup.png",
   },
 ];
 

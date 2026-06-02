@@ -64,8 +64,8 @@ const Contact = () => {
         stagger: 0.12,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: section.querySelector(".contact-flex"),
-          start: "top 85%",
+          trigger: section,
+          start: "top 75%",
           toggleActions: "play none none reverse",
         },
       }
@@ -83,8 +83,8 @@ const Contact = () => {
         delay: 0.3,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: section.querySelector(".contact-form"),
-          start: "top 85%",
+          trigger: section,
+          start: "top 75%",
           toggleActions: "play none none reverse",
         },
       }
@@ -101,8 +101,8 @@ const Contact = () => {
         delay: 0.5,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: section.querySelector(".contact-footer"),
-          start: "top 90%",
+          trigger: section,
+          start: "top 70%",
           toggleActions: "play none none reverse",
         },
       }

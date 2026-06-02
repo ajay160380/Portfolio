@@ -37,7 +37,7 @@ const Certificates = () => {
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: section.querySelector("h2"),
+          trigger: section,
           start: "top 85%",
           toggleActions: "play none none reverse",
         },
@@ -55,8 +55,8 @@ const Certificates = () => {
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: section.querySelector(".cert-featured"),
-          start: "top 85%",
+          trigger: section,
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       }
@@ -73,8 +73,8 @@ const Certificates = () => {
         delay: 0.2,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: section.querySelector(".cert-featured"),
-          start: "top 85%",
+          trigger: section,
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       }
@@ -91,8 +91,8 @@ const Certificates = () => {
         delay: 0.3,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: section.querySelector(".cert-featured"),
-          start: "top 85%",
+          trigger: section,
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       }
@@ -111,8 +111,8 @@ const Certificates = () => {
         stagger: 0.08,
         ease: "back.out(1.2)",
         scrollTrigger: {
-          trigger: section.querySelector(".cert-grid"),
-          start: "top 85%",
+          trigger: section,
+          start: "top 70%",
           toggleActions: "play none none reverse",
         },
       }
@@ -130,8 +130,8 @@ const Certificates = () => {
         stagger: 0.1,
         ease: "back.out(2)",
         scrollTrigger: {
-          trigger: section.querySelector(".cert-tags"),
-          start: "top 90%",
+          trigger: section,
+          start: "top 75%",
           toggleActions: "play none none reverse",
         },
       }

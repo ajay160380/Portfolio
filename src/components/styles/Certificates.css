@@ -358,6 +358,9 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
   .cert-section h2 {
     font-size: 50px;
   }
