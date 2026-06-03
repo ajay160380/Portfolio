@@ -5,7 +5,9 @@ import { smoother } from "../Navbar";
 
 export function initialFX() {
   document.body.style.overflowY = "auto";
-  smoother.paused(false);
+  if (smoother) {
+    smoother.paused(false);
+  }
   ScrollTrigger.refresh();
   document.getElementsByTagName("main")[0]?.classList.add("main-active");
   gsap.to("body", {
