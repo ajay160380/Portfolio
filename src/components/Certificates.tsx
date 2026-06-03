@@ -26,6 +26,7 @@ const Certificates = () => {
   useGSAP(() => {
     const section = sectionRef.current;
     if (!section) return;
+    if (window.innerWidth <= 1024) return;
 
     // Animate the heading
     gsap.fromTo(

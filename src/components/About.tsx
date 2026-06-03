@@ -22,22 +22,24 @@ const About = () => {
     const section = sectionRef.current;
     if (!section) return;
 
-    // Animate the About text elements
-    gsap.fromTo(
-      section.querySelector(".about-me"),
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+    if (window.innerWidth > 1024) {
+      // Animate the About text elements
+      gsap.fromTo(
+        section.querySelector(".about-me"),
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 75%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
 
     // Count animation for stats numbers
     const statNumbers = section.querySelectorAll(".stat-number");
@@ -66,25 +68,27 @@ const About = () => {
       );
     });
 
-    // Animate stats cards with stagger
-    const statCards = section.querySelectorAll(".stat-card");
-    gsap.fromTo(
-      statCards,
-      { y: 80, opacity: 0, scale: 0.85 },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.7,
-        stagger: 0.15,
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: section.querySelector(".about-stats"),
-          start: "top 92%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+    if (window.innerWidth > 1024) {
+      // Animate stats cards with stagger
+      const statCards = section.querySelectorAll(".stat-card");
+      gsap.fromTo(
+        statCards,
+        { y: 80, opacity: 0, scale: 0.85 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: section.querySelector(".about-stats"),
+            start: "top 92%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
   }, []);
 
   // Smooth fade-in tab content transitions when tab changes

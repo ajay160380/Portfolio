@@ -12,6 +12,7 @@ const Career = () => {
   useGSAP(() => {
     const section = sectionRef.current;
     if (!section) return;
+    if (window.innerWidth <= 1024) return;
 
     // Animate the career timeline bar growing downward
     gsap.to(section.querySelector(".career-timeline"), {
