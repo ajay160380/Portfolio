@@ -45,10 +45,10 @@ const Scene = () => {
       const isMobile = window.innerWidth <= 1024;
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
-        antialias: !isMobile,
+        antialias: true,
       });
       renderer.setSize(container.width, container.height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.0 : 1.5));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1;
       canvasDiv.current.appendChild(renderer.domElement);

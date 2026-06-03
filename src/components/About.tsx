@@ -11,7 +11,7 @@ const stats = [
   { target: 10, suffix: "+", label: "Certifications" },
   { target: 2, suffix: "", label: "Years NSS" },
   { target: 8.63, suffix: "", decimals: 2, label: "Latest CGPA" },
-  { target: 3, suffix: "rd", label: "Year B.Tech" },
+  { target: 4, suffix: "th", label: "Year B.Tech" },
 ];
 
 const About = () => {
@@ -117,7 +117,7 @@ const About = () => {
         </div>
         
         <p className="para">
-          I'm <span className="highlight">Ajay Vishwakarma</span>, a 3rd-year B.Tech CSE (Artificial Intelligence) student at BBD University, Lucknow. I am passionate about building impactful technology that bridges the gap between AI theory and real-world execution.
+          I'm <span className="highlight">Ajay Vishwakarma</span>, a 4th-year B.Tech CSE (Artificial Intelligence) student at BBD University, Lucknow. I am passionate about building impactful technology that bridges the gap between AI theory and real-world execution.
         </p>
 
         {/* Tab Selection buttons */}
