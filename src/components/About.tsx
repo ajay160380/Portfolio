@@ -49,6 +49,11 @@ const About = () => {
       const decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
       const valObj = { val: 0 };
       
+      if (window.innerWidth <= 1024) {
+        el.textContent = target.toFixed(decimals) + suffix;
+        return;
+      }
+
       gsap.fromTo(
         valObj,
         { val: 0 },
