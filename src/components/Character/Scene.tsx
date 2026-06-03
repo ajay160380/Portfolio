@@ -42,7 +42,6 @@ const Scene = () => {
       const aspect = container.width / container.height;
       const scene = sceneRef.current;
 
-      const isMobile = window.innerWidth <= 1024;
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
         antialias: true,
