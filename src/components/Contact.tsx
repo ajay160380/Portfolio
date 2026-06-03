@@ -28,7 +28,7 @@ const Contact = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: section,
-          start: "top 80%",
+          start: "top 90%",
           toggleActions: "play none none reverse",
         },
       }
@@ -46,7 +46,7 @@ const Contact = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: section,
-          start: "top 80%",
+          start: "top 90%",
           toggleActions: "play none none reverse",
         },
       }
@@ -65,7 +65,7 @@ const Contact = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: section,
-          start: "top 75%",
+          start: "top 85%",
           toggleActions: "play none none reverse",
         },
       }
@@ -84,7 +84,7 @@ const Contact = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: section,
-          start: "top 75%",
+          start: "top 85%",
           toggleActions: "play none none reverse",
         },
       }
@@ -102,7 +102,7 @@ const Contact = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: section,
-          start: "top 70%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       }
