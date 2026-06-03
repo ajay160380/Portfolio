@@ -11,19 +11,18 @@ export let smoother: ScrollSmoother;
 const Navbar = () => {
   useEffect(() => {
     const isDesktop = window.innerWidth > 1024;
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: isDesktop ? 1.7 : 0,
-      smoothTouch: false,
-      speed: 1.7,
-      effects: isDesktop,
-      autoResize: true,
-      ignoreMobileResize: true,
-    });
+    if (isDesktop) {
+      smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1.7,
+        speed: 1.7,
+        effects: true,
+      });
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
+      smoother.scrollTop(0);
+      smoother.paused(true);
+    }
 
     let links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {

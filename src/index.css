@@ -43,7 +43,7 @@ h6 {
   font-family: "Geist", sans-serif;
 }
 body {
-  overflow: hidden;
+  /* overflow: hidden; removed to allow native scroll on mobile, ScrollSmoother handles this on desktop */
 }
 a {
   color: inherit;
