@@ -72,7 +72,7 @@ body {
   background-color: #000;
   flex-grow: 1;
   --cWidth: calc(100% - 30px);
-  --cMaxWidth: 1920px;
+  --cMaxWidth: 100%;
   max-width: 100vw;
   overflow-x: hidden;
 }

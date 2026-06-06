@@ -10,6 +10,9 @@ import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
 import Certificates from "./Certificates";
+import GithubStats from "./GithubStats";
+import ScrollToTop from "./ScrollToTop";
+import Terminal from "./Terminal";
 
 const TechStack = lazy(() => import("./TechStack"));
 
@@ -44,11 +47,14 @@ const MainContainer = ({ children }: PropsWithChildren) => {
             <WhatIDo />
             <Career />
             <Work />
+            <GithubStats />
             <Certificates />
             <Suspense fallback={<div>Loading....</div>}>
               <TechStack />
             </Suspense>
+            <Terminal />
             <Contact />
+            <ScrollToTop />
           </div>
         </div>
       </div>
