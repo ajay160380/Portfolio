@@ -1,0 +1,65 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(5px);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(var(--accentRGB), 0.3);
+}
+
+.progress-ring-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.1s linear;
+  stroke-linecap: round;
+}
+
+.arrow-icon {
+  color: #fff;
+  font-size: 18px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.scroll-to-top:hover .arrow-icon {
+  color: var(--accentColor);
+  transform: translateY(-2px);
+}
+
+@media only screen and (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 80px;
+    right: 20px;
+  }
+}
