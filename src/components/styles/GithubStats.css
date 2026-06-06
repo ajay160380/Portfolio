@@ -1,0 +1,56 @@
+.github-section {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  width: 100%;
+  margin: 0 auto;
+}
+.github-section h2 {
+  font-size: 60px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.github-section h2 > span {
+  color: var(--accentColor);
+}
+.github-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.calendar-wrapper {
+  background: rgba(30, 30, 30, 0.4);
+  border: 1px solid #363636;
+  padding: 30px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: max-content;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.calendar-wrapper > div, .calendar-wrapper article {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.calendar-wrapper:hover {
+  border-color: rgba(var(--accentRGB), 0.3);
+  box-shadow: 0 10px 30px rgba(var(--accentRGB), 0.1);
+}
+
+@media only screen and (max-width: 768px) {
+  .github-section h2 {
+    font-size: 40px;
+  }
+  .calendar-wrapper {
+    padding: 15px;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+}
