@@ -12,11 +12,21 @@ import { chromium } from 'playwright';
     }
   });
 
+  page.on('requestfailed', request => {
+    console.log(`[FAILED REQUEST] ${request.url()} - ${request.failure()?.errorText}`);
+  });
+  
+  page.on('response', response => {
+    if (response.status() >= 400) {
+      console.log(`[HTTP ERROR] ${response.status()} ${response.url()}`);
+    }
+  });
+
   page.on('pageerror', exception => {
     console.log(`[PAGE ERROR] ${exception}`);
   });
 
-  await page.goto('http://localhost:5173');
+  await page.goto('https://ajay-portfolio-r176.onrender.com');
   await page.waitForTimeout(5000); // wait a bit for loading
   
   await browser.close();

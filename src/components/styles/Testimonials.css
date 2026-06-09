@@ -1,0 +1,115 @@
+.testimonials-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  min-height: auto;
+}
+
+.testimonials-title {
+  font-size: clamp(3rem, 5vw, 5rem);
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  line-height: 1;
+}
+
+.testimonials-title span {
+  color: var(--accentColor);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: var(--accentColor);
+}
+
+.quote-icon {
+  color: var(--accentColor);
+  font-size: 2rem;
+  opacity: 0.5;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.author-initials {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #111;
+  flex-shrink: 0;
+}
+
+.author-info h4 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #fff;
+}
+
+.author-info span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Light Theme Support */
+[data-theme="light"] .testimonial-card {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .testimonial-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-color: var(--accentColor);
+}
+
+[data-theme="light"] .testimonial-text {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="light"] .author-info h4 {
+  color: #000;
+}
+
+[data-theme="light"] .author-info span {
+  color: rgba(0, 0, 0, 0.5);
+}
