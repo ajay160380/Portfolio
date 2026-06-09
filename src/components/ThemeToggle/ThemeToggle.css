@@ -1,7 +1,7 @@
 .theme-toggle-btn {
   position: fixed;
-  top: 34px;
-  left: 85px;
+  top: 22px;
+  left: 78px;
   width: 60px;
   height: 34px;
   border-radius: 20px;
@@ -43,7 +43,14 @@
 
 @media screen and (max-width: 768px) {
   .theme-toggle-btn {
-    top: 15px;
-    right: 15px;
+    top: 14px;
+    left: 63px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .theme-toggle-btn {
+    top: 35px;
+    left: 83px;
   }
 }
