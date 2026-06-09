@@ -9,6 +9,12 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import "./styles/TechStack.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
@@ -123,6 +129,49 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
 
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    if (window.innerWidth <= 1024) return;
+
+    // Header animation
+    gsap.fromTo(
+      section.querySelector(".tech-header"),
+      { y: 80, opacity: 0, filter: "blur(10px)" },
+      {
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 1.4,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Canvas entrance animation
+    gsap.fromTo(
+      section.querySelector(".tech-canvas-container"),
+      { opacity: 0, scale: 0.9 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1.5,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 75%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -134,26 +183,21 @@ const TechStack = () => {
       { threshold: 0.1 } // Activate when at least 10% visible
     );
 
-    const techStackElement = document.querySelector(".techstack");
+    const techStackElement = document.querySelector(".tech-section");
     if (techStackElement) {
       observer.observe(techStackElement);
     }
 
-    // Still need this for smooth scrolling links
-    const handleLinkClick = () => {
-      // Let Navbar handle the smooth scroll, we just want to ensure physics might wake up
-    };
-
+    const handleLinkClick = () => {};
     const links = document.querySelectorAll(".header a");
     links.forEach((elem) => elem.addEventListener("click", handleLinkClick));
 
     return () => {
-      if (techStackElement) {
-        observer.unobserve(techStackElement);
-      }
+      if (techStackElement) observer.unobserve(techStackElement);
       links.forEach((elem) => elem.removeEventListener("click", handleLinkClick));
     };
   }, []);
+
   const materials = useMemo(() => {
     return textures.map(
       (texture) =>
@@ -170,41 +214,53 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="techstack">
-      <h2> My Techstack</h2>
+    <div className="tech-section" ref={sectionRef}>
+      <div className="tech-bg-grid"></div>
+      <div className="tech-glow"></div>
+      
+      <div className="tech-header">
+        <h2>
+          My <span>Techstack</span>
+        </h2>
+        <p className="tech-subtitle">
+          Technologies and tools I use to bring ideas to life. Interact with the bubbles below!
+        </p>
+      </div>
 
-      <Canvas
-        gl={{ alpha: true, stencil: false, depth: false, antialias: false, powerPreference: "high-performance" }}
-        camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-        onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
-        className="tech-canvas"
-        dpr={[1, 1.5]}
-      >
-        <ambientLight intensity={1} />
-        <spotLight
-          position={[20, 20, 25]}
-          penumbra={1}
-          angle={0.2}
-          color="white"
-        />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
-        <Physics gravity={[0, 0, 0]}>
-          <Pointer isActive={isActive} />
-          {spheres.map((props, i) => (
-            <SphereGeo
-              key={i}
-              {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
-              isActive={isActive}
-            />
-          ))}
-        </Physics>
-        <Environment
-          files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
-          environmentRotation={[0, 4, 2]}
-        />
-      </Canvas>
+      <div className="tech-canvas-container">
+        <Canvas
+          gl={{ alpha: true, stencil: false, depth: false, antialias: false, powerPreference: "high-performance" }}
+          camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
+          onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
+          className="tech-canvas"
+          dpr={[1, 1.5]}
+        >
+          <ambientLight intensity={1} />
+          <spotLight
+            position={[20, 20, 25]}
+            penumbra={1}
+            angle={0.2}
+            color="white"
+          />
+          <directionalLight position={[0, 5, -4]} intensity={2} />
+          <Physics gravity={[0, 0, 0]}>
+            <Pointer isActive={isActive} />
+            {spheres.map((props, i) => (
+              <SphereGeo
+                key={i}
+                {...props}
+                material={materials[Math.floor(Math.random() * materials.length)]}
+                isActive={isActive}
+              />
+            ))}
+          </Physics>
+          <Environment
+            files="/models/char_enviorment.hdr"
+            environmentIntensity={0.5}
+            environmentRotation={[0, 4, 2]}
+          />
+        </Canvas>
+      </div>
     </div>
   );
 };
