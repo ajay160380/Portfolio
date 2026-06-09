@@ -17,7 +17,10 @@
   margin: 0 0 15px 0;
 }
 .contact-heading > span {
-  color: var(--accentColor);
+  background: linear-gradient(135deg, var(--accentColor), #f093fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .contact-subtext {
@@ -252,7 +255,10 @@ a.contact-social:hover {
   margin: 0;
 }
 .contact-footer h2 > span {
-  color: var(--accentColor);
+  background: linear-gradient(135deg, var(--accentColor), #f093fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 500;
 }
 .contact-footer h5 {

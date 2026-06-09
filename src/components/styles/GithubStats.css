@@ -11,7 +11,10 @@
   margin-bottom: 50px;
 }
 .github-section h2 > span {
-  color: var(--accentColor);
+  background: linear-gradient(135deg, var(--accentColor), #f093fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .github-container {
   display: flex;
