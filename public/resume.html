@@ -4,170 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajay Vishwakarma - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #0b080c;
-            --text-color: #eae5ec;
-            --heading-color: #ffffff;
-            --accent-color: #c2a4ff;
-            --border-color: #333;
-            
-            /* Print colors */
-            --print-bg: #ffffff;
-            --print-text: #333333;
-            --print-heading: #111111;
-            --print-accent: #0056b3;
-            --print-border: #dddddd;
+        /* ================= BASE STRUCTURE (Applies Everywhere) ================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
-            font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.5;
-            color: var(--text-color);
-            background: var(--bg-color);
+        }
+
+        .resume-container {
             max-width: 850px;
             margin: 0 auto;
-            padding: 40px;
-            padding-top: 80px;
-        }
-
-        .download-btn {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            background: var(--accent-color);
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-            text-decoration: none;
-        }
-
-        .download-btn:hover {
-            opacity: 0.8;
-            transform: translateY(-2px);
-        }
-
-        @media print {
-            body {
-                padding: 0;
-                max-width: 100%;
-                background: var(--print-bg);
-                color: var(--print-text);
-            }
-            .download-btn {
-                display: none;
-            }
-            h1, h2, h3, .skills-category {
-                color: var(--print-heading) !important;
-            }
-            h2 {
-                border-bottom: 1px solid var(--print-heading) !important;
-            }
-            .contact-info a {
-                color: var(--print-accent) !important;
-            }
-            .subtitle {
-                color: #444 !important;
-            }
+            position: relative;
         }
 
         h1 {
             font-size: 28px;
             margin-bottom: 5px;
-            color: var(--heading-color);
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
         }
 
         .contact-info {
             text-align: center;
-            font-size: 14px;
-            margin-bottom: 25px;
-            color: #aaa;
-        }
-
-        .contact-info a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
+            font-size: 13.5px;
+            margin-bottom: 30px;
         }
 
         h2 {
-            font-size: 16px;
-            color: var(--heading-color);
+            font-size: 15px;
             text-transform: uppercase;
-            border-bottom: 1px solid var(--heading-color);
-            padding-bottom: 5px;
+            padding-bottom: 4px;
             margin-top: 25px;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
+            font-weight: 700;
         }
 
         h3 {
-            font-size: 15px;
-            margin: 0 0 5px 0;
-            color: var(--heading-color);
+            font-size: 14px;
+            margin: 0 0 4px 0;
             display: flex;
             justify-content: space-between;
+            font-weight: 600;
         }
 
         .subtitle {
-            font-size: 14px;
+            font-size: 13.5px;
             font-style: italic;
-            margin-bottom: 10px;
-            color: #bbb;
+            margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
         }
 
         p {
-            font-size: 14px;
-            margin-top: 0;
+            font-size: 13.5px;
             margin-bottom: 10px;
         }
 
         ul {
-            margin-top: 0;
             margin-bottom: 15px;
             padding-left: 20px;
         }
 
         li {
-            font-size: 14px;
-            margin-bottom: 5px;
+            font-size: 13.5px;
+            margin-bottom: 4px;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: 150px 1fr;
-            gap: 10px;
-            font-size: 14px;
+            grid-template-columns: 200px 1fr;
+            gap: 8px;
+            font-size: 13.5px;
             margin-bottom: 5px;
         }
 
         .skills-category {
             font-weight: 600;
-            color: var(--heading-color);
         }
-        
+
         .project-links a {
             margin-right: 15px;
             font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* ================= SCREEN (DARK THEME) ================= */
+        @media screen {
+            body {
+                background-color: #0b080c;
+                color: #eae5ec;
+                padding: 80px 40px;
+            }
+
+            .download-btn {
+                position: fixed;
+                top: 30px;
+                right: 40px;
+                background: #c2a4ff;
+                color: #000;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 14px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: 0.2s;
+                text-decoration: none;
+                z-index: 100;
+            }
+
+            .download-btn:hover {
+                background: #a985ff;
+                transform: translateY(-2px);
+            }
+
+            h1, h2, h3, .skills-category {
+                color: #ffffff;
+            }
+
+            h2 {
+                border-bottom: 1.5px solid #ffffff;
+            }
+
+            .contact-info { color: #aaa; }
+            .contact-info a { color: #c2a4ff; text-decoration: none; }
+            .contact-info a:hover { text-decoration: underline; }
+
+            .subtitle { color: #bbb; }
+            p, li { color: #eae5ec; }
+            .project-links a { color: #c2a4ff; text-decoration: none; }
+            .project-links a:hover { text-decoration: underline; }
+        }
+
+        /* ================= PRINT (LIGHT THEME FOR PDF) ================= */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0;
+                margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .resume-container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .download-btn {
+                display: none !important;
+            }
+
+            /* Force all text to black strictly for Safari */
+            h1, h2, h3, p, li, div, span, a, .skills-category {
+                color: #000000 !important;
+            }
+
+            h2 {
+                border-bottom: 1.5px solid #000000 !important;
+            }
+
+            .subtitle {
+                color: #333333 !important;
+            }
+
+            .contact-info a {
+                text-decoration: none !important;
+            }
+
+            /* Avoid page breaks inside sections */
+            h2, h3, .subtitle, p, ul, .skills-grid {
+                page-break-inside: avoid;
+            }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <button class="download-btn" onclick="window.print()">
@@ -175,107 +202,101 @@
         Download PDF
     </button>
 
-    <h1>Ajay Vishwakarma</h1>
-    <div class="contact-info">
-        Lucknow, Uttar Pradesh | +91-7905398965 | <a href="mailto:ajaykumar160380@gmail.com">ajaykumar160380@gmail.com</a><br>
-        <a href="https://linkedin.com/in/ajay-vishwakarma-71649129a" target="_blank">linkedin.com/in/ajay-vishwakarma-71649129a</a> | 
-        <a href="https://github.com/ajay160380" target="_blank">github.com/ajay160380</a>
-    </div>
+    <div class="resume-container">
+        <h1>Ajay Vishwakarma</h1>
+        <div class="contact-info">
+            Lucknow, Uttar Pradesh | +91-7905398965 | <a href="mailto:ajaykumar160380@gmail.com">ajaykumar160380@gmail.com</a><br>
+            <a href="https://linkedin.com/in/ajay-vishwakarma-71649129a" target="_blank">linkedin.com/in/ajay-vishwakarma-71649129a</a> | 
+            <a href="https://github.com/ajay160380" target="_blank">github.com/ajay160380</a>
+        </div>
 
-    <h2>Professional Summary</h2>
-    <p>Motivated Computer Science undergraduate specializing in Artificial Intelligence, with hands-on experience in Python, Django, REST APIs, and data analysis. Passionate about building scalable, AI-driven web applications. Seeking a Software Developer role to apply technical skills and contribute to a high-performing engineering team.</p>
+        <h2>Professional Summary</h2>
+        <p>Motivated Computer Science undergraduate specializing in Artificial Intelligence, with hands-on experience in Python, Django, REST APIs, and data analysis. Passionate about building scalable, AI-driven web applications. Seeking a Software Developer role to apply technical skills and contribute to a high-performing engineering team.</p>
 
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-        <div class="skills-category">Programming Languages</div>
-        <div>Python</div>
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skills-category">Programming Languages</div>
+            <div>Python</div>
+            
+            <div class="skills-category">Frameworks and Libraries</div>
+            <div>Django, NumPy, Pandas, Matplotlib</div>
+            
+            <div class="skills-category">AI and Machine Learning</div>
+            <div>Prompt Engineering, Generative AI, Large Language Models (LLMs)</div>
+            
+            <div class="skills-category">APIs and Integrations</div>
+            <div>REST APIs, YouTube Data API, Groq API</div>
+            
+            <div class="skills-category">Web Technologies</div>
+            <div>HTML5, CSS3</div>
+            
+            <div class="skills-category">Database</div>
+            <div>SQL</div>
+            
+            <div class="skills-category">Data Structures</div>
+            <div>Arrays, Linked Lists, Stacks, Queues, Hash Maps</div>
+            
+            <div class="skills-category">Tools and Platforms</div>
+            <div>Git, GitHub, VS Code</div>
+        </div>
+
+        <h2>Projects</h2>
         
-        <div class="skills-category">Frameworks/Libraries</div>
-        <div>Django, NumPy, Pandas, Matplotlib</div>
-        
-        <div class="skills-category">AI & ML</div>
-        <div>Prompt Engineering, Generative AI, Large Language Models (LLMs)</div>
-        
-        <div class="skills-category">APIs & Integrations</div>
-        <div>REST APIs, YouTube Data API, Groq API, Razorpay API, Firebase Auth</div>
-        
-        <div class="skills-category">Web Technologies</div>
-        <div>HTML5, CSS3, JavaScript (ES6+)</div>
-        
-        <div class="skills-category">Database</div>
-        <div>SQL, PostgreSQL</div>
-        
-        <div class="skills-category">Data Structures</div>
-        <div>Arrays, Linked Lists, Stacks, Queues, Hash Maps</div>
-        
-        <div class="skills-category">Tools & Platforms</div>
-        <div>Git, GitHub, VS Code, Render</div>
+        <h3><span>EdTech AI - YouTube Playlist Analyzer and Tutor</span> <span>2026</span></h3>
+        <div class="subtitle">
+            <span>Python | Django | YouTube Data API | Groq API | Prompt Engineering</span>
+        </div>
+        <ul>
+            <li>Built an AI-powered educational platform that generates instant study notes and summaries from YouTube playlists using the Groq API for fast natural language processing.</li>
+            <li>Integrated the YouTube Data API for automated transcript extraction and ad-free video streaming, creating a distraction-free learning environment for students.</li>
+            <li>Developed a dedicated Focus Room feature with ambient music to improve user concentration and support longer, more productive study sessions.</li>
+        </ul>
+
+        <h3><span>My Digital Twin - Habit Prediction Web Application</span> <span>2026</span></h3>
+        <div class="subtitle">
+            <span>Python | Django | HTML5 | CSS3</span>
+        </div>
+        <ul>
+            <li>Designed and developed a full-stack web application that models and predicts user behavioral habits based on user-defined scenarios.</li>
+            <li>Engineered backend logic in Django to process diverse input scenarios and generate accurate, personalized habit predictions using rule-based modeling.</li>
+            <li>Built a responsive frontend interface with HTML5 and CSS3, ensuring a smooth and intuitive user experience across devices.</li>
+        </ul>
+
+        <h3><span>Personal Finance Tracker</span> <span>2026</span></h3>
+        <div class="subtitle">
+            <span>Python | Pandas | Matplotlib</span>
+        </div>
+        <ul>
+            <li>Developed a finance management tool enabling users to log daily income and expenses with persistent transaction history using structured data pipelines.</li>
+            <li>Used Pandas for data manipulation and Matplotlib to generate visual expense reports and financial trend charts for actionable money management insights.</li>
+        </ul>
+
+        <h2>Education</h2>
+        <h3><span>Bachelor of Technology (B.Tech) - Computer Science and Engineering (AI)</span> <span>Expected: May 2027</span></h3>
+        <div class="subtitle">
+            <span>Babu Banarasi Das University, Lucknow, Uttar Pradesh</span>
+        </div>
+        <ul>
+            <li>Relevant coursework: Data Structures and Algorithms, Artificial Intelligence, Database Management Systems, Web Technologies, Python Programming.</li>
+        </ul>
+
+        <h2>Certifications</h2>
+        <ul>
+            <li>Python Fundamentals for Beginners</li>
+            <li>ChatGPT for Beginners</li>
+            <li>Generative Artificial Intelligence</li>
+            <li>Artificial Intelligence Fundamentals</li>
+            <li>Road Safety Pledge Certification - Value Life Foundation and Suzuki</li>
+        </ul>
+
+        <h2>Achievements and Activities</h2>
+        <ul>
+            <li>Showcased IoT project — Smart Women Safety Device — at BBD University Tech Expo 2026; device sends live location on button press, receiving recognition for innovative hardware-software integration.</li>
+            <li>Consistently self-directed learning in emerging technologies including LLMs and API integration outside of formal coursework.</li>
+        </ul>
+
+        <h2>Soft Skills</h2>
+        <p>Team Collaboration | Time Management | Technical Curiosity | Adaptability | Problem Solving</p>
     </div>
-
-    <h2>Projects</h2>
-    
-    <h3><span>EduTech AI - Full-Stack AI-Powered EdTech SaaS Platform</span> <span>2026</span></h3>
-    <div class="subtitle">
-        <span>Python, Django, Groq LLM, YouTube Data API, PostgreSQL, Firebase Auth, Razorpay, WebGL, Render</span>
-    </div>
-    <div class="project-links">
-        <a href="https://edu-tech-ai-vk2e.onrender.com" target="_blank">Live Demo</a>
-        <a href="https://github.com/ajay160380/Edu-Tech-AI" target="_blank">GitHub</a>
-    </div>
-    <ul>
-        <li>Built a production-grade EdTech SaaS platform that converts any YouTube playlist into a structured, distraction-free virtual classroom with automated transcript extraction and ad-free video streaming.</li>
-        <li>Integrated Groq Llama-3.1 API to auto-generate textbook-level study notes, an AI tutor chatbot for real-time doubt resolution, and MCQ quizzes with auto-grading per lecture.</li>
-        <li>Implemented live Razorpay payment gateway with multi-tier subscription plans (Free/Pro/Ultra), Google SSO via Firebase Authentication, and dynamic PDF certificate generation with public verification.</li>
-        <li>Designed a premium glassmorphic UI with WebGL animated backgrounds, Pomodoro Focus Room with ambient music, study streak analytics, and Hinglish mode for regional language accessibility.</li>
-    </ul>
-
-    <h3><span>My Digital Twin - Habit Prediction Web Application</span> <span>2024</span></h3>
-    <div class="subtitle">
-        <span>Python, Django, HTML5, CSS3</span>
-    </div>
-    <ul>
-        <li>Designed and developed a full-stack web application that models and predicts user behavioral habits based on user-defined scenarios.</li>
-        <li>Engineered backend logic in Django to process diverse input scenarios and generate accurate, personalized habit predictions using rule-based modeling.</li>
-        <li>Built a responsive frontend interface with HTML5 and CSS3, ensuring a smooth and intuitive user experience across devices.</li>
-    </ul>
-
-    <h3><span>Personal Finance Tracker</span> <span>2024</span></h3>
-    <div class="subtitle">
-        <span>Python, Pandas, Matplotlib</span>
-    </div>
-    <ul>
-        <li>Developed a finance management tool enabling users to log daily income and expenses with persistent transaction history using structured data pipelines.</li>
-        <li>Used Pandas for data manipulation and Matplotlib to generate visual expense reports and financial trend charts for actionable money management insights.</li>
-    </ul>
-
-    <h2>Education</h2>
-    <h3><span>Bachelor of Technology (B.Tech) - Computer Science (AI)</span> <span>Expected: May 2027</span></h3>
-    <div class="subtitle">
-        <span>Babu Banarasi Das University, Lucknow, Uttar Pradesh</span>
-    </div>
-    <ul>
-        <li>Relevant coursework: Data Structures and Algorithms, Artificial Intelligence, Database Management Systems, Web Technologies, Python Programming.</li>
-    </ul>
-
-    <h2>Certifications</h2>
-    <ul>
-        <li>Python Fundamentals for Beginners</li>
-        <li>ChatGPT for Beginners</li>
-        <li>Generative Artificial Intelligence</li>
-        <li>Artificial Intelligence Fundamentals</li>
-        <li>Road Safety Pledge Certification - Value Life Foundation and Suzuki</li>
-    </ul>
-
-    <h2>Achievements & Activities</h2>
-    <ul>
-        <li>Deployed EduTech AI as a live production SaaS platform with real payment integration, cloud database, and public user access on Render.</li>
-        <li>Showcased three original projects at BBD University Tech Expo 2026, receiving recognition for AI application development.</li>
-        <li>Completed five industry-recognized online certifications in Python, AI, and Generative AI.</li>
-        <li>Consistently self-directed learning in emerging technologies including LLMs and API integration outside of formal coursework.</li>
-    </ul>
-
-    <h2>Soft Skills</h2>
-    <p>Team Collaboration | Time Management | Technical Curiosity | Adaptability | Problem Solving</p>
-
 </body>
 </html>
