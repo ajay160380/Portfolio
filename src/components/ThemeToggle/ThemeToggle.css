@@ -38,7 +38,8 @@
 }
 
 .theme-toggle-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
 }
 
 @media screen and (max-width: 768px) {
