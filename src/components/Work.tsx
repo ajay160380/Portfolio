@@ -20,7 +20,7 @@ const projects = [
     category: "AI / NLP Education Platform",
     description: "India's smartest AI tutor providing intelligent, real-time conversational learning paths. Accelerate your learning with personalized guidance from Class 5 to 12.",
     tools: "Django, Python, NLP, Groq LLM, SQLite, REST API",
-    link: "https://edu-ai-ko5w.onrender.com",
+    link: "https://ajay160380-edu-ai.hf.space",
     image: "/images/ai_tutor_mockup.png",
   },
   {
