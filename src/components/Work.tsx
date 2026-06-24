@@ -44,7 +44,7 @@ const projects = [
     category: "Full Stack Web App",
     description: "A comprehensive medical web application for seamless patient data management, intelligent appointment scheduling, and secure health record tracking.",
     tools: "React, Node.js, MongoDB, REST API",
-    link: "https://healthcare-project-egyw.onrender.com",
+    link: "https://solocode12-healthcare.hf.space",
     image: "/images/healthcare_mockup.png",
   },
   {
