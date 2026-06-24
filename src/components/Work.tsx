@@ -35,8 +35,8 @@ const projects = [
     name: "Digital Twin Platform",
     category: "AI / Conversational Clone",
     description: "An intelligent AI clone designed to think, talk, and give suggestions exactly like a human. It acts as a personal digital twin, engaging in natural conversations and providing personalized advice.",
-    tools: "Django, Python, JavaScript, Render",
-    link: "https://digital-twin-jqav.onrender.com",
+    tools: "Django, Python, JavaScript, Hugging Face",
+    link: "https://ajay160380-digital-twin.hf.space",
     image: "/images/digital_twin_mockup.png",
   },
   {
