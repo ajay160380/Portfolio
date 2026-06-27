@@ -353,6 +353,8 @@
   position: relative;
   min-height: 200px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
     border-color 0.5s ease,
     box-shadow 0.5s ease;
@@ -400,8 +402,9 @@
 
 .cert-card-content {
   background: var(--backgroundColor);
-  position: absolute;
-  inset: 1px;
+  position: relative;
+  margin: 1px;
+  flex-grow: 1;
   border-radius: 21px;
   padding: 28px;
   display: flex;
