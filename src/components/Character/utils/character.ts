@@ -31,8 +31,8 @@ const setCharacter = (
             character.traverse((child: any) => {
               if (child.isMesh) {
                 const mesh = child as THREE.Mesh;
-                child.castShadow = true;
-                child.receiveShadow = true;
+                // child.castShadow = true;
+                // child.receiveShadow = true;
                 mesh.frustumCulled = true;
 
                 // Apply white theme ONLY to body/clothes parts, preserving original hair/eyes textures

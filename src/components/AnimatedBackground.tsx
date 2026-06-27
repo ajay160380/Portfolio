@@ -71,13 +71,14 @@ const AnimatedBackground: React.FC = () => {
         particles[i].update();
         particles[i].draw();
 
-        // Connect particles to each other
+        // Connect particles to each other - Optimized with squared distance
         for (let j = i; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < 120) {
+          if (distSq < 14400) { // 120^2
+            const dist = Math.sqrt(distSq);
             ctx.beginPath();
             ctx.strokeStyle = `rgba(${accentColor}, ${0.15 - dist / 800})`;
             ctx.lineWidth = 1;
@@ -87,12 +88,13 @@ const AnimatedBackground: React.FC = () => {
           }
         }
 
-        // Connect to mouse
+        // Connect to mouse - Optimized with squared distance
         const dxMouse = particles[i].x - mouse.x;
         const dyMouse = particles[i].y - mouse.y;
-        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+        const distMouseSq = dxMouse * dxMouse + dyMouse * dyMouse;
 
-        if (distMouse < 200) {
+        if (distMouseSq < 40000) { // 200^2
+          const distMouse = Math.sqrt(distMouseSq);
           ctx.beginPath();
           ctx.strokeStyle = `rgba(${accentColor}, ${0.4 - distMouse / 500})`;
           ctx.lineWidth = 1.5;
