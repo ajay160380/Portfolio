@@ -14,6 +14,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const onlineCerts = [
   {
+    name: "Data Analytics Job Simulation",
+    platform: "Deloitte (Forage)",
+    link: "https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_6a3f3ef2d73b9d1e337810ff_1782536402369_completion_certificate.pdf",
+    icon: "forage",
+  },
+  {
+    name: "GenAI Powered Data Analytics Job Simulation",
+    platform: "Forage",
+    link: "https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_6a3f3ef2d73b9d1e337810ff_1782532427322_completion_certificate.pdf",
+    icon: "forage",
+  },
+  {
     name: "Business Analysis & Process Management",
     platform: "Coursera",
     link: "https://coursera.org/share/0b01c7a552ca4668320dcc4d43b3c9cd",
@@ -297,15 +309,22 @@ const Certificates = () => {
           <div className="cert-stat">
             <SiCoursera className="cert-stat-icon" />
             <div>
-              <strong>2</strong>
+              <strong>{onlineCerts.filter(c => c.icon === "coursera").length}</strong>
               <span>Coursera</span>
             </div>
           </div>
           <div className="cert-stat">
             <FaGraduationCap className="cert-stat-icon" />
             <div>
-              <strong>8</strong>
+              <strong>{onlineCerts.filter(c => c.icon === "greatlearning").length}</strong>
               <span>Great Learning</span>
+            </div>
+          </div>
+          <div className="cert-stat">
+            <FaGraduationCap className="cert-stat-icon" />
+            <div>
+              <strong>{onlineCerts.filter(c => c.icon === "forage").length}</strong>
+              <span>Forage</span>
             </div>
           </div>
           <div className="cert-stat">
