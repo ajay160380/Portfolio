@@ -1,8 +1,14 @@
-# Ajay's 3D Interactive Portfolio
+# 🚀 Ajay's 3D Interactive Portfolio
 
-Welcome to my personal portfolio website! This is a fully interactive 3D web experience designed to showcase my projects, skills, and background.
+Welcome to my **3D Interactive Portfolio** — a modern and immersive web experience crafted to showcase my **projects, technical skills, and professional journey** through stunning 3D visuals, smooth animations, and an intuitive user experience.
 
-🔗 **Live Website:** [https://ajay-portfolio-r176.onrender.com](https://ajay-portfolio-r176.onrender.com)
+
+### 🌐 Live Demo
+
+👉 **[Visit My Portfolio](https://ajay-portfolio-r176.onrender.com)**
+
+If you enjoyed this project, consider giving it a ⭐ to support my work!
+
 
 ## 🚀 Features
 
