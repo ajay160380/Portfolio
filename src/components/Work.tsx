@@ -12,7 +12,7 @@ const projects = [
     category: "Full Stack SaaS / AI EdTech",
     description: "An advanced AI-powered educational platform featuring interactive learning modules, secure payments, and personalized LLM tutoring to ensure distraction-free learning.",
     tools: "Django, Groq LLM, PostgreSQL, Razorpay, Firebase, WebGL",
-    link: "https://ajay160380.pythonanywhere.com/",
+    link: "https://solocode12-edu-tech-ai.hf.space",
     image: "/images/edutech_mockup.png",
   },
   {
