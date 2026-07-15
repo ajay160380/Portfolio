@@ -10,7 +10,7 @@ const stats = [
   { target: 6, suffix: "+", label: "Projects Built" },
   { target: 10, suffix: "+", label: "Certifications" },
   { target: 2, suffix: "", label: "Years NSS" },
-  { target: 8.63, suffix: "", decimals: 2, label: "Latest CGPA" },
+  { target: 8.82, suffix: "", decimals: 2, label: "Latest CGPA" },
   { target: 4, suffix: "th", label: "Year B.Tech" },
 ];
 
@@ -175,7 +175,7 @@ const About = () => {
                 </div>
                 <div className="bio-item">
                   <span className="bio-label">Academic Performance</span>
-                  <span className="bio-value">8.63 CGPA (Latest Semester)</span>
+                  <span className="bio-value">8.82 CGPA (Latest Semester)</span>
                 </div>
                 <div className="bio-item">
                   <span className="bio-label">Location</span>

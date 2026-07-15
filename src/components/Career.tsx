@@ -86,8 +86,8 @@ const Career = () => {
               <h3>NOW</h3>
             </div>
             <p>
-              Currently pursuing 4th Year, 7th Semester with <strong>8.63 CGPA</strong>. 
-              Focused on AI/ML, full-stack development, and building real-world 
+              Currently pursuing 4th Year, 7th Semester with <strong>8.82 CGPA</strong>.
+              Focused on AI/ML, full-stack development, and building real-world
               projects that solve meaningful problems.
             </p>
           </div>
