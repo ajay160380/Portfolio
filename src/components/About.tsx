@@ -7,8 +7,8 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { target: 6, suffix: "+", label: "Projects Built" },
-  { target: 10, suffix: "+", label: "Certifications" },
+  { target: 7, suffix: "+", label: "Projects Built" },
+  { target: 12, suffix: "+", label: "Certifications" },
   { target: 2, suffix: "", label: "Years NSS" },
   { target: 8.82, suffix: "", decimals: 2, label: "Latest CGPA" },
   { target: 4, suffix: "th", label: "Year B.Tech" },
@@ -252,7 +252,7 @@ const About = () => {
                     </svg>
                   </div>
                   <div className="achievement-info">
-                    <span className="achievement-title">10+ Professional Certifications</span>
+                    <span className="achievement-title">12+ Professional Certifications</span>
                     <span className="achievement-subtitle">Google, deep learning models, advanced DSA, and full-stack disciplines.</span>
                   </div>
                 </div>

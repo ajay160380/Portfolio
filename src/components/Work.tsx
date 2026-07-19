@@ -48,6 +48,14 @@ const projects = [
     image: "/images/healthcare_mockup.png",
   },
   {
+    name: "EstateAI",
+    category: "AI / Machine Learning",
+    description: "An AI-powered Full Stack Real Estate Intelligence Platform that predicts Bengaluru property prices using Machine Learning while leveraging Groq Llama-3 AI for market insights.",
+    tools: "Django, Python, Scikit-Learn, Groq LLM, JavaScript",
+    link: "https://house-price-prediction-l7qm.onrender.com",
+    image: "/images/estateai_mockup.png",
+  },
+  {
     name: "Smart Women's Safety Device",
     category: "Hardware / Safety Tech",
     description: "A life-saving IoT hardware project integrating real-time distress signaling, exact GPS location tracking, and an automated emergency alert system.",

@@ -150,12 +150,14 @@ const Guestbook = () => {
         }),
       };
 
-      const updatedMessages = [newMessage, ...messages];
-      setMessages(updatedMessages);
-      localStorage.setItem(
-        "guestbook_data_v2",
-        JSON.stringify(updatedMessages)
-      );
+      setMessages((prevMessages) => {
+        const updatedMessages = [newMessage, ...prevMessages];
+        localStorage.setItem(
+          "guestbook_data_v2",
+          JSON.stringify(updatedMessages)
+        );
+        return updatedMessages;
+      });
 
       setName("");
       setText("");
@@ -173,7 +175,7 @@ const Guestbook = () => {
             ease: "back.out(1.7)",
           }
         );
-      }, 50);
+      }, 100);
     }, 600);
   };
 

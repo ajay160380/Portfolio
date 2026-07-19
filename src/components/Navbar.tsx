@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { FaRobot } from "react-icons/fa6";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
@@ -67,6 +68,11 @@ const Navbar = () => {
           <li>
             <a data-href="#contact" href="#contact">
               <HoverLinks text="CONTACT" />
+            </a>
+          </li>
+          <li>
+            <a data-href="#terminal" href="#terminal">
+              <HoverLinks text={<span style={{ display: "flex", alignItems: "center", gap: "6px" }}><FaRobot size={18} style={{ transform: "translateY(-2px)" }} /> ASK AI</span>} />
             </a>
           </li>
         </ul>

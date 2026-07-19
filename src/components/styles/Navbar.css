@@ -19,7 +19,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  column-gap: 40px;
+  column-gap: 24px;
   row-gap: 8px;
   align-items: end;
 }
@@ -71,7 +71,7 @@
     padding: 35px 0px;
   }
   .header ul {
-    column-gap: 80px;
+    column-gap: 40px;
     font-size: 16px;
   }
   .navbar-connect {
