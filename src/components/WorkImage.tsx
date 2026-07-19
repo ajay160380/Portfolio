@@ -6,6 +6,7 @@ interface Props {
   alt?: string;
   video?: string;
   link?: string;
+  secondaryLink?: string;
 }
 
 const WorkImage = (props: Props) => {
@@ -23,22 +24,42 @@ const WorkImage = (props: Props) => {
 
   return (
     <div className="work-image">
-      <a
+      <div
         className="work-image-in"
-        href={props.link}
+        onClick={() => { if (props.link) window.open(props.link, "_blank"); }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => setIsVideo(false)}
-        target="_blank"
+        style={{ cursor: props.link ? 'pointer' : 'default' }}
         data-cursor={"disable"}
       >
         {props.link && (
-          <div className="work-link">
+          <a 
+            className="work-link" 
+            href={props.link} 
+            target="_blank" 
+            rel="noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            title="Primary Link"
+          >
             <MdArrowOutward />
-          </div>
+          </a>
+        )}
+        {props.secondaryLink && (
+          <a 
+            className="work-link" 
+            href={props.secondaryLink} 
+            target="_blank" 
+            rel="noreferrer"
+            style={{ right: '70px' }} 
+            onClick={(e) => e.stopPropagation()}
+            title="Secondary Link"
+          >
+            <MdArrowOutward />
+          </a>
         )}
         <img src={props.image} alt={props.alt} />
         {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
-      </a>
+      </div>
     </div>
   );
 };

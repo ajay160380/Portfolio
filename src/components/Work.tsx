@@ -13,6 +13,9 @@ const projects = [
     description: "An advanced AI-powered educational platform featuring interactive learning modules, secure payments, and personalized LLM tutoring to ensure distraction-free learning.",
     tools: "Django, Groq LLM, PostgreSQL, Razorpay, Firebase, WebGL",
     link: "https://edu-tech-ai-vk2e.onrender.com/",
+    secondaryLink: "https://solocode12-edu-tech-ai.hf.space",
+    primaryLabel: "Render",
+    secondaryLabel: "Hugging Face",
     image: "/images/edutech_mockup.png",
   },
   {
@@ -37,6 +40,9 @@ const projects = [
     description: "An intelligent AI clone designed to think, talk, and give suggestions exactly like a human. It acts as a personal digital twin, engaging in natural conversations and providing personalized advice.",
     tools: "Django, Python, JavaScript, Hugging Face",
     link: "https://ajay160380-digital-twin.hf.space",
+    secondaryLink: "https://digital-twin-jqav.onrender.com",
+    primaryLabel: "Hugging Face",
+    secondaryLabel: "Render",
     image: "/images/digital_twin_mockup.png",
   },
   {
@@ -45,6 +51,9 @@ const projects = [
     description: "A comprehensive medical web application for seamless patient data management, intelligent appointment scheduling, and secure health record tracking.",
     tools: "React, Node.js, MongoDB, REST API",
     link: "https://solocode12-healthcare.hf.space",
+    secondaryLink: "https://healthcare-project-egyw.onrender.com",
+    primaryLabel: "Hugging Face",
+    secondaryLabel: "Render",
     image: "/images/healthcare_mockup.png",
   },
   {
@@ -116,11 +125,29 @@ const Work = () => {
                 {project.description && <p style={{ fontSize: "14px", color: "#a3a3a3", marginTop: "-10px", lineHeight: "1.5" }}>{project.description}</p>}
                 <h4>Tools and features</h4>
                 <p>{project.tools}</p>
+                {("secondaryLink" in project) && project.secondaryLink && (
+                  <div style={{ marginTop: "15px", padding: "12px", backgroundColor: "rgba(255,255,255,0.03)", borderRadius: "8px", fontSize: "14px", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    <p style={{ margin: "0 0 8px 0", display: "flex", alignItems: "center", gap: "8px" }}>
+                      <strong style={{ color: "var(--accentColor)" }}>Primary Link:</strong> 
+                      <a href={project.link} target="_blank" rel="noreferrer" style={{ color: "#fff", textDecoration: "underline" }}>
+                        {(project as any).primaryLabel || "Primary"}
+                      </a>
+                    </p>
+                    <p style={{ margin: 0, display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                      <strong style={{ color: "var(--accentColor)" }}>Secondary Link:</strong> 
+                      <a href={project.secondaryLink} target="_blank" rel="noreferrer" style={{ color: "#fff", textDecoration: "underline" }}>
+                        {(project as any).secondaryLabel || "Secondary"}
+                      </a>
+                      <span style={{ color: "#a3a3a3", fontSize: "12px" }}>(If primary is not working, click this)</span>
+                    </p>
+                  </div>
+                )}
               </div>
               <WorkImage
                 image={project.image}
                 alt={project.name}
                 link={project.link || undefined}
+                secondaryLink={("secondaryLink" in project) ? project.secondaryLink : undefined}
               />
             </div>
           ))}
