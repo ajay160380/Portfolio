@@ -12,7 +12,7 @@ const AnimatedBackground: React.FC = () => {
     if (!ctx) return;
 
     let particles: Particle[] = [];
-    const particleCount = window.innerWidth < 768 ? 40 : 80;
+    const particleCount = window.innerWidth < 768 ? 20 : 40;
     
     // Parse theme color for particles
     // Crimson theme: red, Default: purple/indigo

@@ -46,6 +46,14 @@ const projects = [
     image: "/images/digital_twin_mockup.png",
   },
   {
+    name: "Anuvad",
+    category: "AI / Book Translation Platform",
+    description: "An AI-powered reading ecosystem that translates English PDFs into Hindi or Hinglish side-by-side, preserving the original formatting and context. Features include a Vocabulary Vault and a chat-with-book AI.",
+    tools: "Django, Python, PostgreSQL, Vanilla JS, Groq Llama 3",
+    link: "https://book-translation.onrender.com",
+    image: "/images/anuvad_mockup.png",
+  },
+  {
     name: "Healthcare Management System",
     category: "Full Stack Web App",
     description: "A comprehensive medical web application for seamless patient data management, intelligent appointment scheduling, and secure health record tracking.",

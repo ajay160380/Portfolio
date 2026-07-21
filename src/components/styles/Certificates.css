@@ -55,7 +55,6 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 14px 24px;
   border-radius: 16px;
-  backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -112,8 +111,6 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   transform-style: preserve-3d;
   will-change: transform;
   transition: border-color 0.6s ease, box-shadow 0.6s ease;
@@ -415,8 +412,7 @@
 }
 
 .cert-card:hover .cert-card-content {
-  background: rgba(18, 18, 22, 0.9);
-  backdrop-filter: blur(10px);
+  background: rgba(18, 18, 22, 0.95);
 }
 
 /* Card Top Row */
