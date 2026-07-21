@@ -1,53 +1,263 @@
-# 🚀 Ajay's 3D Interactive Portfolio
+<div align="center">
 
-Welcome to my **3D Interactive Portfolio** — a modern and immersive web experience crafted to showcase my **projects, technical skills, and professional journey** through stunning 3D visuals, smooth animations, and an intuitive user experience.
+# 🚀 Ajay's Interactive 3D Portfolio
 
+### Crafting immersive web experiences with React, Three.js & GSAP
 
-### 🌐 Live Demo
+<p>
+A high-performance developer portfolio featuring real-time 3D graphics,
+physics-based interactions, cinematic animations, and responsive design,
+built to showcase projects, skills, and achievements in a modern way.
+</p>
 
-👉 **[Visit My Portfolio](https://ajay-portfolio-r176.onrender.com)**
+<br>
 
-If you enjoyed this project, consider giving it a ⭐ to support my work!
+<a href="https://ajay-vishwakarmaa.netlify.app">
+<img src="https://img.shields.io/badge/🌐_Live_Demo-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white">
+</a>
 
+<a href="https://ajay-portfolio-r176.onrender.com">
+<img src="https://img.shields.io/badge/⚡_Mirror-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white">
+</a>
 
-## 🚀 Features
+<a href="https://github.com/ajay160380/Portfolio">
+<img src="https://img.shields.io/github/stars/ajay160380/Portfolio?style=for-the-badge&logo=github&color=yellow">
+</a>
 
-- **3D Physics & Models**: Implemented using `three.js` and `@react-three/fiber` for an immersive, modern experience.
-- **Physics Engine**: Using `@react-three/rapier` for realistic physical interactions (e.g., the interactive tech stack spheres).
-- **Smooth Animations**: Powered by **GSAP** (ScrollTrigger & ScrollSmoother) for seamless scrolling and dynamic text animations.
-- **Responsive Design**: Works beautifully across both desktop and mobile devices.
+</div>
 
-## 🛠️ Tech Stack
+---
 
-- **Frontend Framework**: React 18
-- **Build Tool**: Vite
-- **3D Graphics**: Three.js, React Three Fiber, React Three Drei
-- **Animations**: GSAP (Standard)
-- **Physics**: React Three Rapier
-- **Styling**: Vanilla CSS
-- **Deployment**: Render
+# 🌟 Overview
 
-## 💻 Running Locally
+This portfolio is far more than a traditional personal website.
 
-To run this project on your local machine:
+It combines **React**, **Three.js**, **GSAP**, and **physics simulations** to create an interactive experience where visitors can explore projects through engaging animations and real-time 3D scenes.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ajay160380/Portfolio.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd Portfolio
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
+The focus is on **performance**, **clean UI**, **smooth interactions**, and **modern frontend engineering**.
 
-## 📬 Contact
+---
 
-Feel free to reach out to me through the contact section on the website or via my [GitHub profile](https://github.com/ajay160380).
+# ✨ Highlights
+
+✅ Interactive 3D Experience
+
+✅ Physics-powered Tech Stack
+
+✅ Smooth Scroll Animations
+
+✅ Responsive Layout
+
+✅ Lightning Fast Vite Build
+
+✅ Modern UI/UX
+
+✅ Optimized Asset Loading
+
+✅ Mobile Friendly
+
+✅ Clean Component Architecture
+
+---
+
+# 🚀 Live Website
+
+## 🌐 Primary Deployment (Recommended)
+
+https://ajay-vishwakarmaa.netlify.app
+
+---
+
+## ⚡ Secondary Deployment
+
+https://ajay-portfolio-r176.onrender.com
+
+---
+
+# 🎯 Features
+
+## 🎨 Modern Hero Section
+
+- Animated introduction
+- Dynamic typography
+- Smooth entrance animations
+
+---
+
+## 🌍 Interactive 3D Scene
+
+Powered by
+
+- Three.js
+- React Three Fiber
+- Drei
+
+Features
+
+- Realistic lighting
+- Camera movement
+- Interactive objects
+- Optimized rendering
+
+---
+
+## ⚡ Physics Simulation
+
+Using React Three Rapier
+
+Includes
+
+- Floating technology spheres
+- Realistic collision physics
+- Dynamic interactions
+
+---
+
+## 🎬 Premium Animations
+
+Built using GSAP
+
+- ScrollTrigger
+- ScrollSmoother
+- Timeline animations
+- Text transitions
+- Section reveals
+
+---
+
+## 📱 Responsive Experience
+
+Fully optimized for
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+---
+
+# 🛠 Tech Stack
+
+| Category | Technologies |
+|-----------|-------------|
+| Frontend | React 18 |
+| Build Tool | Vite |
+| 3D Engine | Three.js |
+| React Renderer | React Three Fiber |
+| Helpers | Drei |
+| Physics | React Three Rapier |
+| Animations | GSAP |
+| Styling | CSS3 |
+| Deployment | Netlify & Render |
+
+---
+
+# 📂 Project Structure
+
+```
+Portfolio
+│
+├── public/
+├── src/
+│   ├── components/
+│   ├── assets/
+│   ├── hooks/
+│   ├── styles/
+│   ├── pages/
+│   └── App.jsx
+│
+├── package.json
+└── vite.config.js
+```
+
+---
+
+# ⚡ Local Development
+
+Clone repository
+
+```bash
+git clone https://github.com/ajay160380/Portfolio.git
+```
+
+Move into directory
+
+```bash
+cd Portfolio
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run development server
+
+```bash
+npm run dev
+```
+
+Create production build
+
+```bash
+npm run build
+```
+
+Preview production build
+
+```bash
+npm run preview
+```
+
+---
+
+# 📈 Performance Goals
+
+✔ Fast Loading
+
+✔ Optimized Rendering
+
+✔ Lazy Loaded Assets
+
+✔ Responsive Design
+
+✔ Smooth 60FPS Animations
+
+✔ Modern Code Structure
+
+---
+
+# 📬 Connect With Me
+
+🌐 Portfolio
+
+https://ajay-vishwakarmaa.netlify.app
+
+GitHub
+
+https://github.com/ajay160380
+
+LinkedIn
+
+(Add your LinkedIn URL)
+
+---
+
+# ⭐ Support
+
+If you enjoyed exploring this project or found it useful,
+
+please consider leaving a ⭐ on GitHub.
+
+It helps the project reach more developers and motivates future improvements.
+
+---
+
+<div align="center">
+
+### Thanks for visiting ❤️
+
+Made with React • Three.js • GSAP • Vite
+
+</div>
