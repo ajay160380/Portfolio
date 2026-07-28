@@ -64,50 +64,57 @@ const AnimatedBackground: React.FC = () => {
       }
     };
 
+    let isPageVisible = !document.hidden;
+
+    const handleVisibilityChange = () => {
+      isPageVisible = !document.hidden;
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     const animate = () => {
+      animationFrameId = requestAnimationFrame(animate);
+      if (!isPageVisible) return;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Draw all particles first
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
+      }
 
-        // Connect particles to each other - Optimized with squared distance
-        for (let j = i; j < particles.length; j++) {
+      // Batch line strokes for high performance (single path)
+      ctx.beginPath();
+      ctx.strokeStyle = `rgba(${accentColor}, 0.08)`;
+      ctx.lineWidth = 1;
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const distSq = dx * dx + dy * dy;
 
-          if (distSq < 14400) { // 120^2
-            const dist = Math.sqrt(distSq);
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(${accentColor}, ${0.15 - dist / 800})`;
-            ctx.lineWidth = 1;
+          if (distSq < 10000) { // 100^2
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
           }
         }
 
-        // Connect to mouse - Optimized with squared distance
-        const dxMouse = particles[i].x - mouse.x;
-        const dyMouse = particles[i].y - mouse.y;
-        const distMouseSq = dxMouse * dxMouse + dyMouse * dyMouse;
+        // Mouse connections
+        if (mouse.x > 0 && mouse.y > 0) {
+          const dxMouse = particles[i].x - mouse.x;
+          const dyMouse = particles[i].y - mouse.y;
+          const distMouseSq = dxMouse * dxMouse + dyMouse * dyMouse;
 
-        if (distMouseSq < 40000) { // 200^2
-          const distMouse = Math.sqrt(distMouseSq);
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(${accentColor}, ${0.4 - distMouse / 500})`;
-          ctx.lineWidth = 1.5;
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.stroke();
-          
-          // Slight attraction to mouse
-          particles[i].x -= dxMouse * 0.01;
-          particles[i].y -= dyMouse * 0.01;
+          if (distMouseSq < 22500) { // 150^2
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            particles[i].x -= dxMouse * 0.005;
+            particles[i].y -= dyMouse * 0.005;
+          }
         }
       }
-      animationFrameId = requestAnimationFrame(animate);
+      ctx.stroke();
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -132,6 +139,7 @@ const AnimatedBackground: React.FC = () => {
     window.addEventListener("resize", handleResize);
 
     return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseout", handleMouseLeave);
       window.removeEventListener("resize", handleResize);

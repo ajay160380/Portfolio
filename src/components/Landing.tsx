@@ -37,11 +37,26 @@ const Landing = ({ children }: PropsWithChildren) => {
     // Cache the RGB value and only update it every 60 frames
     let cachedRGB = getComputedStyle(document.body).getPropertyValue("--accentRGB").trim() || "255, 42, 42";
 
+    let isVisible = true;
+    let isTabActive = !document.hidden;
+
+    const handleVisibilityChange = () => {
+      isTabActive = !document.hidden;
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
+
     const animate = () => {
+      animId = requestAnimationFrame(animate);
+      if (!isVisible || !isTabActive) return;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       frameCount++;
 
-      // Only re-read CSS variable every 60 frames (once per second)
       if (frameCount % 60 === 0) {
         cachedRGB = getComputedStyle(document.body).getPropertyValue("--accentRGB").trim() || "255, 42, 42";
       }
@@ -60,31 +75,29 @@ const Landing = ({ children }: PropsWithChildren) => {
         ctx.fill();
       });
 
-      // Draw connection lines only every other frame for performance
-      if (frameCount % 2 === 0) {
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const distSq = dx * dx + dy * dy;
-            if (distSq < 10000) { // 100^2 — reduced connection distance
-              const dist = Math.sqrt(distSq);
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(${cachedRGB}, ${0.06 * (1 - dist / 100)})`;
-              ctx.lineWidth = 0.5;
-              ctx.stroke();
-            }
+      // Batch stroke calls for connection lines
+      ctx.beginPath();
+      ctx.strokeStyle = `rgba(${cachedRGB}, 0.04)`;
+      ctx.lineWidth = 0.5;
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          if (dx * dx + dy * dy < 8100) { // 90^2
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
           }
         }
       }
-      animId = requestAnimationFrame(animate);
+      ctx.stroke();
     };
     animate();
 
     return () => {
       cancelAnimationFrame(animId);
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("resize", resize);
     };
   }, []);

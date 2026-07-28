@@ -73,6 +73,14 @@ const projects = [
     image: "/images/estateai_mockup.png",
   },
   {
+    name: "Brain Tumor Detection",
+    category: "AI / Medical Imaging & Deep Learning",
+    description: "An interactive web application built with Streamlit and TensorFlow/Keras to classify brain MRI scans into 4 categories (Glioma, Meningioma, Pituitary, No Tumor) with real-time confidence scores and Plotly visual analytics.",
+    tools: "Streamlit, TensorFlow, Keras, Python, Plotly, Pandas, Pillow",
+    link: "https://neuro-detection.streamlit.app",
+    image: "/images/brain_tumor_mockup.png",
+  },
+  {
     name: "Smart Women's Safety Device",
     category: "Hardware / Safety Tech",
     description: "A life-saving IoT hardware project integrating real-time distress signaling, exact GPS location tracking, and an automated emergency alert system.",

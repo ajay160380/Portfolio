@@ -4,6 +4,7 @@ import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { FaRobot } from "react-icons/fa6";
+import ThemeToggle from "./ThemeToggle";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
@@ -44,9 +45,12 @@ const Navbar = () => {
   return (
     <>
       <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
-          AV
-        </a>
+        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+          <a href="/#" className="navbar-title" data-cursor="disable">
+            AV
+          </a>
+          <ThemeToggle />
+        </div>
         <a
           href="mailto:ajaykumar160380@gmail.com"
           className="navbar-connect"

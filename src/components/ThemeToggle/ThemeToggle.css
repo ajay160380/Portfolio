@@ -1,57 +1,66 @@
 .theme-toggle-btn {
-  position: fixed;
-  top: 22px;
-  left: 78px;
-  width: 60px;
-  height: 34px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(20, 20, 20, 0.6);
+  position: relative;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(18, 18, 24, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
   z-index: 9999;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  padding: 4px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.toggle-circle {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.theme-toggle-btn.crimson .toggle-circle {
-  background: linear-gradient(135deg, #ff4d4d, #b30000);
-  box-shadow: 0 0 10px #ff2a2a;
-  transform: translateX(26px);
-}
-
-.theme-toggle-btn.purple .toggle-circle {
-  background: linear-gradient(135deg, #c2a4ff, #7f40ff);
-  box-shadow: 0 0 10px #c2a4ff;
-  transform: translateX(0px);
+  gap: 6px;
+  transition: all 0.2s ease;
+  user-select: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .theme-toggle-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(26, 26, 34, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 12px var(--accentColor);
+}
+
+.theme-icon {
+  font-size: 14px;
+  color: var(--accentColor);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover .theme-icon {
+  transform: rotate(20deg);
+}
+
+.theme-text {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
+
+.theme-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-toggle-btn.crimson .theme-indicator {
+  background: #ff4d4d;
+  box-shadow: 0 0 8px #ff2a2a;
+}
+
+.theme-toggle-btn.purple .theme-indicator {
+  background: #b388ff;
+  box-shadow: 0 0 8px #b388ff;
 }
 
 @media screen and (max-width: 768px) {
   .theme-toggle-btn {
-    top: 14px;
-    left: 63px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .theme-toggle-btn {
-    top: 35px;
-    left: 83px;
+    height: 26px;
+    padding: 0 8px;
   }
 }

@@ -1,4 +1,5 @@
 import { useTheme } from "../../context/ThemeProvider";
+import { IoColorPalette } from "react-icons/io5";
 import "./ThemeToggle.css";
 
 const ThemeToggle = () => {
@@ -8,9 +9,13 @@ const ThemeToggle = () => {
     <button 
       className={`theme-toggle-btn ${theme}`} 
       onClick={toggleTheme}
-      title={`Switch to ${theme === "crimson" ? "Purple" : "Crimson"} Theme`}
+      title={`Current Theme: ${theme.toUpperCase()} (Click to switch)`}
+      aria-label="Toggle Color Theme"
+      data-cursor="disable"
     >
-      <div className="toggle-circle"></div>
+      <IoColorPalette className="theme-icon" />
+      <span className="theme-text">THEME</span>
+      <span className="theme-indicator" />
     </button>
   );
 };
