@@ -42,12 +42,14 @@ const Scene = () => {
       const aspect = container.width / container.height;
       const scene = sceneRef.current;
 
+      const isMobile = window.innerWidth <= 768;
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
-        antialias: true,
+        antialias: !isMobile,
+        powerPreference: "high-performance",
       });
       renderer.setSize(container.width, container.height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+      renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.0) : Math.min(window.devicePixelRatio, 1.5));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1;
       canvasDiv.current.appendChild(renderer.domElement);
@@ -102,7 +104,7 @@ const Scene = () => {
       const onMouseMove = (event: MouseEvent) => {
         handleMouseMove(event, (x, y) => (mouse = { x, y }));
       };
-      let debounce: number | undefined;
+      let debounce: any;
       const onTouchStart = (event: TouchEvent) => {
         const element = event.target as HTMLElement;
         debounce = setTimeout(() => {
@@ -141,7 +143,11 @@ const Scene = () => {
 
       const animate = () => {
         requestAnimationFrame(animate);
-        if (!isVisible || document.hidden) return;
+        
+        // Force pause 3D rendering if scrolled past the third section (huge performance boost for rest of the site)
+        if (window.scrollY > window.innerHeight * 2.5 || document.hidden) return;
+        
+        if (!isVisible) return;
         
         const delta = clock.getDelta();
         if (mixer) {

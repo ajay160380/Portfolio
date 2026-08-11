@@ -115,6 +115,7 @@
   z-index: 0;
   bottom: 50px;
   pointer-events: none;
+  will-change: transform;
 }
 .character-model::after {
   content: "";

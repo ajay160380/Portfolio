@@ -12,7 +12,7 @@ const AnimatedBackground: React.FC = () => {
     if (!ctx) return;
 
     let particles: Particle[] = [];
-    const particleCount = window.innerWidth < 768 ? 20 : 40;
+    const particleCount = window.innerWidth < 768 ? 15 : 25;
     
     // Parse theme color for particles
     // Crimson theme: red, Default: purple/indigo
@@ -65,15 +65,27 @@ const AnimatedBackground: React.FC = () => {
     };
 
     let isPageVisible = !document.hidden;
+    let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout;
 
     const handleVisibilityChange = () => {
       isPageVisible = !document.hidden;
     };
+    
+    const handleScroll = () => {
+      isScrolling = true;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+      }, 150);
+    };
+    
     document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      if (!isPageVisible) return;
+      if (!isPageVisible || isScrolling) return;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -140,6 +152,7 @@ const AnimatedBackground: React.FC = () => {
 
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseout", handleMouseLeave);
       window.removeEventListener("resize", handleResize);

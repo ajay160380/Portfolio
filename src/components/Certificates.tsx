@@ -14,6 +14,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const onlineCerts = [
   {
+    name: "Tech Expo'26 — Certificate of Appreciation",
+    platform: "BBD University, Lucknow",
+    link: "https://i.ibb.co/B5Lm5YD0/Tech-Expo.png",
+    icon: "award",
+  },
+  {
     name: "Microsoft Azure AI Essentials Professional Certificate",
     platform: "Microsoft & LinkedIn Learning",
     link: "https://media.licdn.com/dms/image/v2/D5622AQE0ajyBu1PKQQ/feedshare-shrink_1280/B56Z9_kmaEHIAQ-/0/1784551729083?e=1784645142&v=beta&t=QxYrQdwgspa0hOKwMOvGoVxkvHMPHelOEUawQA0vsuQ",
@@ -114,6 +120,7 @@ const onlineCerts = [
 const PlatformIcon = ({ type }: { type: string }) => {
   if (type === "coursera") return <SiCoursera />;
   if (type === "linkedin") return <FaLinkedin />;
+  if (type === "award") return <FaAward />;
   return <FaGraduationCap />;
 };
 
@@ -389,25 +396,22 @@ const Certificates = () => {
           <div className="cert-featured-glow"></div>
           <div className="cert-featured-img">
             <img
-              src="https://i.ibb.co/B5Lm5YD0/Tech-Expo.png"
-              alt="Tech Expo'26 Certificate"
+              src="/grastech-cert.jpg"
+              alt="GRASTech Data Science & AI Certificate"
             />
             <div className="cert-shine"></div>
           </div>
           <div className="cert-featured-info">
             <div className="cert-badge">⭐ Featured Achievement</div>
-            <h3>Tech Expo'26 — Certificate of Appreciation</h3>
-            <h4>BBD University, Lucknow</h4>
+            <h3>Project-Based Summer Training in Data Science and AI</h3>
+            <h4>GRASTech at BBD Campus, Lucknow</h4>
             <p>
-              Recognized for participating in Tech Expo'26 with the Smart
-              Women's Safety Device — demonstrating hardware innovation for
-              real-world social impact at a university-level technology
-              exhibition.
+              Successfully completed a comprehensive 90-Hour Project-Based Summer Training Program focusing on Data Science and Artificial Intelligence.
             </p>
             <div className="cert-tags">
-              <span className="cert-tag">Event Participation</span>
-              <span className="cert-tag">Hardware Innovation</span>
-              <span className="cert-tag">Social Impact</span>
+              <span className="cert-tag">Data Science</span>
+              <span className="cert-tag">Artificial Intelligence</span>
+              <span className="cert-tag">GRASTech</span>
             </div>
           </div>
         </div>

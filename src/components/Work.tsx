@@ -19,6 +19,17 @@ const projects = [
     image: "/images/edutech_mockup.png",
   },
   {
+    name: "SkillProof",
+    category: "AI / Full Stack SaaS",
+    description: "My major college project. An AI-Verified Practical Skill Portfolio Platform utilizing advanced AI monitoring and real-time code evaluation via Monaco Editor to provide verified practical skill portfolios.",
+    tools: "React 19, TypeScript, Tailwind, Zustand, Django, PostgreSQL",
+    link: "https://skillproof-eight.vercel.app",
+    secondaryLink: "https://skillproof-backend-3857.onrender.com",
+    primaryLabel: "Live Frontend (Vercel)",
+    secondaryLabel: "Backend API (Render)",
+    image: "/images/skillproof_mockup.png",
+  },
+  {
     name: "AI Tutor",
     category: "AI / NLP Education Platform",
     description: "India's smartest AI tutor providing intelligent, real-time conversational learning paths. Accelerate your learning with personalized guidance from Class 5 to 12.",
@@ -81,6 +92,15 @@ const projects = [
     image: "/images/brain_tumor_mockup.png",
   },
   {
+    name: "Campaign Performance & Reporting Dashboard",
+    category: "Data Science / Marketing Analytics AI",
+    description: "An end-to-end, production-grade Digital Marketing Campaign Performance & Reporting Dashboard equipped with automated data validation, marketing analytics engine, interactive Plotly visualizations, and a grounded AI Insights Assistant powered by Llama 3.1 via Groq.",
+    tools: "Python, Pandas, Plotly, Streamlit, Groq LLM",
+    link: "https://campaign-performance-iq.streamlit.app",
+    primaryLabel: "Live Interactive Demo",
+    image: "/images/campaign_dashboard_mockup.png",
+  },
+  {
     name: "Smart Women's Safety Device",
     category: "Hardware / Safety Tech",
     description: "A life-saving IoT hardware project integrating real-time distress signaling, exact GPS location tracking, and an automated emergency alert system.",
@@ -131,7 +151,7 @@ const Work = () => {
             <div className="work-box" key={index}>
               <div className="work-info">
                 <div className="work-title">
-                  <h3>0{index + 1}</h3>
+                  <h3>{String(index + 1).padStart(2, '0')}</h3>
 
                   <div>
                     <h4>{project.name}</h4>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Forage Certificate</title>
+    <link rel="icon" type="image/png" href="https://cdn-assets.theforage.com/favicon/favicon-96x96.png" />
+    <link rel="shortcut icon" href="https://cdn-assets.theforage.com/favicon/favicon-96x96.png" />
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        background: #f5f7fb;
+      }
+
+      iframe {
+        border: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://www.theforage.com/completion-certificates/8eNRcRqBZM9HLvwGw/2jxESPvorR7fmypXj_8eNRcRqBZM9HLvwGw_6a3f3ef2d73b9d1e337810ff_1784552831295_completion_certificate.pdf?raw=1" title="Forage Certificate">
+      <p>
+        Your browser cannot display this certificate.
+        <a href="https://www.theforage.com/completion-certificates/8eNRcRqBZM9HLvwGw/2jxESPvorR7fmypXj_8eNRcRqBZM9HLvwGw_6a3f3ef2d73b9d1e337810ff_1784552831295_completion_certificate.pdf?raw=1">Open the PDF directly</a>.
+      </p>
+    </iframe>
+  </body>
+</html>
