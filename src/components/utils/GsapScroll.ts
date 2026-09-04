@@ -2,6 +2,7 @@ import * as THREE from "three";
 import gsap from "gsap";
 
 let _screenLightRef: any = null;
+let _intensityInterval: ReturnType<typeof setInterval> | null = null;
 
 export function updateScreenlightTheme(theme: string) {
   if (_screenLightRef) {
@@ -14,7 +15,9 @@ export function setCharTimeline(
   camera: THREE.PerspectiveCamera
 ) {
   let intensity: number = 0;
-  setInterval(() => {
+  // Clear any previous intensity interval (e.g. from resize re-calling this function)
+  if (_intensityInterval) clearInterval(_intensityInterval);
+  _intensityInterval = setInterval(() => {
     intensity = Math.random();
   }, 200);
   const tl1 = gsap.timeline({
