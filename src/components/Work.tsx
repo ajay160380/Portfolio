@@ -42,7 +42,7 @@ const projects = [
     category: "Finance / AI WhatsApp Bot",
     description: "A smart expense tracking application that lives directly inside your WhatsApp. Zero apps required—just text your expenses, and our intelligent AI categorizes and tracks your budget automatically.",
     tools: "Python, WhatsApp API, Data Analytics, NLP",
-    link: "https://ajay160380-paisa-mitra.hf.space",
+    link: "https://smart-expense-coach.onrender.com/",
     image: "/images/expense_tracker_mockup.png",
   },
   {
@@ -162,8 +162,8 @@ const Work = () => {
                 <h4>Tools and features</h4>
                 <p>{project.tools}</p>
                 {("secondaryLink" in project) && project.secondaryLink && (
-                  <div style={{ marginTop: "15px", padding: "12px", backgroundColor: "rgba(255,255,255,0.03)", borderRadius: "8px", fontSize: "14px", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    <p style={{ margin: "0 0 8px 0", display: "flex", alignItems: "center", gap: "8px" }}>
+                  <div style={{ marginTop: "10px", padding: "8px 12px", backgroundColor: "rgba(255,255,255,0.03)", borderRadius: "8px", fontSize: "13px", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    <p style={{ margin: "0 0 4px 0", display: "flex", alignItems: "center", gap: "8px" }}>
                       <strong style={{ color: "var(--accentColor)" }}>Primary Link:</strong> 
                       <a href={project.link} target="_blank" rel="noreferrer" style={{ color: "#fff", textDecoration: "underline" }}>
                         {(project as any).primaryLabel || "Primary"}
@@ -174,7 +174,7 @@ const Work = () => {
                       <a href={project.secondaryLink} target="_blank" rel="noreferrer" style={{ color: "#fff", textDecoration: "underline" }}>
                         {(project as any).secondaryLabel || "Secondary"}
                       </a>
-                      <span style={{ color: "#a3a3a3", fontSize: "12px" }}>(If primary is not working, click this)</span>
+                      <span style={{ color: "#a3a3a3", fontSize: "11px" }}>(If primary is not working, click this)</span>
                     </p>
                   </div>
                 )}
