@@ -11,22 +11,25 @@
   height: 100%;
   position: relative;
   max-width: var(--cMaxWidth);
+  z-index: 20;
+  pointer-events: none;
 }
 .landing-circle1 {
   top: 0%;
   left: 0%;
   z-index: 15;
   position: fixed;
-  width: 300px;
-  height: 300px;
+  width: 180px;
+  height: 180px;
   background-color: var(--accentColor);
-  box-shadow: inset -50px 40px 50px rgba(var(--accentRGB), 0.6);
-  filter: blur(40px);
+  opacity: 0.5;
+  filter: blur(25px);
   border-radius: 50%;
-  animation: loadingCircle 5s linear infinite;
+  animation: loadingCircle 8s linear infinite;
   pointer-events: none;
   will-change: transform;
   transform: translateZ(0);
+  contain: strict;
 }
 .nav-fade {
   position: fixed;
@@ -59,15 +62,16 @@
   z-index: 9;
   position: fixed;
   display: none;
-  width: 300px;
-  height: 300px;
+  width: 180px;
+  height: 180px;
   background-color: var(--accentColor);
-  box-shadow: inset -50px 40px 50px rgba(var(--accentRGB), 0.6);
-  filter: blur(35px);
+  opacity: 0.4;
+  filter: blur(20px);
   border-radius: 50%;
-  animation: loadingCircle2 5s linear infinite;
+  animation: loadingCircle2 8s linear infinite;
   pointer-events: none;
   will-change: transform;
+  contain: strict;
 }
 @keyframes loadingCircle2 {
   100% {
@@ -89,19 +93,21 @@
 }
 .character-rim {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   z-index: 1;
   background-color: var(--accentColor);
-  transform: translate(-50%, 36%) scaleX(1.4);
-  box-shadow: inset 66px 35px 85px 0px rgba(var(--accentRGB), 0.65);
-  filter: blur(50px);
+  opacity: 0;
+  filter: blur(30px);
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, 100%) scale(1.4);
-  opacity: 0;
-  will-change: filter, opacity;
+  will-change: opacity;
+  contain: layout;
+}
+.character-container {
+  pointer-events: none;
 }
 .character-model {
   height: 80%;
@@ -114,7 +120,7 @@
   left: 50%;
   z-index: 0;
   bottom: 50px;
-  pointer-events: none;
+  pointer-events: none !important;
   will-change: transform;
 }
 .character-model::after {
@@ -131,6 +137,7 @@
   transform: translateX(-50%);
   z-index: 9;
   position: absolute;
+  pointer-events: none !important;
 }
 .character-model::before {
   content: "";
@@ -142,6 +149,7 @@
   transform: translateX(-50%);
   z-index: 9;
   position: absolute;
+  pointer-events: none !important;
 }
 .character-loaded .character-rim {
   animation: backlight 3s forwards;
@@ -150,7 +158,7 @@
 }
 .character-model canvas {
   position: relative;
-  pointer-events: none;
+  pointer-events: none !important;
   z-index: 2;
 }
 .character-hover {
@@ -162,11 +170,12 @@
   z-index: 3;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  pointer-events: auto;
+  pointer-events: auto !important;
 }
 .landing-intro {
   position: absolute;
-  z-index: 9;
+  z-index: 25;
+  pointer-events: auto;
   top: 12%;
   left: 0;
 }
@@ -184,12 +193,9 @@
   font-size: 28px;
   line-height: 28px;
   font-weight: 500;
+  color: #ffffff;
   font-family: "Geist", sans-serif;
 }
-
-/* .landing-intro h1 span {
-   font-weight: 200; 
-} */
 
 .landing-info {
   position: absolute;
@@ -197,46 +203,43 @@
   transform: translateX(50%);
   bottom: 40px;
   top: inherit;
-  z-index: 9;
+  z-index: 25;
+  pointer-events: auto;
 }
 .landing-info h3 {
-  font-size: 22px;
+  font-size: 20px;
   letter-spacing: 2px;
   font-weight: 300;
   color: var(--accentColor);
   margin: 0;
+  margin-left: 20px;
 }
-.landing-info h2 {
+.landing-role-heading {
   margin: 0;
-  margin-top: -20px;
+  margin-top: 6px;
   margin-left: 20px;
   font-family: "Geist", sans-serif;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 40px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  height: 44px;
   position: relative;
-  display: flex;
-  flex-wrap: nowrap;
+  display: block;
   text-transform: uppercase;
   letter-spacing: 2px;
+  color: var(--accentColor);
+}
+.landing-h2-info,
+.landing-h2-info-1 {
+  color: var(--accentColor);
+  background: linear-gradient(135deg, #ffffff 20%, var(--accentColor) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
 }
 .landing-h2-info-1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-h2.landing-info-h2 {
-  color: var(--accentColor);
-  font-size: 42px;
-  width: 120%;
-  margin: 0;
-  font-family: "Geist", sans-serif;
-  font-weight: 600;
-  position: relative;
-  margin-left: -5px;
-}
-.landing-h2-2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -260,12 +263,10 @@ h2.landing-info-h2 {
     font-size: 30px;
     line-height: 30px;
   }
-  .landing-info h2 {
-    font-size: 35px;
-    line-height: 40px;
-  }
-  h2.landing-info-h2 {
-    font-size: 38px;
+  .landing-role-heading {
+    font-size: 32px;
+    line-height: 38px;
+    height: 40px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -280,14 +281,12 @@ h2.landing-info-h2 {
     line-height: 35px;
   }
   .landing-info h3 {
-    font-size: 25px;
+    font-size: 24px;
   }
-  .landing-info h2 {
-    font-size: 45px;
-    line-height: 42px;
-  }
-  h2.landing-info-h2 {
-    font-size: 55px;
+  .landing-role-heading {
+    font-size: 42px;
+    line-height: 48px;
+    height: 50px;
   }
 }
 @media screen and (min-width: 1025px) {
@@ -296,6 +295,7 @@ h2.landing-info-h2 {
     bottom: 0;
     z-index: 11;
     position: fixed;
+    pointer-events: none !important;
   }
   .character-model::after,
   .character-model::before {
@@ -306,12 +306,15 @@ h2.landing-info-h2 {
     left: auto;
     right: 66%;
     transform: translate(0%, -50%);
+    z-index: 25;
+    pointer-events: auto;
   }
 
   .landing-info {
     bottom: auto;
     top: 51%;
-    z-index: inherit;
+    z-index: 25;
+    pointer-events: auto;
     text-align: left;
     transform: translate(0%, -50%);
     right: auto;
@@ -329,7 +332,8 @@ h2.landing-info-h2 {
   .landing-info {
     bottom: auto;
     top: 51%;
-    z-index: inherit;
+    z-index: 25;
+    pointer-events: auto;
     text-align: left;
     transform: translate(0%, -50%);
     right: auto;
@@ -345,14 +349,12 @@ h2.landing-info-h2 {
     line-height: 55px;
   }
   .landing-info h3 {
-    font-size: 35px;
+    font-size: 32px;
   }
-  .landing-info h2 {
-    font-size: 65px;
+  .landing-role-heading {
+    font-size: 56px;
     line-height: 62px;
-  }
-  h2.landing-info-h2 {
-    font-size: 75px;
+    height: 66px;
   }
 }
 
@@ -387,29 +389,196 @@ h2.landing-info-h2 {
   to { width: 40px; opacity: 1; }
 }
 
+.landing-intro h1 span {
+  color: var(--accentColor);
+  background: linear-gradient(135deg, #ffffff 30%, var(--accentColor) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
 /* Available for work status */
 .landing-status {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   margin-top: 18px;
-  font-size: 13px;
-  color: #888;
-  letter-spacing: 1px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 11px;
+  color: #a0aec0;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
 }
 .status-dot {
-  width: 8px;
-  height: 8px;
-  background: #4ade80;
+  width: 7px;
+  height: 7px;
+  background: var(--accentColor);
   border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-  box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+  animation: pulse 2.5s ease-in-out infinite;
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
+  50% { opacity: 0.35; transform: scale(0.8); }
 }
+
+/* Modern role badge */
+.landing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(var(--accentRGB), 0.1);
+  border: 1px solid rgba(var(--accentRGB), 0.3);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 12px;
+  letter-spacing: 0.4px;
+}
+.badge-spark {
+  color: var(--accentColor);
+  font-size: 13px;
+  display: inline-block;
+}
+
+/* Skill pills */
+.landing-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.landing-pill {
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  transition: all 0.25s ease;
+}
+.landing-pill:hover {
+  background: rgba(var(--accentRGB), 0.15);
+  border-color: rgba(var(--accentRGB), 0.4);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Hero Stats Row */
+.landing-stats-row {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+.landing-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+.landing-stat-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: "Geist", sans-serif;
+  letter-spacing: 0.5px;
+}
+.landing-stat-label {
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+.landing-stat-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Value statement subtitle */
+.landing-bio-subtitle {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 440px;
+  margin-top: 16px;
+  margin-left: 20px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+/* CTA buttons group */
+.landing-cta-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 22px;
+  margin-left: 20px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+}
+.landing-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 35;
+  transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.landing-cta-btn.primary {
+  background: linear-gradient(135deg, var(--accentColor), var(--accentSecondary));
+  color: #030712;
+  box-shadow: 0 4px 16px rgba(var(--accentRGB), 0.35);
+}
+.landing-cta-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(var(--accentRGB), 0.55);
+  color: #000;
+}
+.landing-cta-btn.resume {
+  background: rgba(var(--accentRGB), 0.1);
+  border: 1px solid rgba(var(--accentRGB), 0.4);
+  color: var(--accentColor);
+}
+.landing-cta-btn.resume:hover {
+  background: rgba(var(--accentRGB), 0.2);
+  border-color: var(--accentColor);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.landing-cta-btn.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #eae5ec;
+}
+.landing-cta-btn.secondary:hover {
+  background: rgba(var(--accentRGB), 0.12);
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+  transform: translateY(-2px);
+}
+
 
 /* Scroll indicator */
 .landing-scroll-indicator {
@@ -462,4 +631,38 @@ h2.landing-info-h2 {
   .landing-scroll-indicator {
     display: none;
   }
+  .landing-info {
+    width: 90%;
+    max-width: 500px;
+  }
+  .landing-role-heading {
+    margin-left: 0;
+    text-align: center;
+    font-size: 28px;
+    line-height: 34px;
+    height: 36px;
+  }
+  .landing-info h3 {
+    margin-left: 0;
+    text-align: center;
+  }
+  .landing-bio-subtitle {
+    margin-left: 0;
+    text-align: center;
+    max-width: 100%;
+    font-size: 12.5px;
+  }
+  .landing-cta-group {
+    margin-left: 0;
+    justify-content: center;
+  }
+  .landing-stats-row {
+    margin-top: 14px;
+    padding: 6px 12px;
+    gap: 12px;
+  }
+  .landing-stat-num {
+    font-size: 13px;
+  }
 }
+

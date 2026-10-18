@@ -13,7 +13,6 @@ import Certificates from "./Certificates";
 import GithubStats from "./GithubStats";
 import ScrollToTop from "./ScrollToTop";
 import Terminal from "./Terminal";
-import Guestbook from "./Guestbook";
 
 const TechStack = lazy(() => import("./TechStack"));
 
@@ -54,7 +53,6 @@ const MainContainer = ({ children }: PropsWithChildren) => {
               <TechStack />
             </Suspense>
             <Terminal />
-            <Guestbook />
             <Contact />
             <ScrollToTop />
           </div>

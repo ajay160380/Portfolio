@@ -1,4 +1,3 @@
-import { SplitText } from "gsap/SplitText";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { smoother } from "../Navbar";
@@ -10,134 +9,87 @@ export function initialFX() {
   }
   ScrollTrigger.refresh();
   document.getElementsByTagName("main")[0]?.classList.add("main-active");
-  gsap.to("body", {
-    backgroundColor: "#0b080c",
-    duration: 0.5,
-    delay: 1,
-  });
 
-  var landingText = new SplitText(
-    [".landing-info h3", ".landing-intro h2", ".landing-intro h1"],
-    {
-      type: "chars,lines",
-      linesClass: "split-line",
-    }
-  );
+  // Ensure landing container is 100% visible
+  gsap.set(".landing-container", { opacity: 1, y: 0 });
+
+  // Animate Left Hero elements with a coordinated stagger
   gsap.fromTo(
-    landingText.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
-    {
-      opacity: 1,
-      duration: 1.2,
-      filter: "blur(0px)",
-      ease: "power3.inOut",
-      y: 0,
-      stagger: 0.025,
-      delay: 0.3,
-    }
-  );
-
-  let TextProps = { type: "chars,lines", linesClass: "split-h2" };
-
-  var landingText2 = new SplitText(".landing-h2-info", TextProps);
-  gsap.fromTo(
-    landingText2.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
-    {
-      opacity: 1,
-      duration: 1.2,
-      filter: "blur(0px)",
-      ease: "power3.inOut",
-      y: 0,
-      stagger: 0.025,
-      delay: 0.3,
-    }
-  );
-
-  gsap.fromTo(
-    ".landing-info-h2",
+    [
+      ".landing-greeting",
+      ".landing-intro h1",
+      ".landing-status",
+      ".landing-badge",
+      ".landing-pills",
+      ".landing-stats-row",
+    ],
     { opacity: 0, y: 30 },
     {
       opacity: 1,
-      duration: 1.2,
-      ease: "power1.inOut",
       y: 0,
-      delay: 0.8,
+      duration: 0.8,
+      stagger: 0.08,
+      ease: "power2.out",
+      delay: 0.2,
     }
   );
+
+  // Animate Right Hero elements
   gsap.fromTo(
-    [".header", ".icons-section", ".nav-fade"],
+    [
+      ".landing-info h3",
+      ".landing-role-heading",
+      ".landing-bio-subtitle",
+      ".landing-cta-group",
+    ],
+    { opacity: 0, y: 30 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.08,
+      ease: "power2.out",
+      delay: 0.3,
+    }
+  );
+
+  // Animate Global navigation and floating elements
+  gsap.fromTo(
+    [".header", ".icons-section", ".nav-fade", ".landing-scroll-indicator"],
     { opacity: 0 },
     {
       opacity: 1,
-      duration: 1.2,
+      duration: 1,
       ease: "power1.inOut",
       delay: 0.1,
     }
   );
 
-  var landingText3 = new SplitText(".landing-h2-info-1", TextProps);
-  var landingText4 = new SplitText(".landing-h2-1", TextProps);
-  var landingText5 = new SplitText(".landing-h2-2", TextProps);
-
-  gsap.set(landingText3.chars, { opacity: 0, y: 80 });
-  gsap.set(landingText5.chars, { opacity: 0, y: 80 });
-
-  LoopText(landingText2, landingText3);
-  LoopText(landingText4, landingText5);
+  // Start smooth role title transition (DATA ANALYST <-> AI/ML ENGINEER)
+  setupRoleLoop();
 }
 
-function LoopText(Text1: SplitText, Text2: SplitText) {
-  var tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
-  const delay = 4;
-  const delay2 = delay * 2 + 1;
+function setupRoleLoop() {
+  const role1 = document.querySelector(".landing-h2-info") as HTMLElement;
+  const role2 = document.querySelector(".landing-h2-info-1") as HTMLElement;
+  if (!role1 || !role2) return;
 
-  tl.fromTo(
-    Text2.chars,
-    { opacity: 0, y: 80 },
-    {
-      opacity: 1,
-      duration: 1.2,
-      ease: "power3.inOut",
-      y: 0,
-      stagger: 0.1,
-      delay: delay,
-    },
-    0
-  )
+  gsap.set(role1, { opacity: 1, y: 0 });
+  gsap.set(role2, { opacity: 0, y: 25 });
+
+  const tl = gsap.timeline({ repeat: -1, repeatDelay: 2.5 });
+  tl.to(role1, { opacity: 0, y: -20, duration: 0.5, ease: "power2.inOut" })
     .fromTo(
-      Text1.chars,
-      { y: 80 },
-      {
-        duration: 1.2,
-        ease: "power3.inOut",
-        y: 0,
-        stagger: 0.1,
-        delay: delay2,
-      },
-      1
+      role2,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "power2.inOut" },
+      "-=0.15"
     )
+    .to(role2, { opacity: 0, y: -20, duration: 0.5, ease: "power2.inOut", delay: 2.5 })
     .fromTo(
-      Text1.chars,
-      { y: 0 },
-      {
-        y: -80,
-        duration: 1.2,
-        ease: "power3.inOut",
-        stagger: 0.1,
-        delay: delay,
-      },
-      0
-    )
-    .to(
-      Text2.chars,
-      {
-        y: -80,
-        duration: 1.2,
-        ease: "power3.inOut",
-        stagger: 0.1,
-        delay: delay2,
-      },
-      1
+      role1,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "power2.inOut" },
+      "-=0.15"
     );
 }
