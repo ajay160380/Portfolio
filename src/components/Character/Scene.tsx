@@ -131,6 +131,14 @@ const Scene = () => {
       }
 
       let isVisible = true;
+      let cachedScrollY = window.scrollY || 0;
+      let scrollThreshold = window.innerHeight * 2.2;
+
+      const handleScroll = () => {
+        cachedScrollY = window.scrollY || 0;
+      };
+      window.addEventListener("scroll", handleScroll, { passive: true });
+
       const observer = new IntersectionObserver(
         ([entry]) => {
           isVisible = entry.isIntersecting;
@@ -144,10 +152,8 @@ const Scene = () => {
       const animate = () => {
         requestAnimationFrame(animate);
         
-        // Force pause 3D rendering if scrolled past the third section (huge performance boost for rest of the site)
-        if (window.scrollY > window.innerHeight * 2.5 || document.hidden) return;
-        
-        if (!isVisible) return;
+        // Fast-path exit if scrolled past hero sections or document hidden
+        if (cachedScrollY > scrollThreshold || document.hidden || !isVisible) return;
         
         const delta = clock.getDelta();
         if (mixer) {
@@ -171,6 +177,7 @@ const Scene = () => {
       };
       animate();
       return () => {
+        window.removeEventListener("scroll", handleScroll);
         clearTimeout(debounce);
         observer.disconnect();
         scene.clear();

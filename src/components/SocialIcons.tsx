@@ -12,50 +12,50 @@ import HoverLinks from "./HoverLinks";
 const SocialIcons = () => {
   useEffect(() => {
     const social = document.getElementById("social") as HTMLElement;
+    if (!social) return;
+
     const spans = social.querySelectorAll("span");
-    
-    // Pre-calculate all defaults
-    const iconData = Array.from(spans).map((item) => {
+    const cleanupFns: Array<() => void> = [];
+
+    spans.forEach((item) => {
       const elem = item as HTMLElement;
       const link = elem.querySelector("a") as HTMLElement;
+      if (!link) return;
+
       const rect = elem.getBoundingClientRect();
       const defaultX = rect.width / 2;
       const defaultY = rect.height / 2;
-      
+
       link.style.setProperty("--siLeft", `${defaultX}px`);
       link.style.setProperty("--siTop", `${defaultY}px`);
 
-      return {
-        elem,
-        link,
-        rect,
-        defaultX,
-        defaultY,
-        xTo: gsap.quickTo(link, "--siLeft", { duration: 0.3, ease: "power3.out" }),
-        yTo: gsap.quickTo(link, "--siTop", { duration: 0.3, ease: "power3.out" }),
+      const xTo = gsap.quickTo(link, "--siLeft", { duration: 0.3, ease: "power3.out" });
+      const yTo = gsap.quickTo(link, "--siTop", { duration: 0.3, ease: "power3.out" });
+
+      const onMouseMove = (e: MouseEvent) => {
+        const itemRect = elem.getBoundingClientRect();
+        const x = e.clientX - itemRect.left;
+        const y = e.clientY - itemRect.top;
+        xTo(x);
+        yTo(y);
       };
+
+      const onMouseLeave = () => {
+        xTo(defaultX);
+        yTo(defaultY);
+      };
+
+      elem.addEventListener("mousemove", onMouseMove);
+      elem.addEventListener("mouseleave", onMouseLeave);
+
+      cleanupFns.push(() => {
+        elem.removeEventListener("mousemove", onMouseMove);
+        elem.removeEventListener("mouseleave", onMouseLeave);
+      });
     });
 
-    // Single listener for all icons instead of one per icon
-    const onMouseMove = (e: MouseEvent) => {
-      iconData.forEach(({ rect, defaultX, defaultY, xTo, yTo }) => {
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        if (x < 40 && x > 10 && y < 40 && y > 5) {
-          xTo(x);
-          yTo(y);
-        } else {
-          xTo(defaultX);
-          yTo(defaultY);
-        }
-      });
-    };
-
-    document.addEventListener("mousemove", onMouseMove);
-
     return () => {
-      document.removeEventListener("mousemove", onMouseMove);
+      cleanupFns.forEach((fn) => fn());
     };
   }, []);
 

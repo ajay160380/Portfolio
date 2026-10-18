@@ -8,155 +8,133 @@ const AnimatedBackground: React.FC = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: true });
+
+    // Use low-power rendering hints
+    const ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
     if (!ctx) return;
 
-    let particles: Particle[] = [];
-    const particleCount = window.innerWidth < 768 ? 15 : 25;
-    
-    // Parse theme color for particles
-    // Crimson theme: red, Default: purple/indigo
-    const accentColor = theme === "crimson" ? "255, 60, 60" : "160, 120, 255";
+    // Drastically reduced particle count for smooth performance
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 8 : 14;
+
+    const getAccentRGB = (t: string) => {
+      switch (t) {
+        case "cyan":    return "0, 242, 254";
+        case "emerald": return "0, 255, 157";
+        case "crimson": return "255, 60, 60";
+        case "purple":
+        default:        return "180, 140, 255";
+      }
+    };
+    const accentColor = getAccentRGB(theme);
+
+    // Pre-compute styles once (avoid string concat every frame)
+    const particleFill = `rgba(${accentColor}, 0.4)`;
+    const lineStroke = `rgba(${accentColor}, 0.06)`;
 
     let animationFrameId: number;
-    let mouse = { x: -1000, y: -1000 };
 
-    class Particle {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      size: number;
-
-      constructor() {
-        this.x = Math.random() * canvas!.width;
-        this.y = Math.random() * canvas!.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2 + 1;
-      }
-
-      update() {
-        if (!canvas) return;
-        this.x += this.vx;
-        this.y += this.vy;
-
-        // Bounce off edges
-        if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
-        if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
-      }
-
-      draw() {
-        if (!ctx) return;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${accentColor}, 0.5)`;
-        ctx.fill();
-      }
-    }
+    // Simple particle data (no class overhead)
+    const px: number[] = [];
+    const py: number[] = [];
+    const pvx: number[] = [];
+    const pvy: number[] = [];
+    const psize: number[] = [];
 
     const init = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      particles = [];
+      px.length = 0; py.length = 0; pvx.length = 0; pvy.length = 0; psize.length = 0;
       for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
+        px.push(Math.random() * canvas.width);
+        py.push(Math.random() * canvas.height);
+        pvx.push((Math.random() - 0.5) * 0.35);
+        pvy.push((Math.random() - 0.5) * 0.35);
+        psize.push(Math.random() * 1.5 + 0.8);
       }
     };
 
     let isPageVisible = !document.hidden;
     let isScrolling = false;
-    let scrollTimeout: NodeJS.Timeout;
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+    let lastFrameTime = 0;
+    const FRAME_INTERVAL = 1000 / 24; // Cap at 24fps — smooth enough, saves GPU
 
-    const handleVisibilityChange = () => {
-      isPageVisible = !document.hidden;
-    };
-    
+    const handleVisibilityChange = () => { isPageVisible = !document.hidden; };
     const handleScroll = () => {
       isScrolling = true;
       clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        isScrolling = false;
-      }, 150);
+      scrollTimeout = setTimeout(() => { isScrolling = false; }, 250);
     };
-    
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    const animate = () => {
+    const CONNECTION_DIST_SQ = 8100; // 90^2
+
+    const animate = (timestamp: number) => {
       animationFrameId = requestAnimationFrame(animate);
+
+      // Skip frames to maintain target FPS
+      if (timestamp - lastFrameTime < FRAME_INTERVAL) return;
+      lastFrameTime = timestamp;
+
+      // Don't render when page hidden or during scroll
       if (!isPageVisible || isScrolling) return;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const cw = canvas.width;
+      const ch = canvas.height;
+      ctx.clearRect(0, 0, cw, ch);
 
-      // Draw all particles first
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
+      // Update & draw particles in one pass
+      ctx.fillStyle = particleFill;
+      for (let i = 0; i < particleCount; i++) {
+        px[i] += pvx[i];
+        py[i] += pvy[i];
+        if (px[i] < 0 || px[i] > cw) pvx[i] = -pvx[i];
+        if (py[i] < 0 || py[i] > ch) pvy[i] = -pvy[i];
+
+        ctx.beginPath();
+        ctx.arc(px[i], py[i], psize[i], 0, 6.283185);
+        ctx.fill();
       }
 
-      // Batch line strokes for high performance (single path)
+      // Draw connections — single batched path
       ctx.beginPath();
-      ctx.strokeStyle = `rgba(${accentColor}, 0.08)`;
-      ctx.lineWidth = 1;
-
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distSq = dx * dx + dy * dy;
-
-          if (distSq < 10000) { // 100^2
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-          }
-        }
-
-        // Mouse connections
-        if (mouse.x > 0 && mouse.y > 0) {
-          const dxMouse = particles[i].x - mouse.x;
-          const dyMouse = particles[i].y - mouse.y;
-          const distMouseSq = dxMouse * dxMouse + dyMouse * dyMouse;
-
-          if (distMouseSq < 22500) { // 150^2
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(mouse.x, mouse.y);
-            particles[i].x -= dxMouse * 0.005;
-            particles[i].y -= dyMouse * 0.005;
+      ctx.strokeStyle = lineStroke;
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < particleCount; i++) {
+        for (let j = i + 1; j < particleCount; j++) {
+          const dx = px[i] - px[j];
+          const dy = py[i] - py[j];
+          if (dx * dx + dy * dy < CONNECTION_DIST_SQ) {
+            ctx.moveTo(px[i], py[i]);
+            ctx.lineTo(px[j], py[j]);
           }
         }
       }
       ctx.stroke();
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    };
-
-    const handleMouseLeave = () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
-    };
-
+    // Debounced resize
+    let resizeTimeout: ReturnType<typeof setTimeout>;
     const handleResize = () => {
-      init();
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(init, 300);
     };
 
     init();
-    animate();
+    animationFrameId = requestAnimationFrame(animate);
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseout", handleMouseLeave);
     window.addEventListener("resize", handleResize);
 
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseout", handleMouseLeave);
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
+      clearTimeout(scrollTimeout);
+      clearTimeout(resizeTimeout);
     };
   }, [theme]);
 

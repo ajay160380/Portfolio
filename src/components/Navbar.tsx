@@ -17,30 +17,42 @@ const Navbar = () => {
       smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 1.2,
-        speed: 1.3,
-        effects: true,
+        smooth: 0.8,
+        speed: 1,
+        effects: false,
       });
 
       smoother.scrollTop(0);
       smoother.paused(true);
     }
 
-    let links = document.querySelectorAll(".header ul a");
-    links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest("a");
+      if (!target) return;
+      const href = target.getAttribute("data-href") || target.getAttribute("href");
+      if (href && href.startsWith("#") && href.length > 1) {
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
           e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
+          if (window.innerWidth > 1024 && smoother) {
+            smoother.scrollTo(href, true, "top top");
+          } else {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+          }
         }
-      });
-    });
-    window.addEventListener("resize", () => {
+      }
+    };
+    document.addEventListener("click", handleAnchorClick);
+
+    const handleResize = () => {
       ScrollSmoother.refresh(true);
-    });
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      document.removeEventListener("click", handleAnchorClick);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
   return (
     <>
