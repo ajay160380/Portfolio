@@ -50,7 +50,7 @@
 }
 
 .tech-header h2 > span {
-  background: linear-gradient(135deg, var(--accentColor), #f093fb);
+  background: linear-gradient(135deg, var(--accentColor), var(--accentSecondary, #4facfe));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

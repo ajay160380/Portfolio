@@ -9,12 +9,12 @@ const ThemeToggle = () => {
     <button 
       className={`theme-toggle-btn ${theme}`} 
       onClick={toggleTheme}
-      title={`Current Theme: ${theme.toUpperCase()} (Click to switch)`}
+      title={`Theme: ${theme.toUpperCase()} (Click to toggle)`}
       aria-label="Toggle Color Theme"
       data-cursor="disable"
     >
       <IoColorPalette className="theme-icon" />
-      <span className="theme-text">THEME</span>
+      <span className="theme-text">{theme.toUpperCase()}</span>
       <span className="theme-indicator" />
     </button>
   );

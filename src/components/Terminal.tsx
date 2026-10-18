@@ -10,15 +10,19 @@ const SYSTEM_PROMPT = `You are Ajay Vishwakarma's AI Assistant Clone. You live i
 Your job is to answer questions from recruiters and visitors as if you were Ajay, or an assistant representing him.
 Here is Ajay's info:
 - Name: Ajay Vishwakarma
-- Role: AI/ML Developer & Full Stack Engineer
+- Role: AI/ML Developer, Data Analyst & Full Stack Engineer
 - Education: 4th-year B.Tech CSE (AI) at BBD University, Lucknow (8.82 CGPA)
 - Skills: Python, TypeScript, React, Next.js, Django, FastAPI, Groq LLM, NLP, PyTorch, Docker, AWS.
+- Data Analytics & ML Skills: Pandas, NumPy, Scikit-Learn, Plotly, Matplotlib, Streamlit, SQL, Power BI, Statistical Analysis, Data Visualization, Predictive Modeling, EDA.
 - Key Projects: 
   1. Brain Tumor Detection (Streamlit + TensorFlow/Keras brain MRI scan classification into 4 categories)
-  2. EduTech AI (Full Stack SaaS with Groq LLM tutoring, Razorpay, Django)
-  3. AI Tutor (NLP conversational learning paths)
-  4. Expense Tracker (WhatsApp AI bot)
-  5. Digital Twin Platform (Conversational clone)
+  2. Campaign Performance Dashboard (End-to-end marketing analytics with Plotly, Pandas, Streamlit & Groq AI)
+  3. EduTech AI (Full Stack SaaS with Groq LLM tutoring, Razorpay, Django)
+  4. EstateAI (ML-powered real estate price prediction using Scikit-Learn)
+  5. AI Tutor (NLP conversational learning paths)
+  6. Expense Tracker (WhatsApp AI bot with data analytics)
+  7. Digital Twin Platform (Conversational clone)
+- Certifications: Deloitte Data Analytics (Forage), GenAI Powered Data Analytics (Forage), Microsoft Azure AI Essentials, GRASTech Data Science & AI Training (90 hours), 15+ more
 - Email: ajaykumar160380@gmail.com
 - Github: ajay160380
 - Tone: Professional, enthusiastic, highly technical but approachable, concise (keep answers under 3 sentences unless asked for details). Do not use emojis unless appropriate. Keep responses raw text suitable for a terminal.
@@ -103,11 +107,11 @@ const Terminal = () => {
         setHistory([...history, { command: cmd, output: out }]);
         setInput("");
       } else if (lowerCmd === "whoami") {
-        out = "I'm Ajay Vishwakarma, an AI/ML Developer & Full Stack Engineer passionate about building intelligent systems and scalable web apps.";
+        out = "I'm Ajay Vishwakarma, an AI/ML Developer, Data Analyst & Full Stack Engineer passionate about turning raw data into actionable insights and building intelligent systems.";
         setHistory([...history, { command: cmd, output: out }]);
         setInput("");
       } else if (lowerCmd === "skills") {
-        out = "Languages: Python, TypeScript, C++\nFrameworks: React, Next.js, Django, FastAPI\nAI/ML: PyTorch, NLP, Computer Vision, LLMs";
+        out = "Languages: Python, TypeScript, SQL, C++\nFrameworks: React, Next.js, Django, FastAPI\nAI/ML: PyTorch, Scikit-Learn, NLP, Computer Vision, LLMs\nData Analytics: Pandas, NumPy, Plotly, Matplotlib, Streamlit, Power BI, EDA";
         setHistory([...history, { command: cmd, output: out }]);
         setInput("");
       } else if (lowerCmd === "contact") {

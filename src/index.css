@@ -21,6 +21,13 @@
   /* Base variables */
   --vh: 100vh;
   --vh: 100svh;
+  --accentColor: #00f2fe;
+  --accentRGB: 0, 242, 254;
+  --accentSecondary: #4facfe;
+  --backgroundColor: #030712;
+  --cardBg: rgba(7, 16, 34, 0.75);
+  --cardBorder: rgba(0, 242, 254, 0.18);
+  --glowColor: rgba(0, 242, 254, 0.35);
 }
 
 /* Global smooth transitions for interactive elements */
@@ -38,16 +45,44 @@ img {
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+body.theme-cyan {
+  --accentColor: #00f2fe;
+  --accentRGB: 0, 242, 254;
+  --accentSecondary: #4facfe;
+  --backgroundColor: #030712;
+  --cardBg: rgba(7, 16, 34, 0.75);
+  --cardBorder: rgba(0, 242, 254, 0.18);
+  --glowColor: rgba(0, 242, 254, 0.35);
+}
+
+body.theme-emerald {
+  --accentColor: #00ff9d;
+  --accentRGB: 0, 255, 157;
+  --accentSecondary: #10b981;
+  --backgroundColor: #030a06;
+  --cardBg: rgba(6, 22, 14, 0.75);
+  --cardBorder: rgba(0, 255, 157, 0.18);
+  --glowColor: rgba(0, 255, 157, 0.35);
+}
+
 body.theme-crimson {
   --accentColor: #ff2a2a;
   --accentRGB: 255, 42, 42;
+  --accentSecondary: #ff6b6b;
   --backgroundColor: #050505;
+  --cardBg: rgba(22, 8, 8, 0.75);
+  --cardBorder: rgba(255, 42, 42, 0.18);
+  --glowColor: rgba(255, 42, 42, 0.35);
 }
 
 body.theme-purple {
   --accentColor: #c2a4ff;
   --accentRGB: 194, 164, 255;
+  --accentSecondary: #8c52ff;
   --backgroundColor: #0b080c;
+  --cardBg: rgba(18, 12, 26, 0.75);
+  --cardBorder: rgba(194, 164, 255, 0.18);
+  --glowColor: rgba(194, 164, 255, 0.35);
 }
 h1,
 h2,
