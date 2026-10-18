@@ -87,8 +87,36 @@ const Career = () => {
             </div>
             <p>
               Currently pursuing 4th Year, 7th Semester with <strong>8.82 CGPA</strong>.
-              Focused on AI/ML, full-stack development, and building real-world
+              Focused on AI/ML, Data Analytics, full-stack development, and building real-world
               projects that solve meaningful problems.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Data Analytics Job Simulation</h4>
+                <h5>Deloitte (via Forage)</h5>
+              </div>
+              <h3>2026</h3>
+            </div>
+            <p>
+              Completed Deloitte's Data Analytics professional simulation — worked on
+              data cleaning, statistical analysis, dashboard creation, and presenting
+              data-driven business insights to stakeholders.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Data Science & AI Summer Training</h4>
+                <h5>GRASTech at BBD Campus, Lucknow</h5>
+              </div>
+              <h3>90 Hrs</h3>
+            </div>
+            <p>
+              Completed a comprehensive 90-hour project-based training program
+              covering Data Science, Machine Learning, and AI — building hands-on
+              projects with real-world datasets.
             </p>
           </div>
           <div className="career-info-box">

@@ -117,7 +117,7 @@ const About = () => {
         </div>
         
         <p className="para">
-          I'm <span className="highlight">Ajay Vishwakarma</span>, a 4th-year B.Tech CSE (Artificial Intelligence) student at BBD University, Lucknow. I am passionate about building impactful technology that bridges the gap between AI theory and real-world execution.
+          I'm <span className="highlight">Ajay Vishwakarma</span>, a 4th-year B.Tech CSE (Artificial Intelligence) student at BBD University, Lucknow. I am passionate about building impactful technology through <span className="highlight">AI/ML, Data Analytics</span>, and Full Stack Development — bridging the gap between raw data and real-world impact.
         </p>
 
         {/* Tab Selection buttons */}
@@ -163,7 +163,7 @@ const About = () => {
               <div className="bio-grid">
                 <div className="bio-item">
                   <span className="bio-label">Current Role</span>
-                  <span className="bio-value">AI Explorer & Full Stack Developer</span>
+                  <span className="bio-value">AI/ML Developer & Data Analyst</span>
                 </div>
                 <div className="bio-item">
                   <span className="bio-label">University</span>
@@ -182,12 +182,16 @@ const About = () => {
                   <span className="bio-value">Lucknow, UP, India</span>
                 </div>
                 <div className="bio-item">
+                  <span className="bio-label">Specialization</span>
+                  <span className="bio-value">Data Analytics, ML & Full Stack Dev</span>
+                </div>
+                <div className="bio-item">
                   <span className="bio-label">Core Philosophy</span>
-                  <span className="bio-value">Build tech that makes a social impact</span>
+                  <span className="bio-value">Turn raw data into real-world impact</span>
                 </div>
               </div>
               <div className="bio-quote">
-                "The best way to explore Artificial Intelligence is to build working interfaces that humans can seamlessly interact with."
+                "Data tells a story — my job is to build the intelligence that reads it, and the interfaces that make it actionable."
               </div>
             </div>
           )}
@@ -219,6 +223,19 @@ const About = () => {
                   <div className="focus-info">
                     <h4>Full Stack Engineering</h4>
                     <p>Designing performant server structures, responsive interfaces, and custom visual layers.</p>
+                  </div>
+                </div>
+
+                <div className="focus-card">
+                  <div className="focus-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M3 3v18h18" />
+                      <path d="M7 16l4-8 4 4 4-6" />
+                    </svg>
+                  </div>
+                  <div className="focus-info">
+                    <h4>Data Analytics & Machine Learning</h4>
+                    <p>Turning raw data into actionable insights using Pandas, NumPy, Plotly, and Scikit-Learn. Building predictive models, interactive dashboards, and automated analytics pipelines for real-world business intelligence.</p>
                   </div>
                 </div>
 

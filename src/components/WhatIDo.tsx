@@ -129,6 +129,49 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
+              <h3>DATA ANALYTICS</h3>
+              <h4>Analytics, ML & Visualization</h4>
+              <p>
+                Transforming raw data into actionable business insights through
+                statistical analysis, predictive modeling, and interactive
+                dashboards. Experienced with end-to-end data pipelines,
+                marketing analytics, and ML-powered forecasting.
+              </p>
+              <h5>Skillset & tools</h5>
+              <div className="what-content-flex">
+                <div className="what-tags">Pandas</div>
+                <div className="what-tags">NumPy</div>
+                <div className="what-tags">Scikit-Learn</div>
+                <div className="what-tags">Plotly</div>
+                <div className="what-tags">Matplotlib</div>
+                <div className="what-tags">SQL</div>
+                <div className="what-tags">Power BI</div>
+                <div className="what-tags">Streamlit</div>
+                <div className="what-tags">Statistical Analysis</div>
+                <div className="what-tags">Data Visualization</div>
+              </div>
+              <div className="what-arrow"></div>
+            </div>
+          </div>
+          <div
+            className="what-content what-noTouch"
+            ref={(el) => setRef(el, 2)}
+          >
+            <div className="what-border1">
+              <svg height="100%">
+                <line
+                  x1="0"
+                  y1="100%"
+                  x2="100%"
+                  y2="100%"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeDasharray="6,6"
+                />
+              </svg>
+            </div>
+            <div className="what-corner"></div>
+            <div className="what-content-in">
               <h3>EMBEDDED & TOOLS</h3>
               <h4>Hardware & Cloud Deployments</h4>
               <p>
