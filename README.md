@@ -20,6 +20,10 @@ built to showcase projects, skills, and achievements in a modern way.
 <img src="https://img.shields.io/badge/⚡_Mirror-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white">
 </a>
 
+<a href="https://www.linkedin.com/in/ajay-vishwakarma-71649129a/">
+<img src="https://img.shields.io/badge/LinkedIn-Ajay_Vishwakarma-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
+</a>
+
 <a href="https://github.com/ajay160380/Portfolio">
 <img src="https://img.shields.io/github/stars/ajay160380/Portfolio?style=for-the-badge&logo=github&color=yellow">
 </a>
@@ -140,14 +144,14 @@ Fully optimized for
 
 | Category | Technologies |
 |-----------|-------------|
-| Frontend | React 18 |
+| Core | React 18, TypeScript |
 | Build Tool | Vite |
 | 3D Engine | Three.js |
 | React Renderer | React Three Fiber |
 | Helpers | Drei |
 | Physics | React Three Rapier |
-| Animations | GSAP |
-| Styling | CSS3 |
+| Animations | GSAP & ScrollTrigger |
+| Styling | Modern CSS3 & CSS Variables |
 | Deployment | Netlify & Render |
 
 ---
@@ -157,17 +161,18 @@ Fully optimized for
 ```
 Portfolio
 │
-├── public/
+├── public/             # Static assets, PDFs, and resume templates
 ├── src/
-│   ├── components/
-│   ├── assets/
-│   ├── hooks/
-│   ├── styles/
-│   ├── pages/
-│   └── App.jsx
+│   ├── components/     # UI, 3D Character, Tech Stack, & Scene components
+│   ├── assets/         # Images and icons
+│   ├── hooks/          # Custom React hooks
+│   ├── styles/         # Global styles & theme definitions
+│   ├── App.tsx         # Root application component
+│   └── main.tsx        # Application entry point
 │
 ├── package.json
-└── vite.config.js
+├── tsconfig.json
+└── vite.config.ts
 ```
 
 ---
@@ -230,17 +235,10 @@ npm run preview
 
 # 📬 Connect With Me
 
-🌐 Portfolio
-
-https://ajay-vishwakarmaa.netlify.app
-
-GitHub
-
-https://github.com/ajay160380
-
-LinkedIn
-
-(Add your LinkedIn URL)
+- 🌐 **Portfolio**: [ajay-vishwakarmaa.netlify.app](https://ajay-vishwakarmaa.netlify.app)
+- 💻 **GitHub**: [@ajay160380](https://github.com/ajay160380)
+- 💼 **LinkedIn**: [Ajay Vishwakarma](https://www.linkedin.com/in/ajay-vishwakarma-71649129a/)
+- 📧 **Email**: [ajaykumar160380@gmail.com](mailto:ajaykumar160380@gmail.com)
 
 ---
 
