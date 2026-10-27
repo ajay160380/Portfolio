@@ -42,7 +42,7 @@ const projects = [
     category: "Data Analytics / AI WhatsApp Bot",
     description: "A smart expense tracking application that lives directly inside your WhatsApp. Zero apps required—just text your expenses, and our intelligent AI categorizes, analyzes spending patterns, and tracks your budget automatically with data-driven insights.",
     tools: "Python, WhatsApp API, Pandas, Data Analytics, NLP, Visualization",
-    link: "https://smart-expense-coach.onrender.com/",
+    link: "https://expense-coach-prxm.onrender.com",
     image: "/images/expense_tracker_mockup.png",
   },
   {
