@@ -1364,3 +1364,9 @@ body.is-menu-open #hero-scroll-badge,
     transform: translateX(-50%) translateY(3px);
   }
 }
+
+
+/* Ensure pixel jump covers all modals during transition */
+.pixel-jump {
+  z-index: 999999 !important;
+}

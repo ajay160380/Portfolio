@@ -7,15 +7,15 @@
     <meta name="description" content="Building high-performance, reactive web applications and SaaS architectures using React 19, TypeScript, Django, FastAPI, and PostgreSQL." />
     <meta name="theme-color" content="#000000" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-    <script type="module" crossorigin src="/assets/navigation-DiPJwl4U.js?v=copilot_20261028_native_hud_v26"></script>
-    <script type="module" crossorigin src="/assets/ContactDialog-DOlj7i4z.js?v=copilot_20261028_native_hud_v26"></script>
-    <script type="module" crossorigin src="/assets/press-CZTYHQGt.js?v=copilot_20261028_native_hud_v26"></script>
-    <script type="module" crossorigin src="/assets/pointer-CRoY6kdC.js?v=copilot_20261028_native_hud_v26"></script>
-    <script type="module" crossorigin src="/assets/main-87IQyVE-.js?v=copilot_20261028_native_hud_v26"></script>
-    <link rel="stylesheet" crossorigin href="/assets/navigation-BQ5-cxHW.css?v=copilot_20261028_native_hud_v26">
-    <link rel="stylesheet" crossorigin href="/assets/ContactDialog-BPD9mSvP.css?v=copilot_20261028_native_hud_v26">
-    <link rel="stylesheet" crossorigin href="/assets/press-DyA5bRzm.css?v=copilot_20261028_native_hud_v26">
-    <link rel="stylesheet" crossorigin href="/assets/main-Bo4HMVH-.css?v=copilot_20261028_native_hud_v26">
+    <script type="module" crossorigin src="/assets/navigation-DiPJwl4U.js?v=copilot_20261028_native_hud_v27"></script>
+    <script type="module" crossorigin src="/assets/ContactDialog-DOlj7i4z.js?v=copilot_20261028_native_hud_v27"></script>
+    <script type="module" crossorigin src="/assets/press-CZTYHQGt.js?v=copilot_20261028_native_hud_v27"></script>
+    <script type="module" crossorigin src="/assets/pointer-CRoY6kdC.js?v=copilot_20261028_native_hud_v27"></script>
+    <script type="module" crossorigin src="/assets/main-87IQyVE-.js?v=copilot_20261028_native_hud_v27"></script>
+    <link rel="stylesheet" crossorigin href="/assets/navigation-BQ5-cxHW.css?v=copilot_20261028_native_hud_v27">
+    <link rel="stylesheet" crossorigin href="/assets/ContactDialog-BPD9mSvP.css?v=copilot_20261028_native_hud_v27">
+    <link rel="stylesheet" crossorigin href="/assets/press-DyA5bRzm.css?v=copilot_20261028_native_hud_v27">
+    <link rel="stylesheet" crossorigin href="/assets/main-Bo4HMVH-.css?v=copilot_20261028_native_hud_v27">
     <link rel="canonical" href="/en/services/full-stack-web/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ajay Vishwakarma">
@@ -182,7 +182,7 @@
                 Lucknow, India &nbsp;|&nbsp; +91-7905398965 &nbsp;|&nbsp; <a href="mailto:ajaykumar160380@gmail.com">ajaykumar160380@gmail.com</a>
               </div>
               <div class="doc-contact-line">
-                <a href="https://linkedin.com/in/ajay-vishwakarma-71649129a" target="_blank" rel="noopener">linkedin.com/in/ajay-vishwakarma-71649129a</a> &nbsp;|&nbsp; 
+                <a href="https://www.linkedin.com/in/ajay-vishwakarma-ai/" target="_blank" rel="noopener">linkedin.com/in/ajay-vishwakarma-ai</a> &nbsp;|&nbsp; 
                 <a href="https://github.com/ajay160380" target="_blank" rel="noopener">github.com/ajay160380</a> &nbsp;|&nbsp; 
                 <a href="https://ajay-vishwakarmaa.netlify.app" target="_blank" rel="noopener">ajay-vishwakarmaa.netlify.app</a>
               </div>
@@ -362,7 +362,7 @@
         "  - Email: ajaykumar160380@gmail.com\n" +
         "  - Phone/WhatsApp: +91-7905398965\n" +
         "  - Location: Lucknow, India (Open to Remote and Relocation)\n" +
-        "  - LinkedIn: linkedin.com/in/ajay-vishwakarma-71649129a\n" +
+        "  - LinkedIn: https://www.linkedin.com/in/ajay-vishwakarma-ai/\n" +
         "  - GitHub: github.com/ajay160380\n" +
         "  - Live Portfolio: https://ajay-vishwakarmaa.netlify.app\n" +
         "  - Open for entry-level AI/ML, Full-Stack, Data Analytics, and Software Engineering roles, sales/business development, or internships.\n\n" +
@@ -683,10 +683,7 @@
       window.toggleResumeTheme = toggleResumeTheme;
 
       // Modal Controls (Transparent Resume HUD)
-      function openAjayResumeModal(trigger) {
-        if (trigger && typeof trigger.preventDefault === 'function') {
-          trigger.preventDefault();
-        }
+      function actuallyOpenResumeModal() {
         var modal = document.getElementById('ajay-resume-popup');
         if (!modal) return;
         if (modal.classList.contains('is-open')) return;
@@ -743,6 +740,182 @@
         modal.classList.remove('is-closing');
         void modal.offsetWidth;
         modal.classList.add('is-open');
+      }
+
+      function playResumeWaveTransition(onCovered, fromCoords) {
+        try {
+          var canvas = document.getElementById('ajay-transition-canvas');
+          if (!canvas) {
+            canvas = document.createElement('canvas');
+            canvas.id = 'ajay-transition-canvas';
+            canvas.setAttribute('aria-hidden', 'true');
+            canvas.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999999;display:block;';
+            document.body.appendChild(canvas);
+          }
+
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+          var dpr = Math.min(window.devicePixelRatio || 1, 2);
+          canvas.width = w * dpr;
+          canvas.height = h * dpr;
+          canvas.style.width = w + 'px';
+          canvas.style.height = h + 'px';
+          canvas.style.display = 'block';
+
+          var ctx = canvas.getContext('2d');
+          if (!ctx) {
+            if (typeof onCovered === 'function') onCovered();
+            return;
+          }
+          ctx.setTransform(1, 0, 0, 1, 0, 0);
+          ctx.scale(dpr, dpr);
+
+          var ox = (fromCoords && typeof fromCoords.x === 'number' && fromCoords.x > 0) ? fromCoords.x : (w / 2);
+          var oy = (fromCoords && typeof fromCoords.y === 'number' && fromCoords.y > 0) ? fromCoords.y : (h / 2);
+
+          var maxDist = Math.hypot(Math.max(ox, w - ox), Math.max(oy, h - oy));
+          var o = 0.5;
+          var cover = maxDist / o;
+          var c = maxDist * 0.7;
+          var clear = maxDist + c;
+
+          var reach = 0;
+          var hole = 0;
+          var animId = 0;
+
+          var easeInOutCubic = function(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+          var easeOutQuart = function(t) { return 1 - Math.pow(1 - t, 4); };
+
+          function drawFrame() {
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.globalAlpha = 1;
+            ctx.clearRect(0, 0, w, h);
+
+            if (reach <= 0.5) return;
+
+            var reachRatio = Math.min(1, reach / cover);
+            var holeRatio = Math.min(1, hole / clear);
+
+            ctx.globalAlpha = Math.max(0, 1 - holeRatio * holeRatio * 0.75);
+            ctx.fillStyle = 'rgb(61 139 255 / ' + (reachRatio * reachRatio * 0.7).toFixed(3) + ')';
+            ctx.fillRect(0, 0, w, h);
+
+            var grad = ctx.createRadialGradient(ox, oy, 0, ox, oy, reach);
+            grad.addColorStop(0, 'rgb(255 255 255 / 1)');
+            grad.addColorStop(o * 0.4, 'rgb(217 232 255 / 1)');
+            grad.addColorStop(o, 'rgb(61 139 255 / 1)');
+            grad.addColorStop(0.725, 'rgb(61 139 255 / 0.45)');
+            grad.addColorStop(1, 'rgb(61 139 255 / 0)');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, w, h);
+
+            if (reachRatio > 0.05 && reachRatio < 0.98) {
+              var sparkCount = 36;
+              var sparkRadius = reach * 0.5;
+              ctx.fillStyle = 'rgba(255, 255, 255, ' + ((1 - holeRatio) * 0.8) + ')';
+              for (var s = 0; s < sparkCount; s++) {
+                var angle = (s / sparkCount) * Math.PI * 2 + (reachRatio * 2);
+                var dist = sparkRadius + ((s * 37) % 40) - 20;
+                var px = ox + Math.cos(angle) * dist;
+                var py = oy + Math.sin(angle) * dist;
+                var size = 3 + ((s % 3) * 2);
+                ctx.fillRect(px, py, size, size);
+              }
+            }
+
+            if (hole <= 0.5) return;
+
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.globalAlpha = 1;
+            var holeGrad = ctx.createRadialGradient(ox, oy, 0, ox, oy, hole);
+            holeGrad.addColorStop(Math.max(0, (hole - c) / hole), 'rgb(0 0 0 / 1)');
+            holeGrad.addColorStop(1, 'rgb(0 0 0 / 0)');
+            ctx.fillStyle = holeGrad;
+            ctx.fillRect(0, 0, w, h);
+          }
+
+          var durationIn = 480;
+          var durationOut = 750;
+          var startInTime = null;
+          var startOutTime = null;
+          var coveredCalled = false;
+
+          function animate(now) {
+            if (!startInTime) startInTime = now;
+            var elapsed = now - startInTime;
+            if (elapsed < durationIn) {
+              var p = elapsed / durationIn;
+              reach = cover * easeInOutCubic(p);
+              hole = 0;
+              drawFrame();
+              animId = requestAnimationFrame(animate);
+            } else if (!coveredCalled) {
+              coveredCalled = true;
+              reach = cover;
+              hole = 0;
+              drawFrame();
+              if (typeof onCovered === 'function') {
+                onCovered();
+              }
+              animId = requestAnimationFrame(animateOut);
+            }
+          }
+
+          function animateOut(now) {
+            if (!startOutTime) startOutTime = now;
+            var elapsed = now - startOutTime;
+            if (elapsed < durationOut) {
+              var p = elapsed / durationOut;
+              hole = clear * easeOutQuart(p);
+              drawFrame();
+              animId = requestAnimationFrame(animateOut);
+            } else {
+              hole = clear;
+              drawFrame();
+              ctx.clearRect(0, 0, w, h);
+              canvas.style.display = 'none';
+            }
+          }
+
+          // Guaranteed cleanup safety timer
+          setTimeout(function() {
+            if (canvas && canvas.style.display !== 'none') {
+              ctx.clearRect(0, 0, w, h);
+              canvas.style.display = 'none';
+            }
+          }, durationIn + durationOut + 300);
+
+          animId = requestAnimationFrame(animate);
+        } catch (err) {
+          console.warn('Wave transition fallback:', err);
+          if (typeof onCovered === 'function') onCovered();
+        }
+      }
+
+      window.playPixelWave = playResumeWaveTransition;
+      window.playLightWaveTransition = playResumeWaveTransition;
+
+      function openAjayResumeModal(trigger) {
+        if (trigger && typeof trigger.preventDefault === 'function') {
+          trigger.preventDefault();
+        }
+        var fromCoords = null;
+        if (trigger) {
+          if (typeof trigger.clientX === 'number' && typeof trigger.clientY === 'number' && (trigger.clientX > 0 || trigger.clientY > 0)) {
+            fromCoords = { x: trigger.clientX, y: trigger.clientY };
+          } else if (trigger.currentTarget && trigger.currentTarget.getBoundingClientRect) {
+            var rect = trigger.currentTarget.getBoundingClientRect();
+            fromCoords = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+          } else if (trigger.target && trigger.target.getBoundingClientRect) {
+            var rect = trigger.target.getBoundingClientRect();
+            fromCoords = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+          } else if (trigger.x && trigger.y) {
+            fromCoords = { x: trigger.x, y: trigger.y };
+          }
+        }
+        playResumeWaveTransition(function() {
+          actuallyOpenResumeModal();
+        }, fromCoords);
       }
 
       function closeAjayResumeModal() {

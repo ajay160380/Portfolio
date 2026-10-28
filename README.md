@@ -16,7 +16,7 @@ and seamless Web3Forms background contact messaging.
 <img src="https://img.shields.io/badge/🌐_Live_Demo-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white">
 </a>
 
-<a href="https://www.linkedin.com/in/ajay-vishwakarma-71649129a/">
+<a href="https://www.linkedin.com/in/ajay-vishwakarma-ai/">
 <img src="https://img.shields.io/badge/LinkedIn-Ajay_Vishwakarma-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
 </a>
 
@@ -51,5 +51,5 @@ and seamless Web3Forms background contact messaging.
 ## 📬 Contact
 
 - **Email**: [ajaykumar160380@gmail.com](mailto:ajaykumar160380@gmail.com)
-- **LinkedIn**: [Ajay Vishwakarma](https://www.linkedin.com/in/ajay-vishwakarma-71649129a/)
+- **LinkedIn**: [Ajay Vishwakarma](https://www.linkedin.com/in/ajay-vishwakarma-ai/)
 - **Live Portfolio**: [ajay-vishwakarmaa.netlify.app](https://ajay-vishwakarmaa.netlify.app)
