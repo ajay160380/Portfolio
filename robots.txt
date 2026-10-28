@@ -1,0 +1,8 @@
+User-agent: Bytespider
+User-agent: TikTokSpider
+Disallow: /
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+Sitemap: https://ajay-vishwakarmaa.netlify.app/sitemap.xml

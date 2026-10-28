@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <script>
+      // Someone who chose Korean before gets the Korean page.
+      ;(function () {
+        try {
+          if (localStorage.getItem('puture-lang') === 'ko')
+            location.replace((location.pathname.replace(/^\/en(?=\/|$)/, '') || '/') + location.search + location.hash)
+        } catch (e) {}
+      })()
+    </script>
+    <script>
+      // Opened through the pixel wave (src/scroll/pixelJump.ts): start dark, so nothing flashes before it covers the page.
+      try {
+        if (sessionStorage.getItem('puture-wave')) document.documentElement.classList.add('is-shifting')
+      } catch (e) {}
+    </script>
+    <title>I Am Solo in Gwanghwamun — PUTURE</title>
+    <meta name="description" content="A pop-up kiosk for ENA’s I Am Solo in Gwanghwamun: a face photo becomes an AI character profile and a talent-show result, taken home as a print." />
+    <meta name="theme-color" content="#000000" />
+    <link  rel="alternate" hreflang="ko" href="https://puture.co.kr/work/i-am-solo/" />
+    <link  rel="alternate" hreflang="en" href="index.html" />
+    <link  rel="alternate" hreflang="x-default" href="index.html" />
+    <link rel="icon" type="image/svg+xml" href="../../../favicon.svg%3Fv=2" />
+    <script type="module" crossorigin src="../../../assets/navigation-DiPJwl4U.js"></script>
+    <script type="module" crossorigin src="../../../assets/ContactDialog-DOlj7i4z.js"></script>
+    <script type="module" crossorigin src="../../../assets/press-CZTYHQGt.js"></script>
+    <script type="module" crossorigin src="../../../assets/pointer-CRoY6kdC.js"></script>
+    <script type="module" crossorigin src="../../../assets/main-Bef9ez74.js"></script>
+    <link rel="stylesheet" crossorigin href="../../../assets/navigation-BQ5-cxHW.css">
+    <link rel="stylesheet" crossorigin href="../../../assets/ContactDialog-BPD9mSvP.css">
+    <link rel="stylesheet" crossorigin href="../../../assets/press-DyA5bRzm.css">
+    <link rel="canonical" href="index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PUTURE">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ko_KR">
+    <meta property="og:title" content="I Am Solo in Gwanghwamun — PUTURE">
+    <meta property="og:description" content="A pop-up kiosk for ENA’s I Am Solo in Gwanghwamun: a face photo becomes an AI character profile and a talent-show result, taken home as a print.">
+    <meta property="og:url" content="https://puture.co.kr/en/work/i-am-solo/">
+    <meta property="og:image" content="https://puture.co.kr/og/i-am-solo-en.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="I Am Solo in Gwanghwamun — PUTURE">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="I Am Solo in Gwanghwamun — PUTURE">
+    <meta name="twitter:description" content="A pop-up kiosk for ENA’s I Am Solo in Gwanghwamun: a face photo becomes an AI character profile and a talent-show result, taken home as a print.">
+    <meta name="twitter:image" content="https://puture.co.kr/og/i-am-solo-en.jpg">
+    <link rel="icon" href="../../../favicon.ico%3Fv=2" sizes="48x48">
+    <link rel="icon" type="image/png" href="../../../icon-192.png%3Fv=2" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://puture.co.kr/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="../../../site.webmanifest">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CCH2R7EL3"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+if (location.hostname === 'puture.co.kr') gtag('config', 'G-5CCH2R7EL3');</script>
+    <script>if (location.hostname === 'puture.co.kr') {
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2434182043775781');
+fbq('track', 'PageView');
+}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://puture.co.kr/#organization","name":"PUTURE","alternateName":"퓨처","url":"https://puture.co.kr/","logo":{"@type":"ImageObject","url":"https://puture.co.kr/icon-512.png","width":512,"height":512},"image":"https://puture.co.kr/og/home-en.jpg","slogan":"Experiences, engineered.","description":"We build interactive experiences with AI. PUTURE builds AI experiences and interactive software. UX, design, development and AI integration, all within one team.","email":"info@puture.co.kr","founder":{"@type":"Person","name":"Sun Kim"},"address":{"@type":"PostalAddress","streetAddress":"3F V1303, JS Tower, 6 Teheran-ro 79-gil","addressLocality":"Gangnam-gu","addressRegion":"Seoul","postalCode":"06158","addressCountry":"KR"},"contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"info@puture.co.kr","availableLanguage":["Korean","English"]},"sameAs":["https://www.instagram.com/puture.co.kr/"],"areaServed":"KR","hasOfferCatalog":{"@type":"OfferCatalog","name":"PUTURE services","itemListElement":[{"@type":"Offer","itemOffered":{"@id":"https://puture.co.kr/en/services/exhibition/#service"}},{"@type":"Offer","itemOffered":{"@id":"https://puture.co.kr/en/services/popup-store/#service"}},{"@type":"Offer","itemOffered":{"@id":"https://puture.co.kr/en/services/ai-experience/#service"}}]},"knowsAbout":["Interactive content","Media exhibits","Interactive walls","Kiosks","Brand experiences","Pop-up stores","Showrooms","AI campaigns","AI engineering","LLM","Generative AI","Computer vision","Design and engineering","AI pipelines","Real-time 3D","Voice and gesture","Production-grade","Systems thinking"]},{"@type":"WebSite","@id":"https://puture.co.kr/#website","url":"https://puture.co.kr/","name":"PUTURE","alternateName":"퓨처","inLanguage":["ko-KR","en"],"publisher":{"@id":"https://puture.co.kr/#organization"}},{"@type":"WebPage","@id":"https://puture.co.kr/en/work/i-am-solo/#webpage","url":"https://puture.co.kr/en/work/i-am-solo/","name":"I Am Solo in Gwanghwamun — PUTURE","description":"A pop-up kiosk for ENA’s I Am Solo in Gwanghwamun: a face photo becomes an AI character profile and a talent-show result, taken home as a print.","inLanguage":"en","isPartOf":{"@id":"https://puture.co.kr/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://puture.co.kr/og/i-am-solo-en.jpg","width":1200,"height":630},"mainEntity":{"@id":"https://puture.co.kr/en/work/i-am-solo/#work"},"breadcrumb":{"@id":"https://puture.co.kr/en/work/i-am-solo/#breadcrumb"}},{"@type":"CreativeWork","@id":"https://puture.co.kr/en/work/i-am-solo/#work","url":"https://puture.co.kr/en/work/i-am-solo/","name":"I Am Solo in Gwanghwamun","description":"A portrait kiosk for the pop-up of ENA’s I Am Solo. Visitors have their face photographed, get an AI character profile and a talent-show result, and take them home by QR code and as a print.","abstract":"A pop-up kiosk that makes visitors the star of ENA’s I Am Solo. They tap the start screen, choose a gender and have their face photographed, and an AI-made character profile appears. A talent-show result follows in the same visit, and the result can be saved from a QR code on screen or printed on site.","image":"https://puture.co.kr/work/i-am-solo/start.webp","inLanguage":"en","creator":{"@id":"https://puture.co.kr/#organization"},"sourceOrganization":{"@type":"Organization","name":"KT Onmaji × ENA"},"locationCreated":{"@type":"Place","name":"Pop-up at the KT Onmaji flagship store, Gwanghwamun, Seoul"},"dateCreated":"2025","keywords":"Portrait touch kiosk, Camera capture, AI face swap, Results by QR code, On-site printing","video":[{"@type":"VideoObject","name":"I Am Solo in Gwanghwamun","description":"Demonstrated at the Gwanghwamun pop-up (edited)","thumbnailUrl":"https://puture.co.kr/work/i-am-solo/site.webp","contentUrl":"https://puture.co.kr/work/i-am-solo/site.mp4","uploadDate":"2026-10-21T21:00:00+09:00","inLanguage":"en","creator":{"@id":"https://puture.co.kr/#organization"}}]},{"@type":"BreadcrumbList","@id":"https://puture.co.kr/en/work/i-am-solo/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"PUTURE","item":"https://puture.co.kr/en/"},{"@type":"ListItem","position":2,"name":"I Am Solo in Gwanghwamun","item":"https://puture.co.kr/en/work/i-am-solo/"}]}]}</script>
+  </head>
+  <body>
+    <div id="root" data-project="i-am-solo"><div class="prerender"><header><a href="../../index.html">PUTURE</a><nav><a href="../../index.html#about">About</a> <a href="../../index.html#work">Work</a> <a href="../../index.html#process">Process</a> <a href="../../index.html#studio">Studio</a> <a href="https://puture.co.kr/work/i-am-solo/">한국어</a></nav></header><main><article><p><a href="../../index.html#work">Work</a> / I Am Solo in Gwanghwamun</p><h1>I Am Solo in Gwanghwamun</h1><p>A portrait kiosk for the pop-up of ENA’s I Am Solo. Visitors have their face photographed, get an AI character profile and a talent-show result, and take them home by QR code and as a print.</p><dl><dt>Client</dt><dd>KT Onmaji × ENA</dd><dt>Where</dt><dd>Pop-up at the KT Onmaji flagship store, Gwanghwamun, Seoul</dd><dt>When</dt><dd>2025</dd><dt>Our part</dt><dd>Kiosk software</dd></dl><p>A pop-up kiosk that makes visitors the star of ENA’s I Am Solo. They tap the start screen, choose a gender and have their face photographed, and an AI-made character profile appears. A talent-show result follows in the same visit, and the result can be saved from a QR code on screen or printed on site.</p><h3>Prints and characters</h3><ul><li>A profile printed on site</li><li>Character profiles</li><li>Talent-show results</li></ul><section><h2>Key engineering</h2><ul><li>Portrait touch-kiosk interface from the start screen through gender choice and face photo to the profile</li><li>AI character profile and talent-show result made from the face photo</li><li>Results saved from a QR code on screen, and profiles printed on site</li></ul></section><section><h2>System</h2><ul><li>Touch screen</li><li>Kiosk camera</li><li>Kiosk app</li><li>AI profile and talent-show generation</li><li>AI character profile</li><li>Talent-show result</li><li>Print and QR code</li></ul><p>Portrait touch kiosk, Camera capture, AI face swap, Results by QR code, On-site printing</p></section><nav><h2>More work</h2><ul><li><a href="../kt-ai-station/index.html">KT AI Station</a></li><li><a href="../jimssalabium/index.html">Jimssalabium</a></li><li><a href="../millie-genre-me/index.html">Me in a Genre</a></li><li><a href="../todays-picnic/index.html">Today’s Picnic</a></li><li><a href="../booking-system/index.html">On-site booking</a></li><li><a href="../wis-2026/index.html">WIS 2026 Interactive Player</a></li></ul></nav></article></main><footer><nav><a href="../../services/exhibition/index.html">Exhibition experiences</a> · <a href="../../services/popup-store/index.html">Pop-up store experiences</a> · <a href="../../services/ai-experience/index.html">AI experiences</a></nav><p>PUTURE · Founder Sun Kim · 3F V1303, JS Tower, 6 Teheran-ro 79-gil, Gangnam-gu, Seoul 06158, Republic of Korea</p><p><!--email_off--><a href="mailto:info@puture.co.kr">info@puture.co.kr</a><!--/email_off--> · <a href="../../privacy/index.html">Privacy policy</a></p></footer></div></div>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5121525cda99ea1',t:'MTc5MzEwODExMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

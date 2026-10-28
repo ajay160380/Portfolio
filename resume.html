@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajay Vishwakarma - Resume</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    :root {
+        --blue: #3d8bff;
+        --bg-dark: #02040c;
+        --border-glass: rgba(255, 255, 255, 0.15);
+    }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        color: #f1f5f9;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-dark);
+        line-height: 1.45;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    #space-bg {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .main-wrapper {
+        position: relative;
+        z-index: 1;
+        padding: 24px 16px 60px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .actions-bar {
+        width: 100%;
+        max-width: 860px;
+        margin: 0 auto 20px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .back-btn, .dl-btn, .theme-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 18px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+        font-family: monospace, -apple-system, sans-serif;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+    }
+    .back-btn, .theme-btn {
+        background: rgba(255, 255, 255, 0.08);
+        color: #cbd5e1;
+        border: 1px solid var(--border-glass);
+        backdrop-filter: blur(10px);
+    }
+    .back-btn:hover, .theme-btn:hover {
+        background: rgba(255, 255, 255, 0.16);
+        color: #ffffff;
+    }
+    .dl-btn {
+        background: var(--blue);
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(61, 139, 255, 0.35);
+    }
+    .dl-btn:hover {
+        background: #2563eb;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 30px rgba(61, 139, 255, 0.5);
+    }
+
+    /* Authentic Resume Document Sheet */
+    .resume-doc-sheet {
+        width: 100%;
+        max-width: 860px;
+        border-radius: 6px;
+        padding: clamp(32px, 5vw, 56px) clamp(24px, 5vw, 64px);
+        box-sizing: border-box;
+        line-height: 1.45;
+        font-size: 14px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+    }
+
+    /* 1. Translucent Dark Glass Theme (Default) */
+    .resume-doc-sheet.theme--glass {
+        background: rgba(10, 16, 32, 0.78);
+        color: #f1f5f9;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    .resume-doc-sheet.theme--glass .doc-header h1 {
+        color: #ffffff;
+    }
+    .resume-doc-sheet.theme--glass .doc-contact-line {
+        color: #cbd5e1;
+    }
+    .resume-doc-sheet.theme--glass .doc-contact-line a {
+        color: #60a5fa;
+        text-decoration: none;
+    }
+    .resume-doc-sheet.theme--glass .doc-contact-line a:hover {
+        text-decoration: underline;
+        color: #ffffff;
+    }
+    .resume-doc-sheet.theme--glass .doc-section-h2 {
+        color: #ffffff;
+        border-bottom: 1.5px solid rgba(255, 255, 255, 0.25);
+    }
+    .resume-doc-sheet.theme--glass .doc-p {
+        color: #e2e8f0;
+    }
+    .resume-doc-sheet.theme--glass .skill-label {
+        color: #ffffff;
+        font-weight: 700;
+    }
+    .resume-doc-sheet.theme--glass .doc-skill-row {
+        color: #cbd5e1;
+    }
+    .resume-doc-sheet.theme--glass .doc-title-left {
+        color: #ffffff;
+        font-weight: 700;
+    }
+    .resume-doc-sheet.theme--glass .doc-date-right {
+        color: #94a3b8;
+        font-weight: 600;
+        font-family: monospace;
+    }
+    .resume-doc-sheet.theme--glass .doc-sub-title {
+        color: #38bdf8;
+        font-style: italic;
+    }
+    .resume-doc-sheet.theme--glass .doc-ul {
+        color: #cbd5e1;
+    }
+    .resume-doc-sheet.theme--glass .doc-ul li strong {
+        color: #ffffff;
+    }
+
+    /* 2. Classic Crisp Paper Theme */
+    .resume-doc-sheet.theme--paper {
+        background: #ffffff;
+        color: #111111;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 35px 100px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(0, 0, 0, 0.1);
+    }
+    .resume-doc-sheet.theme--paper .doc-header h1 {
+        color: #000000;
+    }
+    .resume-doc-sheet.theme--paper .doc-contact-line {
+        color: #222222;
+    }
+    .resume-doc-sheet.theme--paper .doc-contact-line a {
+        color: #0f62fe;
+        text-decoration: none;
+    }
+    .resume-doc-sheet.theme--paper .doc-contact-line a:hover {
+        text-decoration: underline;
+    }
+    .resume-doc-sheet.theme--paper .doc-section-h2 {
+        color: #000000;
+        border-bottom: 1.5px solid #111111;
+    }
+    .resume-doc-sheet.theme--paper .doc-p {
+        color: #222222;
+    }
+    .resume-doc-sheet.theme--paper .skill-label {
+        color: #000000;
+        font-weight: 700;
+    }
+    .resume-doc-sheet.theme--paper .doc-skill-row {
+        color: #222222;
+    }
+    .resume-doc-sheet.theme--paper .doc-title-left {
+        color: #000000;
+        font-weight: 700;
+    }
+    .resume-doc-sheet.theme--paper .doc-date-right {
+        color: #222222;
+        font-weight: 600;
+        font-family: monospace;
+    }
+    .resume-doc-sheet.theme--paper .doc-sub-title {
+        color: #444444;
+        font-style: italic;
+    }
+    .resume-doc-sheet.theme--paper .doc-ul {
+        color: #222222;
+    }
+    .resume-doc-sheet.theme--paper .doc-ul li strong {
+        color: #000000;
+    }
+
+    /* Document Structure Rules */
+    .doc-header {
+        text-align: center;
+        margin-bottom: 18px;
+    }
+    .doc-header h1 {
+        font-size: clamp(22px, 2.8vw, 28px);
+        margin: 0 0 6px 0;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        line-height: 1.2;
+    }
+    .doc-contact-line {
+        font-size: 13px;
+        margin-bottom: 3px;
+        line-height: 1.4;
+    }
+    .doc-section-h2 {
+        font-size: 13.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 18px 0 8px 0;
+        padding-bottom: 3px;
+    }
+    .doc-p {
+        margin: 0 0 10px 0;
+        text-align: justify;
+        font-size: 13.5px;
+        line-height: 1.5;
+    }
+    .doc-skill-row {
+        margin-bottom: 5px;
+        font-size: 13.5px;
+        line-height: 1.45;
+    }
+    .doc-section-item {
+        margin-bottom: 12px;
+    }
+    .doc-flex-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        width: 100%;
+        margin-bottom: 2px;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .doc-title-left {
+        font-size: 14px;
+    }
+    .doc-date-right {
+        font-size: 12.5px;
+        text-align: right;
+    }
+    .doc-sub-title {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+    .doc-ul {
+        margin: 2px 0 8px 0;
+        padding-left: 18px;
+    }
+    .doc-ul li {
+        margin-bottom: 3px;
+        text-align: justify;
+        font-size: 13.5px;
+        line-height: 1.45;
+    }
+
+    @media print {
+        #space-bg, .actions-bar {
+            display: none !important;
+        }
+        body {
+            background: #ffffff !important;
+            color: #000000 !important;
+            padding: 0 !important;
+        }
+        .resume-doc-sheet {
+            background: #ffffff !important;
+            color: #000000 !important;
+            box-shadow: none !important;
+            border: none !important;
+            padding: 0 !important;
+            max-width: 100% !important;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <canvas id="space-bg"></canvas>
+
+    <div class="main-wrapper">
+        <div class="actions-bar">
+            <a href="/" class="back-btn">&larr; Back to Portfolio</a>
+            <div style="display:flex;gap:10px;align-items:center;">
+                <button type="button" class="theme-btn" id="toggle-theme-btn" onclick="toggleStandaloneTheme()">✨ Dark Glass Mode</button>
+                <a href="/Ajay_Vishwakarma_Resume.pdf" download="Ajay_Vishwakarma_Resume.pdf" class="dl-btn">&#8595; Download Official PDF</a>
+            </div>
+        </div>
+
+        <div class="resume-doc-sheet theme--paper" id="resume-sheet">
+            <div class="doc-header">
+                <h1>AJAY VISHWAKARMA</h1>
+                <div style="font-size:13px;font-weight:600;letter-spacing:0.04em;color:#2563eb;margin-bottom:6px;text-transform:uppercase;">
+                    AI/ML Engineer &bull; Full-Stack Developer &bull; Data Analyst
+                </div>
+                <div class="doc-contact-line">
+                    Lucknow, India &nbsp;|&nbsp; +91-7905398965 &nbsp;|&nbsp; <a href="mailto:ajaykumar160380@gmail.com">ajaykumar160380@gmail.com</a>
+                </div>
+                <div class="doc-contact-line">
+                    <a href="https://linkedin.com/in/ajay-vishwakarma-71649129a" target="_blank" rel="noopener">linkedin.com/in/ajay-vishwakarma-71649129a</a> &nbsp;|&nbsp; 
+                    <a href="https://github.com/ajay160380" target="_blank" rel="noopener">github.com/ajay160380</a> &nbsp;|&nbsp; 
+                    <a href="https://ajay-vishwakarmaa.netlify.app" target="_blank" rel="noopener">ajay-vishwakarmaa.netlify.app</a>
+                </div>
+            </div>
+
+            <h2 class="doc-section-h2">SUMMARY</h2>
+            <p class="doc-p">Final-year B.Tech (CSE – AI) student with strong communication and persuasion skills and a target-driven mindset. Quick learner, comfortable working with data, and confident in presenting ideas to people. Looking for a Business Development or Sales role where I can understand customer needs, offer the right solutions and contribute to the company's growth.</p>
+
+            <h2 class="doc-section-h2">SKILLS</h2>
+            <div class="doc-skill-row"><span class="skill-label">• Technical Skills:</span> Python, Django, REST APIs, PostgreSQL, Pandas, MS Excel, Data Visualization</div>
+            <div class="doc-skill-row"><span class="skill-label">• AI &amp; Tools:</span> Generative AI, Prompt Engineering, LLM APIs, Firebase, Razorpay, Git &amp; GitHub</div>
+            <div class="doc-skill-row"><span class="skill-label">• Professional Skills:</span> Communication, Negotiation, Persuasive Speaking, Problem Solving, Teamwork</div>
+
+            <h2 class="doc-section-h2">EDUCATION</h2>
+            <div class="doc-section-item">
+                <div class="doc-flex-header">
+                    <span class="doc-title-left">Babu Banarasi Das University, Lucknow, India</span>
+                    <span class="doc-date-right">Expected May 2027</span>
+                </div>
+                <div class="doc-sub-title">Bachelor of Technology in Computer Science and Engineering (AI)</div>
+                <ul class="doc-ul">
+                    <li>Active contributor in departmental technical activities and university events.</li>
+                </ul>
+            </div>
+            <div class="doc-section-item">
+                <div class="doc-flex-header">
+                    <span class="doc-title-left">Oxford Public School, Gorakhpur, India</span>
+                    <span class="doc-date-right">2023</span>
+                </div>
+                <div class="doc-sub-title">Class 12th (Senior Secondary) – CBSE</div>
+            </div>
+            <div class="doc-section-item">
+                <div class="doc-flex-header">
+                    <span class="doc-title-left">Oxford Public School, Gorakhpur, India</span>
+                    <span class="doc-date-right">2021</span>
+                </div>
+                <div class="doc-sub-title">Class 10th (Secondary) – CBSE</div>
+            </div>
+
+            <h2 class="doc-section-h2">INTERNSHIPS &amp; TRAINING</h2>
+            <div class="doc-section-item">
+                <div class="doc-flex-header">
+                    <span class="doc-title-left">CodSoft</span>
+                    <span class="doc-date-right">Sep 2026</span>
+                </div>
+                <div class="doc-sub-title">Data Analytics Intern | Remote</div>
+                <ul class="doc-ul">
+                    <li>Analyzed structured datasets using Python to extract operational insights and identify trends useful for client targeting.</li>
+                    <li>Created structured data visualization reports and daily trackers to monitor performance and progress.</li>
+                    <li>Maintained accurate data pipelines relevant to lead tracking and business progress updates.</li>
+                </ul>
+            </div>
+            <div class="doc-section-item">
+                <div class="doc-flex-header">
+                    <span class="doc-title-left">Grastech</span>
+                    <span class="doc-date-right">2026</span>
+                </div>
+                <div class="doc-sub-title">Data Science and Artificial Intelligence Trainee | Lucknow, India</div>
+                <ul class="doc-ul">
+                    <li>Completed 1 month of professional on-site training focused on exploratory data analysis and project execution.</li>
+                    <li>Collaborated in a team environment to manage daily tasks, ensuring timely delivery of project modules and maintaining effective communication.</li>
+                </ul>
+            </div>
+
+            <h2 class="doc-section-h2">PRACTICAL PROJECTS</h2>
+            <div class="doc-section-item">
+                <div class="doc-flex-header">
+                    <span class="doc-title-left">EduTech AI (AI-Powered Interactive Learning Platform)</span>
+                    <span class="doc-date-right">2026</span>
+                </div>
+                <div class="doc-sub-title">Python, Django, Groq (Llama 3.1) API, Firebase Auth, Razorpay</div>
+                <ul class="doc-ul">
+                    <li>Built a full-stack EdTech platform that turns YouTube playlists (500+ videos supported) into interactive classrooms with AI summaries, quizzes, a Hinglish AI tutor and a Pomodoro focus room.</li>
+                    <li>Implemented multi-tier Razorpay subscriptions, Google login via Firebase and PDF certificates with a public verification link; deployed live on Render and Hugging Face with Neon PostgreSQL.</li>
+                </ul>
+            </div>
+            <div class="doc-section-item">
+                <div class="doc-flex-header">
+                    <span class="doc-title-left">Smart Expense Tracker (AI WhatsApp Bot)</span>
+                    <span class="doc-date-right">2026</span>
+                </div>
+                <div class="doc-sub-title">Django REST, Groq AI, WhatsApp Bot (Baileys), React Native, PostgreSQL</div>
+                <ul class="doc-ul">
+                    <li>Built an AI-powered expense tracker where users log expenses on WhatsApp in Hindi, Hinglish or English; Groq Llama 3.1 parses and categorizes each message into a dashboard entry.</li>
+                    <li>Developed the Django REST backend, web dashboard and React Native mobile app with automated reminders; deployed on Render with Neon PostgreSQL.</li>
+                </ul>
+            </div>
+            <div class="doc-section-item">
+                <div class="doc-flex-header">
+                    <span class="doc-title-left">House Price &amp; Brain Tumor Prediction Systems</span>
+                    <span class="doc-date-right">2026</span>
+                </div>
+                <div class="doc-sub-title">Data Analysis, Classification, Regression</div>
+                <ul class="doc-ul">
+                    <li>Built prediction and classification models across datasets to evaluate pattern accuracy (processing over 1000 records).</li>
+                    <li>Showcases logical thinking, attention to detail, and the ability to translate data into actionable insights.</li>
+                </ul>
+            </div>
+
+            <h2 class="doc-section-h2">CERTIFICATIONS &amp; LEADERSHIP</h2>
+            <ul class="doc-ul">
+                <li><strong>NSS Volunteer (Management &amp; Technical Teams):</strong> Handled event logistics and coordinated student volunteer groups for campus-level social initiatives; supported digital content and event-related tech support.</li>
+                <li><strong>Soft Skill Program:</strong> Learnovate Enterprises, BBD University (professional communication &amp; client interactions).</li>
+                <li><strong>Microsoft Azure AI Essentials Professional Certificate</strong> – Microsoft &amp; LinkedIn Learning</li>
+                <li><strong>GenAI Powered Data Analytics Simulation</strong> – Forage</li>
+                <li><strong>Data Analytics Simulation</strong> – Deloitte (via Forage)</li>
+                <li><strong>AI and Cybersecurity Awareness</strong> – TCS iON</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Space Background Animation -->
+    <script>
+      var currentTheme = 'paper';
+      function toggleStandaloneTheme() {
+        var sheet = document.getElementById('resume-sheet');
+        var btn = document.getElementById('toggle-theme-btn');
+        if (currentTheme === 'paper') {
+          currentTheme = 'glass';
+          sheet.className = 'resume-doc-sheet theme--glass';
+          btn.textContent = '📄 White Paper Mode';
+        } else {
+          currentTheme = 'paper';
+          sheet.className = 'resume-doc-sheet theme--paper';
+          btn.textContent = '✨ Dark Glass Mode';
+        }
+      }
+
+      (function() {
+        var canvas = document.getElementById('space-bg');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var width, height;
+        var stars = [];
+        var numStars = 140;
+
+        function resize() {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        for (var i = 0; i < numStars; i++) {
+          stars.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: Math.random() * 1.8 + 0.4,
+            speedY: Math.random() * 0.4 + 0.1,
+            speedX: (Math.random() - 0.5) * 0.2,
+            alpha: Math.random() * 0.7 + 0.3,
+            pulse: Math.random() * 0.02 + 0.005
+          });
+        }
+
+        function drawGrid() {
+          ctx.strokeStyle = 'rgba(61, 139, 255, 0.04)';
+          ctx.lineWidth = 1;
+          var gridSize = 60;
+          for (var x = 0; x < width; x += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, height);
+            ctx.stroke();
+          }
+          for (var y = 0; y < height; y += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(width, y);
+            ctx.stroke();
+          }
+        }
+
+        function render() {
+          ctx.clearRect(0, 0, width, height);
+
+          var grad = ctx.createRadialGradient(width / 2, height * 0.3, 50, width / 2, height * 0.4, width * 0.8);
+          grad.addColorStop(0, '#061026');
+          grad.addColorStop(0.5, '#030714');
+          grad.addColorStop(1, '#02040c');
+          ctx.fillStyle = grad;
+          ctx.fillRect(0, 0, width, height);
+
+          drawGrid();
+
+          for (var i = 0; i < stars.length; i++) {
+            var s = stars[i];
+            s.y += s.speedY;
+            s.x += s.speedX;
+            s.alpha += s.pulse;
+            if (s.alpha > 0.95 || s.alpha < 0.2) s.pulse = -s.pulse;
+
+            if (s.y > height) { s.y = 0; s.x = Math.random() * width; }
+            if (s.x > width) s.x = 0;
+            if (s.x < 0) s.x = width;
+
+            ctx.fillStyle = 'rgba(147, 197, 253, ' + Math.max(0.1, s.alpha) + ')';
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = '#3d8bff';
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+          }
+
+          requestAnimationFrame(render);
+        }
+        render();
+      })();
+    </script>
+
+</body>
+</html>

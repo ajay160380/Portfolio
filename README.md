@@ -1,13 +1,13 @@
 <div align="center">
 
-# 🚀 Ajay's Interactive 3D Portfolio
+# 🚀 Ajay Vishwakarma — Interactive 3D Portfolio
 
-### Crafting immersive web experiences with React, Three.js & GSAP
+### AI/ML Engineer · Full-Stack Developer · Data Analyst
 
 <p>
-A high-performance developer portfolio featuring real-time 3D graphics,
-physics-based interactions, cinematic animations, and responsive design,
-built to showcase projects, skills, and achievements in a modern way.
+A high-performance cinematic developer portfolio featuring real-time Three.js 3D graphics,
+an interactive AI Assistant / Copilot, native Dark Glass HUD Resume viewer,
+and seamless Web3Forms background contact messaging.
 </p>
 
 <br>
@@ -16,246 +16,40 @@ built to showcase projects, skills, and achievements in a modern way.
 <img src="https://img.shields.io/badge/🌐_Live_Demo-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white">
 </a>
 
-<a href="https://ajay-portfolio-r176.onrender.com">
-<img src="https://img.shields.io/badge/⚡_Mirror-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white">
-</a>
-
 <a href="https://www.linkedin.com/in/ajay-vishwakarma-71649129a/">
 <img src="https://img.shields.io/badge/LinkedIn-Ajay_Vishwakarma-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
 </a>
 
-<a href="https://github.com/ajay160380/Portfolio">
-<img src="https://img.shields.io/github/stars/ajay160380/Portfolio?style=for-the-badge&logo=github&color=yellow">
+<a href="https://github.com/ajay160380">
+<img src="https://img.shields.io/badge/GitHub-ajay160380-181717?style=for-the-badge&logo=github&logoColor=white">
 </a>
 
 </div>
 
 ---
 
-# 🌟 Overview
+## 🌟 Highlights & Key Features
 
-This portfolio is far more than a traditional personal website.
-
-It combines **React**, **Three.js**, **GSAP**, and **physics simulations** to create an interactive experience where visitors can explore projects through engaging animations and real-time 3D scenes.
-
-The focus is on **performance**, **clean UI**, **smooth interactions**, and **modern frontend engineering**.
-
----
-
-# ✨ Highlights
-
-✅ Interactive 3D Experience
-
-✅ Physics-powered Tech Stack
-
-✅ Smooth Scroll Animations
-
-✅ Responsive Layout
-
-✅ Lightning Fast Vite Build
-
-✅ Modern UI/UX
-
-✅ Optimized Asset Loading
-
-✅ Mobile Friendly
-
-✅ Clean Component Architecture
+- **Cinematic Three.js 3D Stage**: Real-time rotating cubes, floating particles, and perspective grid with smooth physics.
+- **Ajay AI Copilot**: Interactive in-browser AI assistant for real-time conversation about projects, tech stack, and background.
+- **Native HUD Resume Viewer**: Translucent Dark Glass resume with instant White Paper toggle and PDF download.
+- **1-Click Web3Forms Contact**: Direct email dispatch without opening third-party mail clients or leaving the page.
+- **Smooth Lenis Scroll & Micro-Animations**: Fluid transitions and performance optimizations across mobile and desktop.
 
 ---
 
-# 🚀 Live Website
+## 🛠️ Tech Stack
 
-## 🌐 Primary Deployment (Recommended)
-
-https://ajay-vishwakarmaa.netlify.app
-
----
-
-## ⚡ Secondary Deployment
-
-https://ajay-portfolio-r176.onrender.com
+- **Core**: HTML5, Vanilla JavaScript, CSS3
+- **3D Graphics & Canvas**: Three.js, WebGL
+- **Animation**: GSAP (GreenSock), ScrollTrigger, SplitType
+- **Messaging**: Web3Forms AJAX API
+- **Deployment**: Netlify
 
 ---
 
-# 🎯 Features
+## 📬 Contact
 
-## 🎨 Modern Hero Section
-
-- Animated introduction
-- Dynamic typography
-- Smooth entrance animations
-
----
-
-## 🌍 Interactive 3D Scene
-
-Powered by
-
-- Three.js
-- React Three Fiber
-- Drei
-
-Features
-
-- Realistic lighting
-- Camera movement
-- Interactive objects
-- Optimized rendering
-
----
-
-## ⚡ Physics Simulation
-
-Using React Three Rapier
-
-Includes
-
-- Floating technology spheres
-- Realistic collision physics
-- Dynamic interactions
-
----
-
-## 🎬 Premium Animations
-
-Built using GSAP
-
-- ScrollTrigger
-- ScrollSmoother
-- Timeline animations
-- Text transitions
-- Section reveals
-
----
-
-## 📱 Responsive Experience
-
-Fully optimized for
-
-- Desktop
-- Laptop
-- Tablet
-- Mobile
-
----
-
-# 🛠 Tech Stack
-
-| Category | Technologies |
-|-----------|-------------|
-| Core | React 18, TypeScript |
-| Build Tool | Vite |
-| 3D Engine | Three.js |
-| React Renderer | React Three Fiber |
-| Helpers | Drei |
-| Physics | React Three Rapier |
-| Animations | GSAP & ScrollTrigger |
-| Styling | Modern CSS3 & CSS Variables |
-| Deployment | Netlify & Render |
-
----
-
-# 📂 Project Structure
-
-```
-Portfolio
-│
-├── public/             # Static assets, PDFs, and resume templates
-├── src/
-│   ├── components/     # UI, 3D Character, Tech Stack, & Scene components
-│   ├── assets/         # Images and icons
-│   ├── hooks/          # Custom React hooks
-│   ├── styles/         # Global styles & theme definitions
-│   ├── App.tsx         # Root application component
-│   └── main.tsx        # Application entry point
-│
-├── package.json
-├── tsconfig.json
-└── vite.config.ts
-```
-
----
-
-# ⚡ Local Development
-
-Clone repository
-
-```bash
-git clone https://github.com/ajay160380/Portfolio.git
-```
-
-Move into directory
-
-```bash
-cd Portfolio
-```
-
-Install dependencies
-
-```bash
-npm install
-```
-
-Run development server
-
-```bash
-npm run dev
-```
-
-Create production build
-
-```bash
-npm run build
-```
-
-Preview production build
-
-```bash
-npm run preview
-```
-
----
-
-# 📈 Performance Goals
-
-✔ Fast Loading
-
-✔ Optimized Rendering
-
-✔ Lazy Loaded Assets
-
-✔ Responsive Design
-
-✔ Smooth 60FPS Animations
-
-✔ Modern Code Structure
-
----
-
-# 📬 Connect With Me
-
-- 🌐 **Portfolio**: [ajay-vishwakarmaa.netlify.app](https://ajay-vishwakarmaa.netlify.app)
-- 💻 **GitHub**: [@ajay160380](https://github.com/ajay160380)
-- 💼 **LinkedIn**: [Ajay Vishwakarma](https://www.linkedin.com/in/ajay-vishwakarma-71649129a/)
-- 📧 **Email**: [ajaykumar160380@gmail.com](mailto:ajaykumar160380@gmail.com)
-
----
-
-# ⭐ Support
-
-If you enjoyed exploring this project or found it useful,
-
-please consider leaving a ⭐ on GitHub.
-
-It helps the project reach more developers and motivates future improvements.
-
----
-
-<div align="center">
-
-### Thanks for visiting ❤️
-
-Made with React • Three.js • GSAP • Vite
-
-</div>
+- **Email**: [ajaykumar160380@gmail.com](mailto:ajaykumar160380@gmail.com)
+- **LinkedIn**: [Ajay Vishwakarma](https://www.linkedin.com/in/ajay-vishwakarma-71649129a/)
+- **Live Portfolio**: [ajay-vishwakarmaa.netlify.app](https://ajay-vishwakarmaa.netlify.app)
