@@ -4,6 +4,7 @@
   "description": "Ajay Vishwakarma - Interactive 3D WebGL Portfolio",
   "scripts": {
     "dev": "npx serve -l 3000 .",
-    "start": "npx serve -l 3000 ."
+    "start": "npx serve -l 3000 .",
+    "build": "mkdir -p dist && cp -R index.html assets services en work public resume.html Ajay_Vishwakarma_Resume.html Ajay_Vishwakarma_Resume.pdf favicon.ico favicon.svg icon-192.png site.webmanifest robots.txt dist/"
   }
 }
