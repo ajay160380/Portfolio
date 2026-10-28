@@ -552,6 +552,8 @@ fbq('track', 'PageView');
       }
 
       function playLightWaveTransition(onCovered, fromCoords) {
+        if (typeof onCovered === "function") onCovered();
+        return;
         try {
           var canvas = document.getElementById('ajay-transition-canvas');
           if (!canvas) {
