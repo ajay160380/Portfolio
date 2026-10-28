@@ -7,15 +7,15 @@
     <meta name="description" content="Transforming raw datasets into actionable executive decisions using Pandas, NumPy, Plotly, Power BI, and interactive KPI dashboards." />
     <meta name="theme-color" content="#000000" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-    <script type="module" crossorigin src="/assets/navigation-DiPJwl4U.js?v=copilot_20261028_native_hud_v27"></script>
-    <script type="module" crossorigin src="/assets/ContactDialog-DOlj7i4z.js?v=copilot_20261028_native_hud_v27"></script>
-    <script type="module" crossorigin src="/assets/press-CZTYHQGt.js?v=copilot_20261028_native_hud_v27"></script>
-    <script type="module" crossorigin src="/assets/pointer-CRoY6kdC.js?v=copilot_20261028_native_hud_v27"></script>
-    <script type="module" crossorigin src="/assets/main-87IQyVE-.js?v=copilot_20261028_native_hud_v27"></script>
-    <link rel="stylesheet" crossorigin href="/assets/navigation-BQ5-cxHW.css?v=copilot_20261028_native_hud_v27">
-    <link rel="stylesheet" crossorigin href="/assets/ContactDialog-BPD9mSvP.css?v=copilot_20261028_native_hud_v27">
-    <link rel="stylesheet" crossorigin href="/assets/press-DyA5bRzm.css?v=copilot_20261028_native_hud_v27">
-    <link rel="stylesheet" crossorigin href="/assets/main-Bo4HMVH-.css?v=copilot_20261028_native_hud_v27">
+    <script type="module" crossorigin src="/assets/navigation-DiPJwl4U.js?v=copilot_20261028_native_hud_v28"></script>
+    <script type="module" crossorigin src="/assets/ContactDialog-DOlj7i4z.js?v=copilot_20261028_native_hud_v28"></script>
+    <script type="module" crossorigin src="/assets/press-CZTYHQGt.js?v=copilot_20261028_native_hud_v28"></script>
+    <script type="module" crossorigin src="/assets/pointer-CRoY6kdC.js?v=copilot_20261028_native_hud_v28"></script>
+    <script type="module" crossorigin src="/assets/main-87IQyVE-.js?v=copilot_20261028_native_hud_v28"></script>
+    <link rel="stylesheet" crossorigin href="/assets/navigation-BQ5-cxHW.css?v=copilot_20261028_native_hud_v28">
+    <link rel="stylesheet" crossorigin href="/assets/ContactDialog-BPD9mSvP.css?v=copilot_20261028_native_hud_v28">
+    <link rel="stylesheet" crossorigin href="/assets/press-DyA5bRzm.css?v=copilot_20261028_native_hud_v28">
+    <link rel="stylesheet" crossorigin href="/assets/main-Bo4HMVH-.css?v=copilot_20261028_native_hud_v28">
     <link rel="canonical" href="/en/services/data-analytics/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ajay Vishwakarma">
@@ -575,174 +575,23 @@
       setInterval(ensureNavAiButton, 300);
 
       // Modal Controls (AI Assistant)
-      function openAjayAiModal(trigger) {
-        var modal = document.getElementById('ajay-ai-popup');
-        if (!modal) return;
-        if (modal.classList.contains('is-open')) return;
-
-        // Close resume modal if open
-        if (window.closeAjayResumeModal) {
-          window.closeAjayResumeModal();
+      function extractCoords(trigger) {
+        if (!trigger) return null;
+        if (typeof trigger.clientX === 'number' && typeof trigger.clientY === 'number' && (trigger.clientX > 0 || trigger.clientY > 0)) {
+          return { x: trigger.clientX, y: trigger.clientY };
         }
-
-        // Force pure dark space mode
-        document.documentElement.classList.add('is-contact-open');
-        document.documentElement.classList.remove('is-light');
-        var pageEl = document.querySelector('.page');
-        if (pageEl) pageEl.classList.remove('is-light');
-
-        // SpaceStage Three.js scene - Deep dark space mode (light: 0, sky: -1.8)
-        if (window.__set3DStage) {
-          window.__set3DStage(1, {
-            orbit: 1,
-            ring: 5.6,
-            ringY: 0.8,
-            ringTilt: 16,
-            ringDepth: 1,
-            ringScale: 1.8,
-            ringFront: 1,
-            ringPace: 0.18,
-            light: 0,
-            sky: -1.8,
-            wave: 0.4,
-            flow: 1.2,
-            dust: 0.8,
-            dist: 12
-          });
-          if (window.__snap3DStage) {
-            window.__snap3DStage();
-          }
+        var el = trigger.currentTarget || trigger.target;
+        if (el && typeof el.getBoundingClientRect === 'function') {
+          var rect = el.getBoundingClientRect();
+          return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
         }
-
-        if (window.lenis && typeof window.lenis.stop === 'function') {
-          window.lenis.stop();
+        if (trigger.x && trigger.y) {
+          return { x: trigger.x, y: trigger.y };
         }
-
-        modal.style.display = 'flex';
-        modal.classList.remove('is-closing');
-        void modal.offsetWidth;
-        modal.classList.add('is-open');
-
-        renderAiMessages();
-
-        setTimeout(function() {
-          var inp = document.getElementById('ajay-ai-input');
-          if (inp) inp.focus();
-        }, 120);
+        return null;
       }
 
-      function closeAjayAiModal() {
-        var modal = document.getElementById('ajay-ai-popup');
-        if (!modal || !modal.classList.contains('is-open')) return;
-
-        modal.classList.add('is-closing');
-        modal.classList.remove('is-open');
-
-        // Restore page text and normal 3D scene only if resume modal is not open
-        var resumeModal = document.getElementById('ajay-resume-popup');
-        if (!resumeModal || !resumeModal.classList.contains('is-open')) {
-          document.documentElement.classList.remove('is-contact-open');
-          if (window.__set3DStage) {
-            window.__set3DStage(null);
-          }
-          if (window.lenis && typeof window.lenis.start === 'function') {
-            window.lenis.start();
-          }
-        }
-
-        setTimeout(function() {
-          modal.style.display = 'none';
-          modal.classList.remove('is-closing');
-        }, 300);
-      }
-
-      function handleAiBackdropClick(e) {
-        if (e.target && (e.target.id === 'ajay-ai-popup' || e.target.classList.contains('ai-hud-panel'))) {
-          closeAjayAiModal();
-        }
-      }
-
-      // Resume Document Theme Toggler (Glass <-> Paper)
-      var currentResumeTheme = 'glass';
-      function toggleResumeTheme() {
-        var sheet = document.getElementById('resume-sheet-element');
-        var label = document.getElementById('resume-theme-toggle-label');
-        if (!sheet) return;
-        if (currentResumeTheme === 'glass') {
-          currentResumeTheme = 'paper';
-          sheet.classList.remove('theme--glass');
-          sheet.classList.add('theme--paper');
-          if (label) label.textContent = '✨ DARK GLASS MODE';
-        } else {
-          currentResumeTheme = 'glass';
-          sheet.classList.remove('theme--paper');
-          sheet.classList.add('theme--glass');
-          if (label) label.textContent = '📄 WHITE PAPER MODE';
-        }
-      }
-      window.toggleResumeTheme = toggleResumeTheme;
-
-      // Modal Controls (Transparent Resume HUD)
-      function actuallyOpenResumeModal() {
-        var modal = document.getElementById('ajay-resume-popup');
-        if (!modal) return;
-        if (modal.classList.contains('is-open')) return;
-
-        // Default to dark glass mode (Image 3)
-        var sheet = document.getElementById('resume-sheet-element');
-        var label = document.getElementById('resume-theme-toggle-label');
-        if (sheet && !sheet.classList.contains('theme--glass')) {
-          sheet.classList.remove('theme--paper');
-          sheet.classList.add('theme--glass');
-          currentResumeTheme = 'glass';
-          if (label) label.textContent = '📄 WHITE PAPER MODE';
-        }
-
-        // Close AI assistant modal if open
-        if (window.closeAjayAiModal) {
-          window.closeAjayAiModal();
-        }
-
-        // Force pure dark space mode
-        document.documentElement.classList.add('is-contact-open');
-        document.documentElement.classList.remove('is-light');
-        var pageEl = document.querySelector('.page');
-        if (pageEl) pageEl.classList.remove('is-light');
-
-        // SpaceStage Three.js scene - Deep dark space mode (light: 0, sky: -1.8)
-        if (window.__set3DStage) {
-          window.__set3DStage(1, {
-            orbit: 1,
-            ring: 5.6,
-            ringY: 0.8,
-            ringTilt: 16,
-            ringDepth: 1,
-            ringScale: 1.8,
-            ringFront: 1,
-            ringPace: 0.18,
-            light: 0,
-            sky: -1.8,
-            wave: 0.4,
-            flow: 1.2,
-            dust: 0.8,
-            dist: 12
-          });
-          if (window.__snap3DStage) {
-            window.__snap3DStage();
-          }
-        }
-
-        if (window.lenis && typeof window.lenis.stop === 'function') {
-          window.lenis.stop();
-        }
-
-        modal.style.display = 'flex';
-        modal.classList.remove('is-closing');
-        void modal.offsetWidth;
-        modal.classList.add('is-open');
-      }
-
-      function playResumeWaveTransition(onCovered, fromCoords) {
+      function playLightWaveTransition(onCovered, fromCoords) {
         try {
           var canvas = document.getElementById('ajay-transition-canvas');
           if (!canvas) {
@@ -877,7 +726,6 @@
             }
           }
 
-          // Guaranteed cleanup safety timer
           setTimeout(function() {
             if (canvas && canvas.style.display !== 'none') {
               ctx.clearRect(0, 0, w, h);
@@ -892,28 +740,182 @@
         }
       }
 
-      window.playPixelWave = playResumeWaveTransition;
-      window.playLightWaveTransition = playResumeWaveTransition;
+      window.playPixelWave = playLightWaveTransition;
+      window.playLightWaveTransition = playLightWaveTransition;
+      window.playResumeWaveTransition = playLightWaveTransition;
+
+      function actuallyOpenAiModal() {
+        var modal = document.getElementById('ajay-ai-popup');
+        if (!modal) return;
+
+        // Force pure dark space mode
+        document.documentElement.classList.add('is-contact-open');
+        document.documentElement.classList.remove('is-light');
+        var pageEl = document.querySelector('.page');
+        if (pageEl) pageEl.classList.remove('is-light');
+
+        if (window.lenis && typeof window.lenis.stop === 'function') {
+          window.lenis.stop();
+        }
+
+        modal.style.display = 'flex';
+        modal.classList.remove('is-closing');
+        void modal.offsetWidth;
+        modal.classList.add('is-open');
+
+        renderAiMessages();
+
+        setTimeout(function() {
+          var inp = document.getElementById('ajay-ai-input');
+          if (inp) inp.focus();
+        }, 120);
+      }
+
+      function openAjayAiModal(trigger) {
+        if (trigger && typeof trigger.preventDefault === 'function') {
+          trigger.preventDefault();
+        }
+        var modal = document.getElementById('ajay-ai-popup');
+        if (modal && modal.classList.contains('is-open')) return;
+
+        // Close resume modal if open
+        if (window.closeAjayResumeModal) {
+          window.closeAjayResumeModal();
+        }
+
+        var fromCoords = extractCoords(trigger);
+
+        playLightWaveTransition(function() {
+          actuallyOpenAiModal();
+        }, fromCoords);
+      }
+
+
+      function closeAjayAiModal() {
+        var modal = document.getElementById('ajay-ai-popup');
+        if (!modal || !modal.classList.contains('is-open')) return;
+
+        modal.classList.add('is-closing');
+        modal.classList.remove('is-open');
+
+        // Restore page text and normal 3D scene only if resume modal is not open
+        var resumeModal = document.getElementById('ajay-resume-popup');
+        if (!resumeModal || !resumeModal.classList.contains('is-open')) {
+          document.documentElement.classList.remove('is-contact-open');
+          if (window.__set3DStage) {
+            window.__set3DStage(null);
+          }
+          if (window.lenis && typeof window.lenis.start === 'function') {
+            window.lenis.start();
+          }
+        }
+
+        setTimeout(function() {
+          modal.style.display = 'none';
+          modal.classList.remove('is-closing');
+        }, 300);
+      }
+
+      function handleAiBackdropClick(e) {
+        if (e.target && (e.target.id === 'ajay-ai-popup' || e.target.classList.contains('ai-hud-panel'))) {
+          closeAjayAiModal();
+        }
+      }
+
+      // Resume Document Theme Toggler (Glass <-> Paper)
+      var currentResumeTheme = 'glass';
+      function toggleResumeTheme() {
+        var sheet = document.getElementById('resume-sheet-element');
+        var label = document.getElementById('resume-theme-toggle-label');
+        if (!sheet) return;
+        if (currentResumeTheme === 'glass') {
+          currentResumeTheme = 'paper';
+          sheet.classList.remove('theme--glass');
+          sheet.classList.add('theme--paper');
+          if (label) label.textContent = '✨ DARK GLASS MODE';
+        } else {
+          currentResumeTheme = 'glass';
+          sheet.classList.remove('theme--paper');
+          sheet.classList.add('theme--glass');
+          if (label) label.textContent = '📄 WHITE PAPER MODE';
+        }
+      }
+      window.toggleResumeTheme = toggleResumeTheme;
+
+      // Modal Controls (Transparent Resume HUD)
+      function actuallyOpenResumeModal() {
+        var modal = document.getElementById('ajay-resume-popup');
+        if (!modal) return;
+        if (modal.classList.contains('is-open')) return;
+
+        // Default to dark glass mode (Image 3)
+        var sheet = document.getElementById('resume-sheet-element');
+        var label = document.getElementById('resume-theme-toggle-label');
+        if (sheet && !sheet.classList.contains('theme--glass')) {
+          sheet.classList.remove('theme--paper');
+          sheet.classList.add('theme--glass');
+          currentResumeTheme = 'glass';
+          if (label) label.textContent = '📄 WHITE PAPER MODE';
+        }
+
+        // Close AI assistant modal if open
+        if (window.closeAjayAiModal) {
+          window.closeAjayAiModal();
+        }
+
+        // Force pure dark space mode
+        document.documentElement.classList.add('is-contact-open');
+        document.documentElement.classList.remove('is-light');
+        var pageEl = document.querySelector('.page');
+        if (pageEl) pageEl.classList.remove('is-light');
+
+        // SpaceStage Three.js scene - Deep dark space mode (light: 0, sky: -1.8)
+        if (window.__set3DStage) {
+          window.__set3DStage(1, {
+            orbit: 1,
+            ring: 5.6,
+            ringY: 0.8,
+            ringTilt: 16,
+            ringDepth: 1,
+            ringScale: 1.8,
+            ringFront: 1,
+            ringPace: 0.18,
+            light: 0,
+            sky: -1.8,
+            wave: 0.4,
+            flow: 1.2,
+            dust: 0.8,
+            dist: 12
+          });
+          if (window.__snap3DStage) {
+            window.__snap3DStage();
+          }
+        }
+
+        if (window.lenis && typeof window.lenis.stop === 'function') {
+          window.lenis.stop();
+        }
+
+        modal.style.display = 'flex';
+        modal.classList.remove('is-closing');
+        void modal.offsetWidth;
+        modal.classList.add('is-open');
+      }
 
       function openAjayResumeModal(trigger) {
         if (trigger && typeof trigger.preventDefault === 'function') {
           trigger.preventDefault();
         }
-        var fromCoords = null;
-        if (trigger) {
-          if (typeof trigger.clientX === 'number' && typeof trigger.clientY === 'number' && (trigger.clientX > 0 || trigger.clientY > 0)) {
-            fromCoords = { x: trigger.clientX, y: trigger.clientY };
-          } else if (trigger.currentTarget && trigger.currentTarget.getBoundingClientRect) {
-            var rect = trigger.currentTarget.getBoundingClientRect();
-            fromCoords = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
-          } else if (trigger.target && trigger.target.getBoundingClientRect) {
-            var rect = trigger.target.getBoundingClientRect();
-            fromCoords = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
-          } else if (trigger.x && trigger.y) {
-            fromCoords = { x: trigger.x, y: trigger.y };
-          }
+        var modal = document.getElementById('ajay-resume-popup');
+        if (modal && modal.classList.contains('is-open')) return;
+
+        // Close AI modal if open
+        if (window.closeAjayAiModal) {
+          window.closeAjayAiModal();
         }
-        playResumeWaveTransition(function() {
+
+        var fromCoords = extractCoords(trigger);
+        playLightWaveTransition(function() {
           actuallyOpenResumeModal();
         }, fromCoords);
       }
