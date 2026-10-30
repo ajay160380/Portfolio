@@ -21,8 +21,6 @@ let firstScope = sProj.split(/[,—]/)[0]?.trim() || "Project Inquiry";
 let emailSubject = `✨ [VIP Lead] ${sName} — ${firstScope}`;
 let senderName = `Ajay Portfolio • ${sName}`;
 
-let endpoint = window.PORTFOLIO_EMAIL_ENDPOINT || "https://api.web3forms.com/submit";
-
 let payload = {
   access_key: "6ae553db-7c66-4e5d-92ea-0b53ba668dc4",
   name: sName,
@@ -31,6 +29,8 @@ let payload = {
   subject: emailSubject,
   from_name: senderName,
   replyto: sEmail,
+  origin: window.location.href,
+  timestamp: nowStr,
   "⚡ PRIORITY STATUS": "🟢 HIGH PRIORITY LEAD (New Client Submission)",
   "👤 CLIENT NAME": sName,
   "📧 CLIENT EMAIL": sEmail,
@@ -40,15 +40,29 @@ let payload = {
   "💬 QUICK ACTION": `Reply directly in Gmail to connect with ${sName} (${sEmail})`
 };
 
+let sent = false;
+let customEndpoint = window.PORTFOLIO_EMAIL_ENDPOINT || "/.netlify/functions/contact";
 try {
-  let isCustom = endpoint !== "https://api.web3forms.com/submit";
-  await fetch(endpoint, {
+  let res = await fetch(customEndpoint, {
     method: "POST",
-    headers: isCustom ? { "Content-Type": "application/json" } : { "Content-Type": "application/json", "Accept": "application/json" },
-    mode: isCustom ? "no-cors" : "cors",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   });
+  if (res.ok) {
+    let j = await res.json().catch(()=>({}));
+    if (j.success) sent = true;
+  }
 } catch(err){}
+
+if (!sent) {
+  try {
+    await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    });
+  } catch(err){}
+}
 D(`idle`),N(`done`),Dr(`msg_ok`);
 }catch(e){
 D(`idle`),N(`done`),Dr(`msg_ok`);
