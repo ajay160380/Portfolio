@@ -13,21 +13,40 @@ var _toText=e=>typeof e==`object`&&e?(e[v]||e.en||e.ko||``):(typeof e==`string`?
 `).map((e,t,n)=>(0,B.jsx)(`span`,{className:`contact__sentence`,children:t<n.length-1?`${e} `:e},e))}),(0,B.jsx)(`div`,{"data-fade":!0,children:(0,B.jsx)(yn,{href:`#contact`,arrow:!0,children:u.cta})}),(0,B.jsx)(x,{className:`contact__company`})]}),(0,B.jsx)(lr,{})]})})}var dr=()=>({mood:`idle`,speech:null,typed:0,caret:null});function fr(e,t,n){e.caret={x:t,y:n}}function pr(e,t){e.mood=t}function mr(e,t){e.mood=`speaking`,e.speech={start:performance.now(),times:t}}function hr(e){e.mood===`speaking`&&(e.mood=`idle`)}function gr(e){e.typed=performance.now(),e.mood===`idle`&&(e.mood=`listening`)}var _r={syllable:92,space:56,pause:420,lead:420},vr={syllable:82,space:48,pause:240,lead:350};function yr(e,t=!1){let n=t?vr:_r,r=[],i=n.lead;for(let t of e)r.push(i),i+=t===` `||t===`
 `?n.space:/[.,?!…]/.test(t)?n.pause:n.syllable;return r}var br=`puture:arrival`,xr=[`utm_source`,`utm_medium`,`utm_campaign`,`utm_content`,`utm_term`],Sr=120;function Cr(){try{let e=new URL(window.location.href),t=e.searchParams,n={};for(let e of xr){let r=t.get(e)?.trim();r&&(n[e]=r.slice(0,Sr))}let r=t.has(`fbclid`)?`meta`:[`gclid`,`gbraid`,`wbraid`].some(e=>t.has(e))?`google`:null;if(sessionStorage.getItem(br)&&Object.keys(n).length===0&&!r)return;let i=document.referrer?new URL(document.referrer).host:``,a={landing:e.pathname,referrer:i&&i!==e.host?i:null,utm:n,click:r};sessionStorage.setItem(br,JSON.stringify(a))}catch{}}function wr(){try{let e=sessionStorage.getItem(br);return e?JSON.parse(e):null}catch{return null}}function Tr({text:e,signal:t,onDone:n}){let r=(0,R.useMemo)(()=>Array.from(e),[e]),i=Rt(zt),a=(0,R.useMemo)(()=>yr(e,i),[e,i]),o=(0,R.useRef)(null);return(0,R.useEffect)(()=>{let e=o.current;if(!e)return;let s=window.matchMedia(`(prefers-reduced-motion: reduce)`).matches,c=Array.from(e.querySelectorAll(`[data-at]`)),l=e=>{let n=e.getBoundingClientRect();fr(t,n.right,n.top+n.height*.82)};if(s){c.length&&l(c[c.length-1]),n?.();return}mr(t,a);let u=performance.now(),d=0,f=e=>{let n=e-u,i=-1;for(let e=0;e<a.length;e++)a[e]<=n&&r[e]!==`
 `&&(i=e);if(i>=0)l(c[i]);else if(c[0]){let e=c[0].getBoundingClientRect();fr(t,e.left,e.top+e.height*.82)}n<(a[a.length-1]??0)+300&&(d=requestAnimationFrame(f))};d=requestAnimationFrame(f);let p=a[a.length-1]??0,m=window.setTimeout(()=>n?.(),i?p+100:Math.max(0,p-200)),h=window.setTimeout(()=>hr(t),p+240);return()=>{cancelAnimationFrame(d),window.clearTimeout(m),window.clearTimeout(h)}},[a,r,t]),(0,B.jsxs)(`p`,{ref:o,className:`typed`,children:[(0,B.jsx)(`span`,{className:`visually-hidden`,children:e}),r.map((e,t)=>(0,B.jsx)(`span`,{"data-at":``,"aria-hidden":`true`,style:{"--at":`${a[t]}ms`},children:e},t))]})}var Er=()=>window;function Dr(e){Er().fbq?.(`track`,`Lead`,{},e?{eventID:e}:void 0),Er().gtag?.(`event`,`generate_lead`,{form_name:`contact_chat`})}var Or=`/api/contact`,kr=/^[^\s@]+@[^\s@]+\.[^\s@]+$/,Ar=[`project`,`name`,`email`];function jr({copy:e,signal:t,open:n,onClose:r}){let i=Rt(zt),[a,o]=(0,R.useState)(`hello`),[s,c]=(0,R.useState)(!1),[u,d]=(0,R.useState)(null),[f,p]=(0,R.useState)(0),[m,h]=(0,R.useState)(null),[g,_]=(0,R.useState)({project:``,name:``,email:``}),[y,b]=(0,R.useState)(``),[x,S]=(0,R.useState)([]),[ee,C]=(0,R.useState)(``),[w,T]=(0,R.useState)(!1),[E,D]=(0,R.useState)(`idle`),O=(0,R.useRef)(null),k=(0,R.useRef)(null),A=a===`project`||a===`name`||a===`email`?a:null,j=u??{hello:e.hello,project:e.project.ask,name:e.name.ask,email:e.email.ask,check:e.check.ask,done:e.done.say}[a];(0,R.useEffect)(()=>{s&&A&&(i&&A===`project`||O.current?.focus({preventScroll:!0}))},[s,A,i]);let M=e=>{h({text:j,turn:f}),d(e),c(!1),p(e=>e+1)},N=e=>{M(null),o(e),e===`project`?b(ee):(e===`name`||e===`email`)&&b(g[e]),pr(t,e===`done`?`happy`:`idle`)};(0,R.useEffect)(()=>{n&&(Er().gtag?.(`event`,`contact_open`,{page_path:window.location.pathname}),Er().fbq?.(`track`,`Contact`,{content_name:window.location.pathname}))},[n]),(0,R.useEffect)(()=>{if(!n||a!==`hello`||!s)return;let e=window.setTimeout(()=>N(`project`),i?900:450);return()=>window.clearTimeout(e)});let P=t=>{if(t?.preventDefault(),!A)return;let n=y.trim(),r=A===`project`&&x.length>0?[x.join(`, `),n].filter(Boolean).join(` — `):n;if(!r){M(e.empty);return}if(A===`email`&&!kr.test(r)){M(e.email.again);return}A===`project`&&C(n),Er().gtag?.(`event`,`contact_step`,{step:A});let i={...g,[A]:r};_(i);let a=Ar.find(e=>!i[e]);N(a??`check`)},F=e=>{gr(t),e.key===`Enter`&&!e.shiftKey&&!e.nativeEvent.isComposing&&(e.preventDefault(),P())},I=e=>{gr(t),S(t=>t.includes(e)?t.filter(t=>t!==e):[...t,e])},L=async e=>{if(e.preventDefault(),w&&E!==`sending`){D(`sending`),pr(t,`thinking`);try{
-let sName = g.name || "Portfolio Visitor";
-let sEmail = g.email || "";
-let sProj = g.project || "";
+let sName = (g.name || "Portfolio Visitor").trim();
+let sEmail = (g.email || "").trim();
+let sProj = (g.project || "Collaboration Inquiry").trim();
+let nowStr = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata", dateStyle: "full", timeStyle: "medium" }) + " IST";
+let firstScope = sProj.split(/[,—]/)[0]?.trim() || "Project Inquiry";
+let emailSubject = `✨ [VIP Lead] ${sName} — ${firstScope}`;
+let senderName = `Ajay Portfolio • ${sName}`;
+
+let endpoint = window.PORTFOLIO_EMAIL_ENDPOINT || "https://api.web3forms.com/submit";
+
+let payload = {
+  access_key: "6ae553db-7c66-4e5d-92ea-0b53ba668dc4",
+  name: sName,
+  email: sEmail,
+  message: sProj,
+  subject: emailSubject,
+  from_name: senderName,
+  replyto: sEmail,
+  "⚡ PRIORITY STATUS": "🟢 HIGH PRIORITY LEAD (New Client Submission)",
+  "👤 CLIENT NAME": sName,
+  "📧 CLIENT EMAIL": sEmail,
+  "💼 SELECTED SERVICES & SCOPE": sProj,
+  "⏰ RECEIVED AT (IST)": nowStr,
+  "🌐 SUBMITTED FROM": window.location.href,
+  "💬 QUICK ACTION": `Reply directly in Gmail to connect with ${sName} (${sEmail})`
+};
+
 try {
-  await fetch("https://api.web3forms.com/submit", {
+  let isCustom = endpoint !== "https://api.web3forms.com/submit";
+  await fetch(endpoint, {
     method: "POST",
-    headers: {"Content-Type": "application/json", "Accept": "application/json"},
-    body: JSON.stringify({
-      access_key: "6ae553db-7c66-4e5d-92ea-0b53ba668dc4",
-      name: sName,
-      email: sEmail,
-      message: sProj,
-      subject: `New Portfolio Message from ${sName}`,
-      from_name: `${sName} (Portfolio Visitor)`
-    })
+    headers: isCustom ? { "Content-Type": "application/json" } : { "Content-Type": "application/json", "Accept": "application/json" },
+    mode: isCustom ? "no-cors" : "cors",
+    body: JSON.stringify(payload)
   });
 } catch(err){}
 D(`idle`),N(`done`),Dr(`msg_ok`);
